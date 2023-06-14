@@ -6,7 +6,7 @@ Codigo's Interface Description Language (short: CIDL), is the main configuration
 
 In this document, we will go through the basic structure of the CIDL. The CIDL learning curve is minimal; a slight complexity is introduced when working with the CIDL extensions.
 
-:::caution Alert
+:::info
 
 An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL; learn more about **Blockchain Extensions(linktobeadded)**.
 
@@ -44,7 +44,7 @@ We can specify additional properties to enhance the CIDL; you can check them in 
 
 The CIDL defines three forms of data types. A developer or organization can cover all available use cases through these.
 
-:::info Alert
+:::info
 
 Data types in the CIDL are all specified in lowercase, except for (custom) types.
 
@@ -78,6 +78,112 @@ The following table is a comprehensive list of the supported native type by the 
 | f64 | 64-bit signed float |
 | bool | 1 bit |
 | string | Depends on the targeted blockchain |
+| ---- | ---- |
+### Extended Data Types
 
+The following table is a comprehensive list of the supported extended type by the CIDL.
+
+| Data Types | Length | Comments |
+| ---- | ---- | ---- |
+| sol:pubkey | 32 bytes | Type specific to the Solana blockchain. Transpiles to **[Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html)** data type. |
+| sol:account_info | It depends | Type specific to the Solana blockchain. Transpiles to **[AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html)** data type. |
+| rs:option<ṭ> | 1 bit + the length of t | Type specific to Rust-based blockchain. Transpiles to **[Option<Ṭ>](https://doc.rust-lang.org/std/option/enum.Option.html)** where T can be any supported native type or sol:pubkey |
+| rs:vec<ṭ> | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to **[vec<Ṭ>](https://doc.rust-lang.org/std/vec/index.html)** where T can be any supported native type or sol:pubkey |
+
+:::caution 
+
+  `vec<string>` is still WIP; thus, it is unavailable for the private beta.
+
+:::
+
+### Types
+
+Through `types`, developers can define their custom data structure. These custom data structures go under the `types` object in the CIDL, for example:
+
+```
+types:
+  CustomDataStructure:
+    summary: My custom defined data structure
+    fields:
+      - name: first_field
+        type: u32
+        description: My first field
+```
+As you can see from the above example, the structure of a custom type has a simple form. The key of the `types` object is the data structure's name; thus, it must follow the rules of the targeted programming language. As a recommendation, the data structure's name should be in PascalCase for better readability.
+
+:::info 
+
+Custom types must have at least **one** field.
+
+::: 
+
+A custom data structure can define two basic properties, `summary` and `fields`. The `summary` is a recommended property allowing developers to generate web-based documentation. We specify the properties of our custom data structure through the' fields' property.
+
+The `fields` is an array of objects, each defining the simple structure seen above. In detail:
+
+- `name`: The field's name; must follow the rules of the targeted programming language.
+- `type`: The field's data type; can be any supported native or extended type except for `sol:account_info` or other custom-defined data types.
+- `description`: This recommended property enables developers to generate web-based documentation.
+
+:::info
+You can define any number of data structures and fields required for your use case.
+:::
+
+:::info
+ We cannot specify another custom type to the field’s type or the extended `sol:account_info` data type.
+:::
+
+That’s it. As simple as that, we can define a custom data structure. Now, via extension, we can expand the capabilities of the type.
+
+## Methods
+
+Similar to `types`, defining methods have a simple structure. Through `methods`, developers can define their smart contract instructions, for example:
+```
+methods:
+  - name: my_first_instruction
+    summary: This is my first instruction
+    inputs:
+      - name: my_first_input
+        type: CustomDataStructure
+        description: Inputs are just parameters
+```
+
+The `methods` section in the CIDL is an array of objects where each object is an instruction. An instruction object comprises the following properties: 
+
+- `name`: The name of the smart contract instruction; must follow the rules of the targeted programming language. 
+- `summary`: This recommended property enables developers to generate web-based documentation.
+- `inputs`: The instruction parameters. `inputs` is an array of objects, where each object will be transpile to a parameter. 
+
+The input object also has a simple structure composed of the following properties:
+
+- `name`:  Parameters’ name; must follow the naming rules of the targeted programming language.
+- `type`: The parameters’ data type; can be any supported native, extended or custom data type.
+- `description`: This **recommended** property enables developers to generate web-based documentation.
+
+:::info
+We can specify any native, extended, or custom data type to the input type.
+:::
+
+Yet again, that’s it. As simple as that, we can define smart contract instructions. Now, through extension, we can expand the capabilities of the instructions.
+
+## Next Steps
+
+**Congratulations!** 🎉👏 at this point, you should have a basic understanding of the structure of the CIDL. To summarize what we learned:
+
+- CIDL stands for Código’s Interface Description Language
+- We need to specify some basic information about the contract
+- CIDL supports native, extended, and custom-defined data types
+- Custom-defined data types go under the object named `types`
+- Smart contract instructions are defined under the array of objects named `methods`
+- Methods inputs are just parameters
+- It is **recommended** to specify summary and description whenever possible to generate the web-based documentation
+
+These links may help you on your journey to writing smart contracts with the CIDL:
+
+- [Solana Extension](linktobeadded)
+- [Building Solana Program with CIDL: A Comprehensive Guide Part I](linktobeadded)
+
+### Join the Código community💚
+Código is growing a community of developers. Join us on [Discord](linktobeadded) or ask questions via [GitHub Discussions](linktobeadded). 
 
 
