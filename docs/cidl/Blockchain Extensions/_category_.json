@@ -2,6 +2,7 @@
   "label": "Blockchain Extensions",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "The Código Interface Description Language allows a developer to describe the interface of a blockchain smart contract in a way that is independent of any blockchain programming paradigm.  The benefit is that you can use the same CIDL to describe an interface for different blockchains. We can achieve blockchain independence through CIDL Extension. An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL."
   }
 }

@@ -2,6 +2,7 @@
   "label": "Solana",
   "position": 1,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "description": "Solana is a blockchain platform which uses a proof-of-stake mechanism to provide smart contract functionality."
   }
 }
