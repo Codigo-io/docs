@@ -78,7 +78,7 @@ The following table is a comprehensive list of the supported native type by the 
 | f64 | 64-bit signed float |
 | bool | 1 bit |
 | string | Depends on the targeted blockchain |
-| ---- | ---- |
+
 ### Extended Data Types
 
 The following table is a comprehensive list of the supported extended type by the CIDL.
