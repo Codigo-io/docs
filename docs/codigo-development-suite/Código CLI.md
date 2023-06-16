@@ -4,10 +4,22 @@ sidebar_position: 1
 
 # Código's CLI
 
-## Getting Started with Código Studio: A web-based development environment
+Through Código CLI, developers can interact with Código AI Generator. For the private beta, developers can only access the Código CLI from **[Código Studio](https://studio.codigo.ai)**. The Código CLI is configured to the PATH of the web-based environment; thus, you can access it from the terminal by going to Terminal -> New Terminal and typing the command `codigo`.
 
-Welcome to our guide on how to use Código Studio, our web-based development environment. Código Studio provides comprehensive tools and programs for developers to create projects using our Código Interface Description Language, CIDL for short.
+## Commands
 
-Whether an experienced developer or just starting, Código Studio makes writing, debugging, and testing your code in one central location easy. In this guide, we'll provide step-by-step instructions on how to get started with Código Studio and begin developing with CIDL.
+### generate
+Executes the Código AI Generator. For the private beta, it will generate the TypScript client library and the native Solana smart contract.
 
-Open Código Studio: https://studio.codigo.ai 
+:::caution
+For the moment, the generate command will overwrite the stub files. Make sure to save any information before rerunning it.
+:::
+
+### Usage
+```
+codigo generate /path/to/your/cidl.yaml
+```
+
+## Join the Código community 💚
+Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions.
+
