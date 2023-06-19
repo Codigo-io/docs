@@ -3,7 +3,7 @@ sidebar_position: 1
 id: Codigo Docs
 slug: /
 ---
-# Quickstart 
+# Quickstart Guide
 
 In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch using our web-based IDE, **[Codigo Studio](https://studio.codigo.ai)**. Código Studio has all the necessary tools and programs to develop using the CIDL.
 
