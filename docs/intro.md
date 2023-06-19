@@ -23,7 +23,7 @@ Open **[Codigo Studio](https://cidlstudio-soham.codigo.ai/)**
 
 Codigo Studio is built on the foundation of Visual Studio Code, a popular desktop code editor used by many developers. As a result, if you have experience using VSCode, you'll find that the web-based environment of Codigo Studio will feel familiar and intuitive.
 
-| ![Codigo Studio](../static/img/Codigo%20Studio.png) |
+| ![Codigo Studio](../static/img/Codigo-Studio.png) |
 | :-------------------------------------------------: |
 |                 *Codigo Studio Interface*           |
 
