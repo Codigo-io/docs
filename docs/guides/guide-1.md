@@ -304,7 +304,6 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Check the second part on ​​Building Solana Programs with CIDL](linktobeadded)
 - [Learning the Basics](linktobeadded)
 - [Solana Extension](linktobeadded)
-
 ### Join the Código community 💚
 Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions. 
 
