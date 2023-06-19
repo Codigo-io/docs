@@ -3,93 +3,359 @@ sidebar_position: 1
 id: Codigo Docs
 slug: /
 ---
-# Quickstart Guide
+# Quickstart 
 
-<!-- # Intro to Codigo Studio -->
+In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch using our web-based IDE, **[Codigo Studio](https://studio.codigo.ai)**. Código Studio has all the necessary tools and programs to develop using the CIDL.
 
-## Getting Started with Codigo Studio: Accessing the Interface and Familiarizing Yourself with the Tools
+After completing this QuickStart, you should have a basic understanding of the CIDL structure, how to execute Código’s AI Generator, implement the smart contract business logic, and integrate the generated TypeScript client library. For this guide, we will target the Solana blockchain.
 
-Welcome to our guide on how to use **Codigo Studio**, our web-based code editor environment. Codigo Studio provides a comprehensive set of tools and programs for developers to create projects using our Codigo Interface Description Language, or CIDL for short.
+**Let’s get started!**
 
-Whether you're an experienced developer or just starting out, Codigo Studio makes it easy to write, debug, and test your code in one central location. In this guide, we'll provide step-by-step instructions on how to get started with Codigo Studio and begin developing with CIDL.
+## 1. Define the smart contract interface
 
-By the end of this guide, you'll be able to navigate the Codigo Studio interface, use the various tools and programs available, create and edit CIDL files, and export your project for deployment.
+Open **[Código Studio](https://studio.codigo.ai)**
 
-Let's get started! 
-
-Open **[Codigo Studio](https://cidlstudio-soham.codigo.ai/)**
-
-## Codigo Studio in Action
-
-Codigo Studio is built on the foundation of Visual Studio Code, a popular desktop code editor used by many developers. As a result, if you have experience using VSCode, you'll find that the web-based environment of Codigo Studio will feel familiar and intuitive.
-
-| ![Codigo Studio](../static/img/Codigo-Studio.png) |
-| :-------------------------------------------------: |
-|                 *Codigo Studio Interface*           |
-
-Codigo Studio is composed of several main sections that provide different functionalities to developers. These sections include:
-
-- **Editor**: This is the main area where developers write and edit their code. The editor is highly customizable and supports a wide range of programming languages.
-- **Sidebar**: The sidebar provides quick access to different features and functionalities of Codigo Studio, including file explorer, search, source control, debugging, and extensions.
-- **Status Bar**: The status bar displays information about the current file being edited, such as the programming language, indentation, and file encoding. It also provides access to various features and settings, such as language mode and line-ending format.
-- **Command Palette**: The command palette allows developers to execute commands and perform tasks within Codigo Studio, such as opening files, running tasks, and installing extensions.
-- **Settings**: Codigo Studio allows developers to customize various settings and preferences to tailor their development experience to their specific needs and preferences.
-
-By leveraging these different sections and their functionalities, developers can efficiently and effectively write, debug, and test their code using Codigo Studio.
-
-## Available tools and programs
-
-Codigo Studio provides a comprehensive set of tools and programs for developers to create projects using our CIDL, these tools are:
-
-### Cargo CLI
-
-The Cargo CLI is a command-line interface tool used for managing Rust projects. It is the official build tool and package manager for Rust, and it makes it easy for developers to create, build, and manage Rust projects.
-
-For now the commands that we are going to use is:
-
-- `cargo build-sbf` with this command we are going to build our Solana Contracts
-
-You can learn more about Cargo CLI by clicking **[here](https://doc.rust-lang.org/cargo/commands/index.html)**
-
-### Solana CLI
-
-The Solana CLI (Command Line Interface) is a set of command-line tools used to interact with the Solana blockchain. It lets you create a wallet, send and receive SOL tokens, and participate in the cluster by delegating stake. The CLI provides a simple and efficient way to get started with Solana.
-
-For now the commands that we are going to use are:
-
-- `solana program deploy path/to/your_solana_contract.so` with this command you are able to deploy the solana program to a validator.
-- `solana address` - Returns your public key.
-- `solana config get` - Allows you to get information about the Solana CLI, like the RPC URL, where the Key pair is located, etc.
-
-You can learn more about Solana CLI by clicking **[here](https://docs.solana.com/cli/conventions)**
-
-:::note
-
-The Solana CLI RPC URL comes preconfigured to: http://127.0.0.1:8899
-
+:::info
+Código Studio requires the developers to identify with their pre-created user for the private beta. You should have received your credentials via email if you are a private beta developer. If you have issues accessing Código Studio, don't hesitate to contact us at support@codigo.ai or via the Telegram Group.
 :::
 
-### Codigo CLI
+When you first open Código Studio, you will see in the explorer a file called `cidl.yaml` with the following content:
 
-The Codigo CLI is a powerful command-line tool used for managing CIDL files. With it, you can easily generate Solana contracts and TypeScript clients
+```yaml
+cidl: "0.8"
+info:
+  name: budget_tracker
+  title: Código QuickStart
+  version: 0.0.1
+  summary: |-
+    Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development 
+    time and increases the code's security across various blockchains.
 
-The available commands are:
+    Código's AI Generator input is the Código Interface Description Language (CIDL for short). 
+    Through the CIDL, we define the interface of the smart contract.
 
-- `codigo generate path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client. 
+    In this QuickStart, we will learn the basic structure of the CIDL, how to execute Código's AI Generator, 
+    implement the smart contract business logic, and integrate it with the generated TypeScript client library. 
+    For this QuickStart, we will target the Solana blockchain.
 
-You can learn more about Codigo CLI by clicking **[here](Link to CODIGO CLI doc part here)**
+    _Let's get started!_
 
-### Others programs and Tools
+    Some useful links:
 
-The Codigo Studio environment comes with additional tools and programs to get you started working with the CIDL. These are:
+    - [QuickStart](https://docs.codigo.ai)
+    - [Learning the Basics](https://docs.codigo.ai/cidl/Learning%20the%20Basics)
+    - [Building Solana Program with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)
+  contact:
+    name: Código
+    web: https://codigo.ai
+    email: support@codigo.ai
+    git: https://github.com/codigo-io/demo-budget-tracker
+  license:
+    name: MIT
+    url: https://opensource.org/license/mit
+types:
+  Record:
+    summary: Through this data structure we will stored the relevant information to track the income and outcome of a given user.
+    solana:
+      owner: self
+      seeds:
+        - name: record
+        - name: signer
+          type: sol:pubkey
+    fields:
+      - name: name
+        type: string
+        solana:
+          attributes: [ cap:50 ]
+        description: The name of the user.
+      # TODO: 1 - Complete the definition of the Record data structure
+      # Add the following fields
+      #   - moves of type u16
+      #   - outcome of type u32
+      #   - income of type u32
+      #   - total_balance of type i64
+methods:
+  - name: create_user_record
+    summary: To call once per account. Initialize a Record account. The total total_balance of the account will be set to 0.
+    inputs:
+      - name: user_record
+        type: Record
+        solana:
+          attributes: [ mut, init_if_needed ]
+      - name: user_name
+        type: string
+        description: The username to be assigned to the Record.name property
 
-- The **Node CLI** is a tool that allows you to run JavaScript code outside of a web browser. It's essential for creating and testing server-side applications, build scripts, and other JavaScript projects in a command-line environment.
-- The **Git CLI** is a tool for managing and tracking changes to your codebase. With Git, you can create and maintain code branches, collaborate with others, and track changes over time.
+  # TODO: 2 - Define the register_income method
+  #  - Add the following inputs
+  #  - record of type Record, and the attribute mut
+  #  - amount of type u32
 
-#### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
-[![Button Example]][Link]
-[Link]: https://docs.google.com/forms/d/e/1FAIpQLSf94Rm0XwNrU0Wdq63G8ucH8XEHH1ecOJARNGnxQcyqTtz80A/viewform
-[Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge
+  # TODO: 3 - Define the register_outcome method
+  #  - Add the following inputs
+  #  - record of type Record, and the attribute mut
+  #  - amount of type u32
+```
+
+The CIDL contains three TODOs for you to complete. But before you start working on the TODOS, let's talk about some CIDL basics.
+
+- The CIDL is the input for Código’s AI Generator. We use the CIDL to define the interfaces of a smart contract.
+- The generator requires some general information about the contract; we define these data in the `info` section.
+- The `methods` are the instructions of the smart contract; through the methods, we add behavior.
+- We can define custom data structure; this can be done within the `types` object.
+- The CIDL is blockchain agnostic. With one CIDL, we can target multiple blockchains. For this QuickStart, we targeted the Solana Blockchain.
+- We can extend the capabilities of a type, field, method, and input through extensions. Because we are targeting the Solana Blockchain, we define the solana extension in various places of the CIDL.
+
+With this basic knowledge and the description for each TODO, you should be able to complete them. 
+
+**Happy Coding!**
+
+<details>
+  <summary>Solution: Complete the definition of the Record data structure</summary>
+ 
+```yaml
+- name: moves
+  type: u16
+  description: Number incomes/outcomes registered.
+- name: outcome
+  type: u32
+  description: Sum of all outcomes.
+- name: income
+  type: u32
+  description: Sum of all incomes.
+- name: total_balance
+  type: i64
+  description: The current balance of the user
+```
+</details>
+
+<details>
+  <summary>Solution: Define the register_income method</summary>
+
+```yaml
+- name: register_income
+  summary: Register the given amount as an income for the given record account. The total total_balance of the account will be increased.
+  inputs:
+    - name: user_record
+      type: Record
+      solana:
+      attributes: [ mut ]
+    - name: amount
+      type: u32
+      description: The amount to be registered as the income.
+```
+</details>
+
+<details>
+  <summary>Solution: Define the register_outcome method</summary>
+
+```yaml
+- name: register_outcome
+  summary: Register the given amount as an outcome for the given record account. The total total_balance of the account will be decreased.
+  inputs:
+    - name: user_record
+      type: Record
+      description: The user record account
+      solana:
+      attributes: [ mut ]
+    - name: amount
+      type: u32
+      description: Number to be added to the outcome accumulator
+```
+</details>
+
+## 2. Execute Código AI Generator
+
+Congratulations on completing the TODOs. With the CIDL completed, we can generate the smart contract and TypeScript library. For that, open a new terminal; Terminal -> New Terminal
+
+| ![New Terminal](../static/img/New_Terminal-CodigoStudio.png) |
+| :-------------------------------------------------: |
+|                 *New Terminal*           |
+
+Type the following command to execute the generator: `codigo generate cidl.yaml`
+
+When it completes generating the code, you will see three new directories in the explorer as follows:
+
+| ![Directories](../static/img/Directories-CodigoStudio.PNG) |
+| :-------------------------------------------------: |
+|                 *Directories*           |
+
+- `codigolib` this directory contains all security verification and serialization/deserialization utils with corresponding test cases.
+- `generated` this directory contains all the files for a native solana contract and the stubs where we will implement the business logic.
+- `sdk` this directory will contain all the files for the TypeScript client library. 
+
+## 3. Implement the business logic
+
+When we expand the `generated` directory, we will see numerous files corresponding to a native solana smart contract; we don’t need to change anything on these files; thus, we can ignore them. The files we are interested in and where we will implement the business logic are inside the `stub` directory.
+
+| ![Stub Directory](../static/img/Directories-CodigoStudio.PNG) |
+| :-------------------------------------------------: |
+|                 *Stub Directory*           |
+
+If we open one of those files, we will see a function with the same name as the file. Each file corresponds to a method defined in the CIDL. Inside each file, we can see a function where we will be implementing the business logic, the parameters of the function are determined by the inputs define for the method in the CIDL. 
+
+### 3.1 Implement create_user_record
+
+Open the file `generated/rendered/stubs/create_user_record.rs` and replace the comment `// Place your custom code here…` with the following line:
+
+```rust
+user_record.data.name = user_name;
+```
+### 3.2 Implement register_income
+
+Open the file `generated/rendered/stubs/register_income.rs` and replace the comment `// Place your custom code here…` with the following line:
+
+```rust
+user_record.data.moves += 1;
+user_record.data.income += amount;
+user_record.data.total_balance += amount as i64;
+```
+
+### 3.3 Implement register_outcome
+
+Open the file `generated/rendered/stubs/register_outcome.rs` and replace the comment `// Place your custom code here…` with the following line:
+
+```rust
+user_record.data.moves += 1;
+user_record.data.outcome += amount;
+user_record.data.total_balance -= amount as i64;
+```
+
+Congratulations! After implementing seven lines of business logic code, you have a secure working solana contract. The next step is to build and deploy it!
+
+## 4. Build and deploy the smart contract
+Código Studio comes with all the tools and programs for building and deploying smart contracts.
+
+First, let’s build the contract. Open a new terminal by going to Terminal -> New Terminal. Navigate to the generated directory by typing the command `cd generated`, and inside the `generated` directory, type the following command:
+
+```shell
+cargo build-sbf
+```
+
+This command will take a few seconds to complete. When the previous command completes, open another terminal by going to Terminal -> New Terminal. In the new terminal, type the command:
+
+```shell
+solana-test-validator
+```
+
+This command will start a solana validator to where we will be able to deploy the contract. Keep the terminal open so the validator continues running. Finally, return to the terminal where you built the contract and type the command:
+
+```shell
+solana program deploy target/deploy/budget_tracker.so
+```
+
+This command will deploy the built contract to the local solana validator we ran in the previous step. When the command completes, it will return the _Program Id_ of the contract and save it for later.
+
+## 5. Integrate the TypeScript client library
+
+Wow! We have built and deployed a Solana smart contract in just a few minutes. The last step is to use this smart contract from our application. For this QuickStart, our application will be a command line interface.
+
+Create a new file inside the `sdk` directory named `app.ts`. The file's content is the following:
+
+```typescript
+import {
+    createUserRecordSendAndConfirm,
+    getRecord,
+    registerIncomeSendAndConfirm,
+    registerOutcomeSendAndConfirm,
+    SetProgramId
+} from "./index";
+import {Connection, Keypair} from "@solana/web3.js";
+import * as fs from "fs/promises";
+import * as path from "path";
+import * as os from "os";
+
+async function main(feePayer: Keypair) {
+    // TODO: Specify the smart contract Program Id we saved from when we deploy the smart contract
+    SetProgramId("PASTE_YOUR_PROGRAM_ID");
+
+    // Instantiate a new Solana connection
+    const connection = new Connection("http://127.0.0.1:8899");
+
+    // 1. Create a user record, logs the state of the account after creating it
+    await createUserRecordSendAndConfirm(connection, "John Doe", feePayer.publicKey, feePayer);
+    let record = await getRecord(connection, feePayer.publicKey);
+    console.info(record);
+
+    // 2. Registered a new income with a value of 100
+    await registerIncomeSendAndConfirm(connection, 100, feePayer.publicKey, feePayer);
+    record = await getRecord(connection, feePayer.publicKey);
+    console.info(record);
+
+    // 3. Registered a new outcome with a value of 50
+    await registerOutcomeSendAndConfirm(connection, 50, feePayer.publicKey, feePayer);
+    record = await getRecord(connection, feePayer.publicKey);
+    console.info(record);
+}
+
+fs.readFile(path.join(os.homedir(), ".config/solana/id.json"))
+    .then(file => main(Keypair.fromSecretKey(new Uint8Array(JSON.parse(file.toString())))));
+```
+
+Before executing the file, we need to specify the contract we want to communicate. When we deployed the smart contract, it returned a _Program Id_; this _Progrma Id_ should be pasted as a string to the function `SetProgramId();`
+
+Finally, execute the app.ts file. Open a new terminal by going to Terminal -> New Terminal. Navigate to the sdk directory `cd sdk`; install the node dependencies executing the command `yarn install` and then execute the file using the following command:
+
+```shell
+npx ts-node app.ts
+```
+
+If everything went Ok, you should see the following output:
+
+```shell
+Record {
+  name: 'John Doe',
+  moves: 0,
+  outcome: 0,
+  income: 0,
+  totalBalance: 0n,
+  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
+    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
+  }
+}
+Record {
+  name: 'John Doe',
+  moves: 1,
+  outcome: 0,
+  income: 100,
+  totalBalance: 100n,
+  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
+    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
+  }
+}
+Record {
+  name: 'John Doe',
+  moves: 2,
+  outcome: 50,
+  income: 100,
+  totalBalance: 50n,
+  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
+    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
+  }
+}
+``` 
+
+## 6. Next steps
+
+**Congratulations!** 🎉👏 you just created your first Solana smart contract using the CIDL and integrated the generated TypeScript client library with an application. To summarize what we learned:
+
+- CIDL stands for Código Interface Description Language, and it is the input for Código’s AI Generator.
+- After completing the CIDL, developers only need to concentrate on implementing the business logic of the smart contract. 100% of the client libraries and smart contracts boilerplate are automatically generated.
+- Código Studio has all the tools and programs to develop smart contracts using the CIDL.
+
+These links may help you on your journey to writing smart contracts with the CIDL:
+
+- [Overview](linktobeadded)
+- [Learning the Basics](linktobeadded)
+- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](linktobeadded)
+
+### Join the Codigo community 💚
+Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions. 
+
+
+
+
+
 
 
 
