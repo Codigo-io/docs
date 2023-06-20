@@ -345,9 +345,9 @@ Record {
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Overview](linktobeadded)
-- [Learning the Basics](linktobeadded)
-- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](linktobeadded)
+- [Overview](#)
+- [Learning the Basics](#)
+- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](#)
 
 ### Join the Codigo community 💚
 Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions. 

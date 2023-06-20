@@ -8,11 +8,11 @@ In this document, we will go through the basic structure of the CIDL. The CIDL l
 
 :::info
 
-An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL; learn more about **Blockchain Extensions(linktobeadded)**.
+An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL; learn more about **Blockchain Extensions(#)**.
 
 :::
 
-If you want a more in-depth technical read on the structure and all the available properties, check the **[CIDL Specification](linktobeadded)**
+If you want a more in-depth technical read on the structure and all the available properties, check the **[CIDL Specification](#)**
 
 ## Basic Contract Information
 
@@ -38,7 +38,7 @@ The above properties are the **required** or **recommended** properties that any
 - `summary`: This recommended property enables developers to generate web-based documentation.
 - `license.name`: The license’s name. This will be the license of the contract and SDK clients.
 
-We can specify additional properties to enhance the CIDL; you can check them in the **[CIDL Specification](linktobeadded)**
+We can specify additional properties to enhance the CIDL; you can check them in the **[CIDL Specification](#)**
 
 ## Data Types
 
@@ -180,10 +180,10 @@ Yet again, that’s it. As simple as that, we can define smart contract instruct
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Solana Extension](linktobeadded)
-- [Building Solana Program with CIDL: A Comprehensive Guide Part I](linktobeadded)
+- [Solana Extension](#)
+- [Building Solana Program with CIDL: A Comprehensive Guide Part I](#)
 
 ### Join the Código community💚
-Código is growing a community of developers. Join us on [Discord](linktobeadded) or ask questions via [GitHub Discussions](linktobeadded). 
+Código is growing a community of developers. Join us on [Discord](#) or ask questions via [GitHub Discussions](#). 
 
 

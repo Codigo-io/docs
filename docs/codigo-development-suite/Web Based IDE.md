@@ -85,5 +85,5 @@ The Codigo Studio environment comes with additional tools and programs to get yo
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Learning the Basics](linktobeadded)
-- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](linktobeadded)
+- [Learning the Basics](#)
+- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](#)
