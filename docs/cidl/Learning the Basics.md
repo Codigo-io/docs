@@ -87,8 +87,8 @@ The following table is a comprehensive list of the supported extended type by th
 | ---- | ---- | ---- |
 | sol:pubkey | 32 bytes | Type specific to the Solana blockchain. Transpiles to **[Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html)** data type. |
 | sol:account_info | It depends | Type specific to the Solana blockchain. Transpiles to **[AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html)** data type. |
-| rs:option<ṭ> | 1 bit + the length of t | Type specific to Rust-based blockchain. Transpiles to **[Option<Ṭ>](https://doc.rust-lang.org/std/option/enum.Option.html)** where T can be any supported native type or sol:pubkey |
-| rs:vec<ṭ> | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to **[vec<Ṭ>](https://doc.rust-lang.org/std/vec/index.html)** where T can be any supported native type or sol:pubkey |
+| rs:option&lt;t&gt; | 1 bit + the length of t | Type specific to Rust-based blockchain. Transpiles to **[Option&lt;T&gt;](https://doc.rust-lang.org/std/option/enum.Option.html)** where T can be any supported native type or sol:pubkey |
+| rs:vec&lt;t&gt; | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to **[vec&lt;T&gt;](https://doc.rust-lang.org/std/vec/index.html)** where T can be any supported native type or sol:pubkey |
 
 :::caution 
 
@@ -184,6 +184,6 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Building Solana Program with CIDL: A Comprehensive Guide Part I](#)
 
 ### Join the Código community💚
-Código is growing a community of developers. Join us on [Discord](#) or ask questions via [GitHub Discussions](#). 
+Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 
 
 
