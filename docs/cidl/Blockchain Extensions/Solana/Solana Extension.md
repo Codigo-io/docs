@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 :::info 
-If you haven’t read **[Learning the Basic](linktobeadded)**, we recommend you look at that first.
+If you haven’t read **[Learning the Basic](#)**, we recommend you look at that first.
 :::
 
 We can expand the capabilities of native, extended, or custom data types and instructions through extensions. An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL.
@@ -25,8 +25,8 @@ types:
           type: Type of seed for non-static value
     # ...
 ```
-- `owner`: Solana account’s owner. To learn more about this property, check **[Solana Extension - Data Types - Types](linktobeadded)**
-- `seeds`: Solana PDA account’s seed definition. To learn more about this property, check **[Solana Extension - Data Types - Types](linktobeadded)**
+- `owner`: Solana account’s owner. To learn more about this property, check **[Solana Extension - Data Types - Types](#)**
+- `seeds`: Solana PDA account’s seed definition. To learn more about this property, check **[Solana Extension - Data Types - Types](#)**
 
 ## Fields
 
@@ -42,7 +42,7 @@ types:
         solana:
           attributes: [cap:26]
 ```
-- `attributes`: Through the attributes property, we can define the capacity of the data type. To learn more about this property, check **[Solana Extension - Data Types - Native Types](linktobeadded)**
+- `attributes`: Through the attributes property, we can define the capacity of the data type. To learn more about this property, check **[Solana Extension - Data Types - Native Types](#)**
 
 ## Methods
 
@@ -59,7 +59,7 @@ methods:
           executable: [Optional] Validate if the account is a program
     # ...
 ```
-- `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more about this property, check **[SOLANA EXTENSION - METHODS](linktobeadded)**
+- `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more about this property, check **[SOLANA EXTENSION - METHODS](#)**
 
 ## Inputs
 
@@ -84,9 +84,9 @@ methods:
         solana:
           attributes: [cap:26]
 ```
-- `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](linktobeadded)**
-- `attributes`:  With the `attribute` property in the input context, we can specify different values depending on the type. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](linktobeadded)**
-- `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an account. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](linktobeadded)**
+- `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
+- `attributes`:  With the `attribute` property in the input context, we can specify different values depending on the type. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
+- `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an account. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
 
 ## Next Steps
 
@@ -100,8 +100,8 @@ methods:
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- **[Solana Extension - Data Types](linktobeadded)**
-- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](linktobeadded)**
+- **[Solana Extension - Data Types](#)**
+- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](#)**
 
 ## Join the Código community 💚
-Código is growing a community of developers. Join us on [Discord](linktobeadded) or ask questions via [GitHub Discussions](linktobeadded). 
+Código is growing a community of developers. Join us on [Discord](#) or ask questions via [GitHub Discussions](#). 

@@ -7,7 +7,7 @@ sidebar_position: 4
 After defining your smart contract interfaces, the next step is implementing the business logic and integrating the client libraries. This document will take you through this process.
 
 :::info
-As good security best practices and owner of the implemented business logic, you, the developer, should always validate and sanitize the input sent from the client. As the implementer of the business logic, you are the only one who can determine what is valid or invalid data for your business. Please review our **[Terms of Service](linktobeadded)** for more information.
+As good security best practices and owner of the implemented business logic, you, the developer, should always validate and sanitize the input sent from the client. As the implementer of the business logic, you are the only one who can determine what is valid or invalid data for your business. Please review our **[Terms of Service](#)** for more information.
 :::
 
 ## Implementing business logic
@@ -38,7 +38,7 @@ pub fn create_user_record(user_record: &mut WithMeta<Record>, user_name: String)
 }
 ```
 
-When we specify the method’s summary and the inputs’ description, Código AI Generator will render documentation comments into the source code, allowing developers to understand the source code and build the documentation using the command `cargo doc` for Rust-based blockchains. For more on generating documentation, read [Creating the web-based documentation](linktobeadded).
+When we specify the method’s summary and the inputs’ description, Código AI Generator will render documentation comments into the source code, allowing developers to understand the source code and build the documentation using the command `cargo doc` for Rust-based blockchains. For more on generating documentation, read [Creating the web-based documentation](#).
 
 If the method definition in the CIDLs includes inputs, these will also be rendered into the stub function. It is important to note that you will receive the data structure wrap for complex blockchain data structures like Solana Accounts. The wrapper's purpose is to add the data itself of the data structure, the data used to build it, and any additional metadata information that comes with it.
 

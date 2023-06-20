@@ -3,13 +3,13 @@ sidebar_position: 2
 ---
 
 :::info 
- If you haven’t read **[Solana Extension](linktobeadded)**, we recommend you look at that first.
+ If you haven’t read **[Solana Extension](#)**, we recommend you look at that first.
 :::
 
 In this doc, we will go through the specifics of data types in the Solana blockchain, like strings and vector capacity, account ownership, and much more. Let’s get started!
 
 :::info
- If a type is not specified in this document is because it works exactly as how the **[Learning the Basics](linktobeadded)** defines it.
+ If a type is not specified in this document is because it works exactly as how the **[Learning the Basics](#)** defines it.
 :::
 
 ## Native Data Types
@@ -39,7 +39,7 @@ We don’t need to specify the capacity attributes to `string` when using it in 
 The following list is a comprehensive description of the capabilities of extended data types in the Solana blockchain. 
 
 ### rs:option<sṭring>
-When used in a data structure field, the `rs:option<string>` data type in solana must have a fixed length; this is because the inner type of option is a string. Thus, rs:option<sṭring> capacity is defined similarly to string; check **[Solana Extension - Data Types - String](linktobeadded)** to learn more.
+When used in a data structure field, the `rs:option<string>` data type in solana must have a fixed length; this is because the inner type of option is a string. Thus, rs:option<sṭring> capacity is defined similarly to string; check **[Solana Extension - Data Types - String](#)** to learn more.
 
 ### rs:vec<ṭ>
 When defining a field of type `rs:vec<ṭ>`, the `rs:vec<ṭ>` data type must have a fixed length because the data structure this field belongs to will be transpile to a Solana account. The length of the vector is determined by the capacity plus four additional bytes; in these 4 bytes, we stored the capacity value.
@@ -116,7 +116,7 @@ types:
 The `seeds` property is an array of objects, where each object is composed of the next properties:
 
 - `name`: Seed’s name or static value. The static value can be a string or a number.
-- `type`: **[Optional]** Seed’s data type; this is needed for when the seed will be provided at runtime. It can be any supported **[native](linktobeadded)** or the **[extended data type](linktobeadded)** `sol:pubkey`.   
+- `type`: **[Optional]** Seed’s data type; this is needed for when the seed will be provided at runtime. It can be any supported **[native](#)** or the **[extended data type](#)** `sol:pubkey`.   
 
 :::caution
 For seeds of type string, the generated code will have the validation: that the string doesn’t exceed 32 bytes; if it does, it will throw an error.
@@ -136,7 +136,7 @@ For seeds of type string, the generated code will have the validation: that the 
 - Custom-defined types that don’t specify the definition of the seed will be treated as Non-PDA accounts.
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](linktobeadded)**
+- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](#)**
 
 ### Join the Código community 💚
 

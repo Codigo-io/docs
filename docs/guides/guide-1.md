@@ -113,7 +113,7 @@ An extension in the CIDL is an object composed of multiple properties that can t
 
 One of the main features of Código Interface Description Language (CIDL) is that it is blockchain agnostic. It can target multiple blockchains with 1 CIDL and minimum configurations through extension.
 
-In the previous code, we defined a solana extension for the field named `display_name`. Within the field solana extension, we defined the property `attributes`, `attributes` is an array of strings through which we can define the capacity of `display_name` using the `cap` attribute. To learn more, check [Solana Extension - Data Types](linktobeadded).
+In the previous code, we defined a solana extension for the field named `display_name`. Within the field solana extension, we defined the property `attributes`, `attributes` is an array of strings through which we can define the capacity of `display_name` using the `cap` attribute. To learn more, check [Solana Extension - Data Types](#).
 
 :::info
 Any data structure defined in the CIDL that targets the Solana blockchain will be transpile to a Solana account. Solana accounts must have a fixed length; thus, we need to specify the capacity of a string data type.
@@ -125,17 +125,17 @@ Now that we have defined one of the central core features of CIDL, let's take a 
 
 ### The `types` map
 
-Whenever we need to define a custom data structure, we define them in the `types` map.  To learn more, check [Learning the Basic - Types](linktobeadded).
+Whenever we need to define a custom data structure, we define them in the `types` map.  To learn more, check [Learning the Basic - Types](#).
 
 ### The type `User`
 
-Inside the `types` map, we defined a type named `User`. This [`User` corresponds to the one defined above](linktobeadded). 
+Inside the `types` map, we defined a type named `User`. This [`User` corresponds to the one defined above](#). 
 
 A type defines a key-value pair. The key will be the data structure's name; thus, it must follow the naming rules for the targeted programming language. The value is an object that defines 2 properties:  
 - `summary`: A recommended property where we can describe the purpose of the data structure. The summary content will be used to generate the web-based documentation.
-- `fields`: The `fields` is an array of objects where we define the fields that compose the given type. A field defines 2 main properties named `name` and `type` and then defines different extensions.  To learn more, check [Learning the Basic - Types](linktobeadded).
+- `fields`: The `fields` is an array of objects where we define the fields that compose the given type. A field defines 2 main properties named `name` and `type` and then defines different extensions.  To learn more, check [Learning the Basic - Types](#).
   - `name`: The field's name. The name must follow the rules of the targeted programming language.
-  - `type`: Data type of the given field. To learn more, check [Learning the Basic - Native Data Types](linktobeadded).
+  - `type`: Data type of the given field. To learn more, check [Learning the Basic - Native Data Types](#).
 
 From the previous knowledge, we now can build the sentence on how to read the above code: 
 
@@ -146,7 +146,7 @@ Now, let's talk about another central core functionality of the CIDL, security.
 
 The `AccountInfo` structure has a field named `owner`. The value of the `owner` field indicates the program that owns the account. **Only the owning program is capable of modifying the account. **
 
-The generated code always includes the ownership checks. An ownership check verifies that an account is owned by the expected public key; without this check, malicious attackers can pass a similar account structure to your programs. Your program will execute your business logic using an incorrect account, thus creating unwanted behavior. Check [Solana Extension - Data Types - Types - Ownership](linktobeadded) to learn more.
+The generated code always includes the ownership checks. An ownership check verifies that an account is owned by the expected public key; without this check, malicious attackers can pass a similar account structure to your programs. Your program will execute your business logic using an incorrect account, thus creating unwanted behavior. Check [Solana Extension - Data Types - Types - Ownership](#) to learn more.
 
 ### Security: Account length
 
@@ -166,7 +166,7 @@ We encourage you to do the following challenge using the repository you cloned a
 - dislikes of type` u32`
 - author of type `sol:pubkey`
 
-If you get stuck, check [Our first 10 lines of CIDL code](linktobeadded) to gain insight into completing the challenge.
+If you get stuck, check [Our first 10 lines of CIDL code](#) to gain insight into completing the challenge.
 
 <details>
     <summary>Click to see the solution</summary>
@@ -214,7 +214,7 @@ Any data structure that doesn’t define seeds will be transpile to a Non-PDA Ac
 
 What is so special about PDA Accounts? 
 - PDA Accounts don’t have a private key associated with them; this is guaranteed by the runtime. 
-- Everything regarding a PDA Account is managed by the [program](linktobeadded). You can see it as a special place (on-chain) for a program to write data while guaranteeing security. 
+- Everything regarding a PDA Account is managed by the [program](#). You can see it as a special place (on-chain) for a program to write data while guaranteeing security. 
 
 We need to provide different inputs to the solana runtime to create a PDA; one is called `seeds`. The seeds are application-specific and must be carefully selected to uniquely derive accounts per application requirements. It is common to use static strings and other pubkeys as seeds.
 
@@ -236,7 +236,7 @@ types:
           type: u16
 ```
 
-The seeds definition is an array of object, where each object has the require property `name` and the optional property `type`. To learn more about seeds, check [Solana Extension - Types - Seeds](linktobeadded).
+The seeds definition is an array of object, where each object has the require property `name` and the optional property `type`. To learn more about seeds, check [Solana Extension - Types - Seeds](#).
 
 For the `Posts` data structure, we define 3 seeds:
 - The first seed is a static string with the value `post`
@@ -263,7 +263,7 @@ We encourage you to do the following challenge using the repository you cloned a
   - user of type `sol:pubkey`
   - post of type `sol:pubkey`
 
-If you get stuck, check [Our first 10 lines of CIDL code](linktobeadded) and [Converting Posts to a PDA Account](linktobeadded) to gain insight into completing the challenge.
+If you get stuck, check [Our first 10 lines of CIDL code](#) and [Converting Posts to a PDA Account](#) to gain insight into completing the challenge.
 
 <details>
     <summary>Click to see the solution</summary>
@@ -301,9 +301,9 @@ If you get stuck, check [Our first 10 lines of CIDL code](linktobeadded) and [Co
 - If we don’t specify a seed definition to an account, the generator will treat it as a Non-PDA account
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-- [Check the second part on ​​Building Solana Programs with CIDL](linktobeadded)
-- [Learning the Basics](linktobeadded)
-- [Solana Extension](linktobeadded)
+- [Check the second part on ​​Building Solana Programs with CIDL](#)
+- [Learning the Basics](#)
+- [Solana Extension](#)
 ### Join the Código community 💚
 Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions. 
 
