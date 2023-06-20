@@ -21,5 +21,5 @@ codigo generate /path/to/your/cidl.yaml
 ```
 
 ## Join the Código community 💚
-Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions.
+Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 
 

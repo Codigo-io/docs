@@ -38,14 +38,14 @@ We don’t need to specify the capacity attributes to `string` when using it in 
 
 The following list is a comprehensive description of the capabilities of extended data types in the Solana blockchain. 
 
-### rs:option<sṭring>
-When used in a data structure field, the `rs:option<string>` data type in solana must have a fixed length; this is because the inner type of option is a string. Thus, rs:option<sṭring> capacity is defined similarly to string; check **[Solana Extension - Data Types - String](#)** to learn more.
+### rs:option&lt;string&gt;
+When used in a data structure field, the `rs:option<string>` data type in solana must have a fixed length; this is because the inner type of option is a string. Thus, rs:option&lt;string&gt; capacity is defined similarly to string; check **[Solana Extension - Data Types - String](#)** to learn more.
 
-### rs:vec<ṭ>
-When defining a field of type `rs:vec<ṭ>`, the `rs:vec<ṭ>` data type must have a fixed length because the data structure this field belongs to will be transpile to a Solana account. The length of the vector is determined by the capacity plus four additional bytes; in these 4 bytes, we stored the capacity value.
+### rs:vec&lt;t&gt;
+When defining a field of type `rs:vec<t>`, the `rs:vec<t>` data type must have a fixed length because the data structure this field belongs to will be transpile to a Solana account. The length of the vector is determined by the capacity plus four additional bytes; in these 4 bytes, we stored the capacity value.
 
 :::info
-`vec<sṭring>` is still WIP; thus, it is unavailable for the private beta.
+`vec<string>` is still WIP; thus, it is unavailable for the private beta.
 :::
 
 The capacity of a vector can be defined through the `attributes` property, which can be specified to fields via the `solana` extension.
@@ -60,7 +60,7 @@ types:
           attributes: [cap:8]
 ```
 
-We don’t need to specify the capacity attributes to `rs:vec<ṭ>` when using it in a method’s input type.
+We don’t need to specify the capacity attributes to `rs:vec<t>` when using it in a method’s input type.
 
 ### sol:account_info
 Currently, the only places we can specify the `sol:account_info` data type are in the method’s input and signer types. 
@@ -139,7 +139,6 @@ These links may help you on your journey to writing smart contracts with the CID
 - **[Building Solana Program with CIDL: A Comprehensive Guide Part I](#)**
 
 ### Join the Código community 💚
-
-Código is growing a community of developers. Join us on Discord or ask questions via GitHub Discussions. 
+Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 
 
 
