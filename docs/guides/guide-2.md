@@ -27,7 +27,7 @@ methods:
 **Congratulations** on writing your first method!
 
 ### Method’s structure
-The methods object is composed of the required `name` property, a list of `inputs`, and the recommended property `summary`. Besides those properties, we can define different extensions. To learn more about the method’s structure, read [Learning the Basic - Methods](linktobedded).
+The methods object is composed of the required `name` property, a list of `inputs`, and the recommended property `summary`. Besides those properties, we can define different extensions. To learn more about the method’s structure, read [Learning the Basic - Methods](../cidl/Learning%20the%20Basics.md).
 
 In the first input named `user`, we can see a solana extension. If we remember the definition of extension from the last doc: An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. Through the solana extension, we define the attributes `mut` and `init`. These attributes will make the `User` account writable and generate all the code to create the account. To learn more about the solana extension within inputs, read [Solana Extension - Methods - Inputs](#).
 
