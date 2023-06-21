@@ -19,7 +19,7 @@ Código Studio requires the developers to identify with their pre-created user f
 
 When you first open Código Studio, you will see in the explorer a file called `cidl.yaml` with the following content:
 
-```yaml
+```yaml showLineNumbers
 cidl: "0.8"
 info:
   name: budget_tracker
@@ -110,8 +110,8 @@ With this basic knowledge and the description for each TODO, you should be able 
 
 <details>
   <summary>Solution: Complete the definition of the Record data structure</summary>
- 
-```yaml
+
+```yaml showLineNumbers
 - name: moves
   type: u16
   description: Number incomes/outcomes registered.
@@ -130,7 +130,7 @@ With this basic knowledge and the description for each TODO, you should be able 
 <details>
   <summary>Solution: Define the register_income method</summary>
 
-```yaml
+```yaml showLineNumbers
 - name: register_income
   summary: Register the given amount as an income for the given record account. The total total_balance of the account will be increased.
   inputs:
@@ -147,7 +147,7 @@ With this basic knowledge and the description for each TODO, you should be able 
 <details>
   <summary>Solution: Define the register_outcome method</summary>
 
-```yaml
+```yaml showLineNumbers
 - name: register_outcome
   summary: Register the given amount as an outcome for the given record account. The total total_balance of the account will be decreased.
   inputs:
@@ -196,14 +196,14 @@ If we open one of those files, we will see a function with the same name as the 
 
 Open the file `generated/rendered/stubs/create_user_record.rs` and replace the comment `// Place your custom code here…` with the following line:
 
-```rust
+```rust showLineNumbers
 user_record.data.name = user_name;
 ```
 ### 3.2 Implement register_income
 
 Open the file `generated/rendered/stubs/register_income.rs` and replace the comment `// Place your custom code here…` with the following line:
 
-```rust
+```rust showLineNumbers
 user_record.data.moves += 1;
 user_record.data.income += amount;
 user_record.data.total_balance += amount as i64;
@@ -213,7 +213,7 @@ user_record.data.total_balance += amount as i64;
 
 Open the file `generated/rendered/stubs/register_outcome.rs` and replace the comment `// Place your custom code here…` with the following line:
 
-```rust
+```rust showLineNumbers
 user_record.data.moves += 1;
 user_record.data.outcome += amount;
 user_record.data.total_balance -= amount as i64;
@@ -250,7 +250,7 @@ Wow! We have built and deployed a Solana smart contract in just a few minutes. T
 
 Create a new file inside the `sdk` directory named `app.ts`. The file's content is the following:
 
-```typescript
+```typescript showLineNumbers
 import {
     createUserRecordSendAndConfirm,
     getRecord,
