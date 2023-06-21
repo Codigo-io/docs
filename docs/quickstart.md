@@ -110,7 +110,7 @@ With this basic knowledge and the description for each TODO, you should be able 
 
 <details>
   <summary>Solution: Complete the definition of the Record data structure</summary>
- 
+
 ```yaml
 - name: moves
   type: u16
