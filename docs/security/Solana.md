@@ -136,8 +136,8 @@ After you have generated the Solana smart contract, you will see in the generate
 - We can execute the test cases by going to the `codigolib` directory and typing the command `cargo test`
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-- [Learning the Basic](#)
-- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](#)
+- [Learning the Basic](https://docs.codigo.ai/cidl/Learning%20the%20Basics)
+- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)
 
 ### Join the Código community 💚
 Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 

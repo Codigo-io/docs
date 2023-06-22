@@ -12,7 +12,7 @@ An extension in the CIDL is an object composed of multiple properties that can t
 
 :::
 
-If you want a more in-depth technical read on the structure and all the available properties, check the **[CIDL Specification](#)**
+If you want a more in-depth technical read on the structure and all the available properties, check the **[CIDL Specification](https://docs.codigo.ai/cidl/Specification)**
 
 ## Basic Contract Information
 
@@ -38,7 +38,7 @@ The above properties are the **required** or **recommended** properties that any
 - `summary`: This recommended property enables developers to generate web-based documentation.
 - `license.name`: The license’s name. This will be the license of the contract and SDK clients.
 
-We can specify additional properties to enhance the CIDL; you can check them in the **[CIDL Specification](#)**
+We can specify additional properties to enhance the CIDL; you can check them in the **[CIDL Specification](https://docs.codigo.ai/cidl/Specification)**
 
 ## Data Types
 
@@ -180,8 +180,8 @@ Yet again, that’s it. As simple as that, we can define smart contract instruct
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Solana Extension](#)
-- [Building Solana Program with CIDL: A Comprehensive Guide Part I](#)
+- [Solana Extension](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/)
+- [Building Solana Program with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)
 
 ### Join the Código community💚
 Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 
