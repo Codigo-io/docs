@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  title: 'Codigo',
   tagline: 'Software development automation platform for blockchain developers',
-  title: 'Código',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -42,16 +42,16 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        // },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -72,17 +72,17 @@ const config = {
           srcDark: 'img/codigo-dark.svg'
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://dev-studio.codigo.ai/playground/',
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Tutorial',
+          },
+          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: 'https://github.com/facebook/docusaurus',
+            label: 'GitHub',
             position: 'right',
-            label: 'Código Studio',
           },
         ],
       },
@@ -90,15 +90,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Código',
+            title: 'Docs',
             items: [
               {
-                label: 'Website',
-                to: 'https://codigo.ai/',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/Codigo-io/',
+                label: 'Tutorial',
+                to: '/',
               },
             ],
           },
@@ -106,31 +102,31 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform',
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
               {
                 label: 'Discord',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform',
+                href: 'https://discordapp.com/invite/docusaurus',
               },
               {
                 label: 'Twitter',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLScjS74ZBfurdjSDlZICyKeqmTRYiCx230FywfCEDvyf1iYqjA/viewform',
+                href: 'https://twitter.com/docusaurus',
               },
             ],
           },
           {
-            // title: 'More',
-            // items: [
-            //   {
-            //     label: 'Blog',
-            //     to: '/blog',
-            //   },
-              // {
-              //   label: 'GitHub',
-              //   href: 'https://github.com/facebook/docusaurus',
-              // },
-            // ],
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/facebook/docusaurus',
+              },
+            ],
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Codigo, Inc. Built with Docusaurus.`,
