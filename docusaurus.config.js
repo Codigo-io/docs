@@ -97,8 +97,8 @@ const config = {
                 to: 'https://codigo.ai/',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/Codigo-io/',
+                label: 'Examples',
+                href: 'https://github.com/Codigo-io/examples',
               },
             ],
           },
