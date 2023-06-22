@@ -2,6 +2,7 @@
 sidebar_position: 3
 ---
 
-# What's New (General)
+# Upcoming Features
 
-## "Accelerate your coding experience with Código: where warp-speed prowess meets ironclad security, rewriting the rules of programming."
+- Anchor
+- CPI
