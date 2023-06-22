@@ -174,7 +174,7 @@ Type the following command to execute the generator: `codigo generate cidl.yaml`
 
 When it completes generating the code, you will see three new directories in the explorer as follows:
 
-| ![Directories](../static/img/Directories-CodigoStudio.PNG) |
+| ![Directories](../static/img/Directories-CodigoStudio.png) |
 | :-------------------------------------------------: |
 |                 *Directories*           |
 
@@ -186,7 +186,7 @@ When it completes generating the code, you will see three new directories in the
 
 When we expand the `generated` directory, we will see numerous files corresponding to a native solana smart contract; we don’t need to change anything on these files; thus, we can ignore them. The files we are interested in and where we will implement the business logic are inside the `stub` directory.
 
-| ![Stub Directory](../static/img/Directories-CodigoStudio.PNG) |
+| ![Stub Directory](../static/img/Directories-CodigoStudio.png) |
 | :-------------------------------------------------: |
 |                 *Stub Directory*           |
 
