@@ -87,3 +87,8 @@ These links may help you on your journey to writing smart contracts with the CID
 
 - [Learning the Basics](https://docs.codigo.ai/cidl/Learning%20the%20Basics)
 - [Building Solana Programs with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)
+
+#### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
+[![Button Example]][Link]
+[Link]: https://docs.google.com/forms/d/e/1FAIpQLScEDXevIHiSlzDo98zxowWMunwcb6zJZfRHvK8262XMEE0suw/viewform
+[Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge
