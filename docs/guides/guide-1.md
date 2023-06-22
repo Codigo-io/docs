@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Building Solana Programs with CIDL: A Comprehensive Guide Part I 
+# Part I - Building Solana Programs with CIDL: A Comprehensive Guide  
 
 Solana is a blockchain platform that has been gaining significant traction due to its high-performance capabilities and promise of fast, cheap, and secure transactions. However, the learning curve for developing on Solana can be steep, and navigating the platform's technical complexities can be challenging. Fortunately, using Código Interface Description Language (CIDL) can make the development process much more manageable.
 
