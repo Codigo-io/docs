@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Building Solana Programs with CIDL: A Comprehensive Guide Part II  
 
-In the first part of this guide, we learned some basic Solana concepts, described what we are building, and how to define Solana Accounts in the CIDL. If you need a refresher on those concepts or don’t know what a Solana instruction, transaction, or signer is, please check the first part [Building Solana Program with CIDL: A Comprehensive Guide - Part I](#).
+In the first part of this guide, we learned some basic Solana concepts, described what we are building, and how to define Solana Accounts in the CIDL. If you need a refresher on those concepts or don’t know what a Solana instruction, transaction, or signer is, please check the first part [Building Solana Program with CIDL: A Comprehensive Guide - Part I](https://docs.codigo.ai/guides/guide-1).
 
 This second part will focus on defining the program methods. We add behavior to our program through methods. Methods will be transpile to Solana’s instructions. We can define an instruction within the `methods` array of objects.
 
@@ -27,12 +27,12 @@ methods:
 **Congratulations** on writing your first method!
 
 ### Method’s structure
-The methods object is composed of the required `name` property, a list of `inputs`, and the recommended property `summary`. Besides those properties, we can define different extensions. To learn more about the method’s structure, read [Learning the Basic - Methods](../cidl/Learning%20the%20Basics.md).
+The methods object is composed of the required `name` property, a list of `inputs`, and the recommended property `summary`. Besides those properties, we can define different extensions. To learn more about the method’s structure, read [Learning the Basic - Methods](https://docs.codigo.ai/cidl/Learning%20the%20Basics#methods).
 
-In the first input named `user`, we can see a solana extension. If we remember the definition of extension from the last doc: An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. Through the solana extension, we define the attributes `mut` and `init`. These attributes will make the `User` account writable and generate all the code to create the account. To learn more about the solana extension within inputs, read [Solana Extension - Methods - Inputs](#).
+In the first input named `user`, we can see a solana extension. If we remember the definition of extension from the last doc: An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. Through the solana extension, we define the attributes `mut` and `init`. These attributes will make the `User` account writable and generate all the code to create the account. To learn more about the solana extension within inputs, read [Solana Extension - Methods - Inputs](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#inputs).
 
 :::info
-Before using an Account, we need to create it within the blockchain. The `init` attribute generates all the code that tells the blockchain to create the account. To learn more about the solana `init` behavior, read [Solana Extension - Methods - Inputs](#).
+Before using an Account, we need to create it within the blockchain. The `init` attribute generates all the code that tells the blockchain to create the account. To learn more about the solana `init` behavior, read [Solana Extension - Methods - Inputs](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#inputs).
 :::
 
 :::note
@@ -61,7 +61,7 @@ We encourage you to do the following challenge using the repository you cloned f
 - category of type `string`
 - author of type `sol:pubkey`
 
-If you get stuck, check [Our first method](#) to gain insight into completing the challenge. 
+If you get stuck, check [Our first method](https://docs.codigo.ai/guides/guide-2#our-first-method) to gain insight into completing the challenge. 
 
 <details>
 <summary>Solution</summary>
@@ -140,7 +140,7 @@ methods:
           seeds:
             user: author
 ```
-To learn more about seeds linking, read [Solana Extension - Methods - Inputs](#).
+To learn more about seeds linking, read [Solana Extension - Methods - Inputs](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#inputs).
 
 ## Challenge - Define the method to create Comment account
 
@@ -152,7 +152,7 @@ We encourage you to do the following challenge using the repository you cloned f
 - post of type `Post`
 - content of type `string`
 
-If you get stuck, check [Our first method](#) to gain insight into completing the challenge. 
+If you get stuck, check [Our first method](https://docs.codigo.ai/guides/guide-2#our-first-method) to gain insight into completing the challenge. 
 
 <details>
 <summary>Solution</summary>
@@ -189,8 +189,8 @@ methods:
 These links may help you on your journey to writing smart contracts with the CIDL:
 
 - Check the third part on ​​Building Solana Programs with CIDL
-- [Learning the Basic](#)
-- [Solana Extension - Methods](#)
+- [Learning the Basic](https://docs.codigo.ai/cidl/Learning%20the%20Basics)
+- [Solana Extension - Methods](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods)
 
 ### Join the Código community 💚
 Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 

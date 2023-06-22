@@ -84,12 +84,12 @@ Regardless of specifying the **recommended** `summary` or `description` properti
 | ![Types](../../static/img/Types%20web%20documentation.png) |
 | :--------------------------------------------------------- |
 
-If we specify the solana extension to the type, the information will be displayed in the web-based documentation. To learn more about Solana Extension, click the [link](#). The `summary` property supports markdown; thus, you can use **markdown** to describe the information about your type clearly. Finally, a zoom-in to an individual field:
+If we specify the solana extension to the type, the information will be displayed in the web-based documentation. To learn more about Solana Extension, click the [link](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/). The `summary` property supports markdown; thus, you can use **markdown** to describe the information about your type clearly. Finally, a zoom-in to an individual field:
 
 | ![Field](../../static/img/Field%20web%20documentation.png) |
 | :--------------------------------------------------------- |
 
-The field also supports the Solana Extension. To learn more about Solana Extension, click the [link](#). The `description` property supports **markdown**; thus, you can use markdown to describe the information about your field clearly. Additionally, you can hover over the field’s data type to get more information about it.
+The field also supports the Solana Extension. To learn more about Solana Extension, click the [link](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/). The `description` property supports **markdown**; thus, you can use markdown to describe the information about your field clearly. Additionally, you can hover over the field’s data type to get more information about it.
 
 ## Methods documentation
 
@@ -137,9 +137,9 @@ The input also supports the Solana Extension. To learn more about Solana Extensi
 - The web-based documentation will be generated regardless if you specify `summary` and `description` information.
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-- [Learning the Basic](#)
-- [Solana Extension](#)
-- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](#)
+- [Learning the Basic](https://docs.codigo.ai/cidl/Learning%20the%20Basics)
+- [Solana Extension](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/)
+- [Building Solana Programs with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)
 
 ### Join the Código community 💚
 Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 

@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # Solana
 :::info 
-If you haven’t read **[Learning the Basic](#)**, we recommend you look at that first.
+If you haven’t read **[Learning the Basic](https://docs.codigo.ai/cidl/Learning%20the%20Basics)**, we recommend you look at that first.
 :::
 
 We can expand the capabilities of native, extended, or custom data types and instructions through extensions. An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain, framework, or programming language. An extension can be defined in various places of the CIDL.
@@ -25,8 +25,8 @@ types:
           type: Type of seed for non-static value
     # ...
 ```
-- `owner`: Solana account’s owner. To learn more about this property, check **[Solana Extension - Data Types - Types](#)**
-- `seeds`: Solana PDA account’s seed definition. To learn more about this property, check **[Solana Extension - Data Types - Types](#)**
+- `owner`: Solana account’s owner. To learn more about this property, check **[Solana Extension - Data Types - Types](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types#ownership)**
+- `seeds`: Solana PDA account’s seed definition. To learn more about this property, check **[Solana Extension - Data Types - Types](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types#seeds)**
 
 ## Fields
 
@@ -42,7 +42,7 @@ types:
         solana:
           attributes: [cap:26]
 ```
-- `attributes`: Through the attributes property, we can define the capacity of the data type. To learn more about this property, check **[Solana Extension - Data Types - Native Types](#)**
+- `attributes`: Through the attributes property, we can define the capacity of the data type. To learn more about this property, check **[Solana Extension - Data Types - Native Types](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types#native-data-types)**
 
 ## Methods
 
@@ -59,7 +59,7 @@ methods:
           executable: [Optional] Validate if the account is a program
     # ...
 ```
-- `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more about this property, check **[SOLANA EXTENSION - METHODS](#)**
+- `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more about this property, check **[SOLANA EXTENSION - METHODS](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods)**
 
 ## Inputs
 
@@ -84,9 +84,9 @@ methods:
         solana:
           attributes: [cap:26]
 ```
-- `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
-- `attributes`:  With the `attribute` property in the input context, we can specify different values depending on the type. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
-- `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an account. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](#)**
+- `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#seeds)**
+- `attributes`:  With the `attribute` property in the input context, we can specify different values depending on the type. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#attributes)**
+- `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an account. To learn more about this property, check **[SOLANA EXTENSION - METHODS - INPUTS](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Methods#rent-payer)**
 
 ## Next Steps
 
@@ -100,8 +100,8 @@ methods:
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- **[Solana Extension - Data Types](#)**
-- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](#)**
+- **[Solana Extension - Data Types](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types)**
+- **[Building Solana Program with CIDL: A Comprehensive Guide Part I](https://docs.codigo.ai/guides/guide-1)**
 
 ### Join the Código community💚
 Código is a growing community of developers. Join us on **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)** 

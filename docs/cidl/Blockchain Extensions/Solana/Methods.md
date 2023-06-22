@@ -3,13 +3,13 @@ sidebar_position: 3
 ---
 
 :::note
-If you haven’t read **[Solana Extension](#)**, we recommend you look at that first.
+If you haven’t read **[Solana Extension](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/)**, we recommend you look at that first.
 :::
 
 In this doc, we will go through the specifics of methods in the Solana blockchain, a.k.a instructions. Let’s get started!
 
 :::info
-Anything not specified in this document is because it works exactly as how the **[Learning the Basics](#)** defines it.
+Anything not specified in this document is because it works exactly as how the **[Learning the Basics](https://docs.codigo.ai/cidl/Learning%20the%20Basics)** defines it.
 :::
 
 ## Signers
@@ -43,7 +43,7 @@ Only Non-PDA accounts are supported as a value for `type` in the private beta.
 :::
 
 ## Inputs
-We can set additional configurations to inputs; here, we will concentrate on the configurations we can add when the input is an Account. For native or extended types, check [Learning the Basics](#) or [Solana Extension - Data Types](#). These additional configurations are defined within the solana extension of an input. For example:
+We can set additional configurations to inputs; here, we will concentrate on the configurations we can add when the input is an Account. For native or extended types, check [Learning the Basics](https://docs.codigo.ai/cidl/Learning%20the%20Basics) or [Solana Extension - Data Types](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types). These additional configurations are defined within the solana extension of an input. For example:
 
 ```
 methods:
@@ -82,7 +82,7 @@ Similar to **[init](#init)**. The only difference is that when specifying `init_
 
 ### Seeds
 
-As discussed in [Solana Extension - Data Types - Seeds](#), we can create PDA accounts. When the seed is a static string, everything is handled for you. But, sometimes, we need dynamic seeds that will be set in runtime. 
+As discussed in [Solana Extension - Data Types - Seeds](https://docs.codigo.ai/cidl/Blockchain%20Extensions/Solana/Data%20Types#seeds), we can create PDA accounts. When the seed is a static string, everything is handled for you. But, sometimes, we need dynamic seeds that will be set in runtime. 
 
 By default, any dynamic seed will be added as a parameter to the client library. In other cases, we want to specify that a given input or signer must be used as the value for this dynamic seed, or we want to receive a seed value in the stub. For these cases, we use the `seeds` property.   For example:
 
