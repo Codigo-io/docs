@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Building Solana Programs with CIDL: A Comprehensive Guide Part II  
+# Part II - Building Solana Programs with CIDL: A Comprehensive Guide  
 
 In the first part of this guide, we learned some basic Solana concepts, described what we are building, and how to define Solana Accounts in the CIDL. If you need a refresher on those concepts or don’t know what a Solana instruction, transaction, or signer is, please check the first part [Building Solana Program with CIDL: A Comprehensive Guide - Part I](https://docs.codigo.ai/guides/guide-1).
 
