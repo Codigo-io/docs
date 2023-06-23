@@ -6,55 +6,80 @@ slug: /
 
 # Overview
 
-Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development time and increases the security of the code across a variety of blockchains.
+Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development time
+and increases the security of the code across a variety of blockchains.
 
 ## Código Interface Description Language (CIDL)
 
-The starting point for blockchain developers using the Código platform is the Código Interface Description Language (CIDL). The CIDL  is a formal language used to describe the interface of a blockchain smart contract. It specifies the data types, functions, and events that can be accessed by other contracts or users. The CIDL is accessible from a developer’s IDE or from Código’s web-based IDE.
+The starting point for blockchain developers using the Código platform is the Código Interface Description Language (
+CIDL). The CIDL is a formal language used to describe the interface of a blockchain smart contract. It specifies the
+data types, functions, and events that can be accessed by other contracts or users. The CIDL is accessible from a
+developer’s IDE or from Código’s web-based IDE.
 
 ## Code Generation
 
-Using the CIDL, Código Generator engines automatically generate Smart Contract boilerplate source code, Smart Contract Clients libraries, testing and Documentation in multiple programming languages.  The source code is delivered in the developers’ IDE or in Código’s web-based IDE, organized in clearly labeled libraries following software development best practices and resulting in weeks of development time saved by blockchain developers. 
+Using the CIDL, Código Generator engines automatically generate Smart Contract boilerplate source code, Smart Contract
+Clients libraries, testing and Documentation in multiple programming languages. The source code is delivered in the
+developers’ IDE or in Código’s web-based IDE, organized in clearly labeled libraries following software development best
+practices and resulting in weeks of development time saved by blockchain developers.
 
 ## Security
 
-Código ensures that the code can run and is secure through comprehensive testing.  Código has checks for all variables and parameters, signatures and ownership of the data.   In addition, Código’s source code is externally audited from one of the two leading blockchain security firms, providing an additional layer of vetting of the code to developers.
+Código ensures that the code can run and is secure through comprehensive testing. Código has checks for all variables
+and parameters, signatures and ownership of the data. In addition, Código’s source code is externally audited from one
+of the two leading blockchain security firms, providing an additional layer of vetting of the code to developers.
 
 ## Blockchains
 
-Código currently supports Solana.  The Código platform has been architected with the explicit objective of supporting any blockchain.  Código will add additional blockchains on a regular basis.
+Código currently supports Solana. The Código platform has been architected with the explicit objective of supporting any
+blockchain. Código will add additional blockchains on a regular basis.
 
 ## Programming Languages
 
-Código currently generates client code in TypeScript.  The Código platform has been architected with the explicit objective of supporting many programming languages.  Código will add additional programming languages on a regular basis.
+Código currently generates client code in TypeScript. The Código platform has been architected with the explicit
+objective of supporting many programming languages. Código will add additional programming languages on a regular basis.
 
 ## Applications
 
-There are no limitations to the types of applications that can be built through the CIDL.  The CIDL can enable any use case, such as creating decentralized applications that interact with multiple smart contracts, creating decentralized finance applications that allow for the exchange of tokens or assets across different platforms, or creating supply chain management systems that allow for the tracking of goods across multiple stakeholders. In general, the CIDL can help facilitate the creation of simple smart contracts, all the way to complex, interconnected systems, that can operate in a decentralized and transparent manner.
+There are no limitations to the types of applications that can be built through the CIDL. The CIDL can enable any use
+case, such as creating decentralized applications that interact with multiple smart contracts, creating decentralized
+finance applications that allow for the exchange of tokens or assets across different platforms, or creating supply
+chain management systems that allow for the tracking of goods across multiple stakeholders. In general, the CIDL can
+help facilitate the creation of simple smart contracts, all the way to complex, interconnected systems, that can operate
+in a decentralized and transparent manner.
 
 ## Solutions
 
-Código is committed to providing an expanding range of solutions that provide blockchain developers with productivity boosts through automation, security and flexibility of development.
+Código is committed to providing an expanding range of solutions that provide blockchain developers with productivity
+boosts through automation, security and flexibility of development.
 
 The current solution:
 
-1. **Generates “Smart Contract” boilerplate and stubs** 
+1. **Generates “Smart Contract” boilerplate and stubs**
 
-    Código Generators abstract all the initialization, validation, verification and parsing for each incoming request, and route the call to the specific stub method.
+   Código Generators abstract all the initialization, validation, verification and parsing for each incoming request,
+   and route the call to the specific stub method.
 
 2. **Generates Client Libraries**
 
-    Código Generators simplify Smart Contract adoption by generating “Smart Contract” client libraries in multiple programming languages. Method calls are abstracted behind a simple API interface. All the boilerplate code to generate the actual Blockchain Smart Contract call is automatically generated by Código Generators for each programming language.
+   Código Generators simplify Smart Contract adoption by generating “Smart Contract” client libraries in multiple
+   programming languages. Method calls are abstracted behind a simple API interface. All the boilerplate code to
+   generate the actual Blockchain Smart Contract call is automatically generated by Código Generators for each
+   programming language.
 
 3. **Generates web-based documentation**
 
-    Código Generators create full web-based Smart Contract documentation based on the CIDL file. This documentation will list all exposed methods by the Smart Contract and input parameters. For Account based VMs, like Solana, full account structure is documented as well. The details of the documentation are an integral part of the CIDL file.
+   Código Generators create full web-based Smart Contract documentation based on the CIDL file. This documentation will
+   list all exposed methods by the Smart Contract and input parameters. For Account based VMs, like Solana, full account
+   structure is documented as well. The details of the documentation are an integral part of the CIDL file.
 
 4. **Generate all the test cases and provide an external security audit guarantee**
 
-    Código adds automatic checks for all variables and parameters, the platform also checks the signatures and the actual ownership of the data. 
+   Código adds automatic checks for all variables and parameters, the platform also checks the signatures and the actual
+   ownership of the data.
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
+
 [![Button Example]][Link]
 [Link]: https://docs.google.com/forms/d/e/1FAIpQLSeiSwnKQ8zu5GC5bB0w2HQCAiwqSCi_9HeD9Cp5Lxq761_Y1A/viewform
 [Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge
