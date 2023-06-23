@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Learning the Basics
 
-Codigo's Interface Description Language (short: CIDL), is the main configuration file for your dApp projects. Through
+Código's Interface Description Language (short: CIDL), is the main configuration file for your dApp projects. Through
 the CIDL, we define the interface of a smart contract. The CIDL is written in YAML format; thus, the created file must
 have the .yaml or .yml file extension.
 
@@ -64,7 +64,7 @@ Data types in the CIDL are all specified in lowercase, except for (custom) types
 **Native Types:** These are primitive data types like `u32`, `bool`, `string`, etc. It is important to note that what is
 a primitive type in the context of the CIDL may not be a primitive type in the transpile version.
 
-**Extended Types:** Built-in extended types implemented by Codigo like `sol:pubkey`, `rs:option<t>`, and others. These
+**Extended Types:** Built-in extended types implemented by Código like `sol:pubkey`, `rs:option<t>`, and others. These
 data types can be specific to a programming language, blockchain, or a particular form of handling them.
 
 **Types:** These are the custom types defined by a developer.

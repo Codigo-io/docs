@@ -20,9 +20,9 @@ Código Studio is built on the foundation of Visual Studio Code, a popular deskt
 result, if you have experience using VSCode, you'll find that the web-based environment of Código Studio will feel
 familiar and intuitive.
 
-| ![Codigo Studio](../../static/img/Codigo-Studio.png) |
+| ![Código Studio](../../static/img/Codigo-Studio.png) |
 |:----------------------------------------------------:|
-|              *Codigo Studio Interface*               |
+|              *Código Studio Interface*               |
 
 Código Studio comprises several main sections that provide different functionalities to developers. These sections
 include:
@@ -82,20 +82,20 @@ The Solana CLI RPC URL comes preconfigured to: http://127.0.0.1:8899
 
 :::
 
-### Codigo CLI
+### Código CLI
 
-The Codigo CLI is a powerful command-line tool used for managing CIDL files. With it, you can easily generate Solana
+The Código CLI is a powerful command-line tool used for managing CIDL files. With it, you can easily generate Solana
 contracts and TypeScript clients
 
 The available commands are:
 
 - `codigo generate path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client.
 
-You can learn more about Codigo CLI by clicking [here](./codigo-cli.md)
+You can learn more about Código CLI by clicking [here](./codigo-cli.md)
 
 ### Others programs and Tools
 
-The Codigo Studio environment comes with additional tools and programs to get you started working with the CIDL. These
+The Código Studio environment comes with additional tools and programs to get you started working with the CIDL. These
 are:
 
 - The **Node CLI** is a tool that allows you to run JavaScript code outside of a web browser. It's essential for
@@ -109,7 +109,7 @@ are:
 **Congratulations!** 🎉👏 at this point, you should have a basic understanding of the available tools that Código Studio
 comes with. To summarize what we learned:
 
-- Código Studio comes with Cargo, Solana, and Codigo CLI
+- Código Studio comes with Cargo, Solana, and Código CLI
 - Código Studio is based on the Visual Studio Code editor
 - Código Studio comes with a web-based documentation extension
 

@@ -5,7 +5,7 @@ sidebar_position: 2
 # Quickstart
 
 In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch
-using our web-based IDE, [Codigo Studio](https://studio.codigo.ai). Código Studio has all the necessary tools and
+using our web-based IDE, [Código Studio](https://studio.codigo.ai). Código Studio has all the necessary tools and
 programs to develop using the CIDL.
 
 After completing this QuickStart, you should have a basic understanding of the CIDL structure, how to execute Código’s
@@ -376,7 +376,7 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Learning the Basics](./código-interface-description-language/learning-the-basics)
 - [Part I - Building Solana Programs](./guides/part-1-building-solana-programs)
 
-### Join the Codigo community 💚
+### Join the Código community 💚
 
 Código is a growing community of developers. Join us on 
 **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** 

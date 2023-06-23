@@ -216,7 +216,7 @@ async function main(feePayer: Keypair) {
         {
             title: "Quickstart",
             shortDescription:
-                "In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch using our web-based IDE, Codigo Studio.",
+                "In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch using our web-based IDE, Código Studio.",
             featureImageUrl: "https://example.com",
             contentUrl: "https://example.com",
             category: "Solana",
@@ -357,7 +357,7 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Generating the web-based documentation](./generating-the-web-based-documentation.md)
 - [Completing the stubs and using the SDK](./completing-the-stubs-and-using-the-sdk.md)
 
-### Join the Codigo community 💚
+### Join the Código community 💚
 
 Código is a growing community of developers. Join us on
 **[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
