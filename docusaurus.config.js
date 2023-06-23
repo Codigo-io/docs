@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   tagline: 'Software development automation platform for blockchain developers',
-  title: 'Código',
+  title: 'Código Docs',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -80,7 +80,7 @@ const config = {
           // },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://dev-studio.codigo.ai/playground/',
+            href: 'https://studio.codigo.ai',
             position: 'right',
             label: 'Código Studio',
           },
@@ -120,20 +120,20 @@ const config = {
             ],
           },
           {
-            // title: 'More',
-            // items: [
-            //   {
-            //     label: 'Blog',
-            //     to: '/blog',
-            //   },
-              // {
-              //   label: 'GitHub',
-              //   href: 'https://github.com/facebook/docusaurus',
-              // },
-            // ],
+            title: 'More',
+            items: [
+              {
+                "label": "Terms",
+                "href": "https://codigo.ai/documents/Codigo---Terms-of-Service.pdf"
+              },
+              {
+                "label": "Privacy",
+                "href": "https://codigo.ai/documents/Codigo---Privacy-Policy.pdf"
+              }
+            ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Codigo, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Código, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
