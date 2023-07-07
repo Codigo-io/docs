@@ -28,13 +28,13 @@ Codigo Generators creates full Smart Contract documentation based on the CIDL fi
 This documentation will list all exposed methods by the Smart Contract and input parameters. For Account based VMs, like Solana, full account structure is documented as well.
 The details of the documentation are an integral part of the CIDL file.
 
-## High Level Schematic Diagram
+<!-- ## High Level Schematic Diagram
 
 | ![High Level Schematic Diagram](../../static/img/high_level_schematic_diagram.png) |
-|:----------------------------------------------------------:|
+|:----------------------------------------------------------:| -->
 
 ## Codigo’s Interface Description Language CIDL
-CIDL is a work in progress, open initiative to standardize how Smart Contracts Interfaces and data structures are described. Similar to OpenAPI ( Swagger ) for Web2 RESTful API design.
+CIDL is a work in progress, open initiative to standardize how Smart Contracts Interfaces and data structures are described. 
 
 The Codigo Interface Description Language defines a, programming language-agnostic, interface description for Smart Contract Interfaces and custom data types, which allows both humans and computers to discover and understand the capabilities of a Smart Contract without requiring access to source code, additional documentation, or reverse engineering. The CIDL Specification removes guesswork in calling a Smart Contract.
 
@@ -86,7 +86,7 @@ methods: # Array of methods | instructions
   version: version of this method
   summary: description of this API
   solana:
-  signers: # Array of signers
+    signers: # Array of signers
 inputs: # Array of inputs
   - name: # The Input parameter name
     type: [native, type, extended]
@@ -110,7 +110,7 @@ In this section the developer defines Smart Contract general settings, such as S
 |------|--------|---------------------------------------------------------------------|
 
 **CIDL Sample**
-```
+```yaml
 cidl: '0.1'
 ```
 
@@ -118,7 +118,7 @@ cidl: '0.1'
 
 ### Info Schema (Required)
 
-```
+```yaml showLineNumbers
 info:
   name: smart contract name 
   title: title or name of the smart contract
@@ -163,8 +163,8 @@ This object defines the license governing this CIDL.
 | **Field Name** | **Type**      | **Notes**                                                                 |
 |----------------|---------------|---------------------------------------------------------------------------|
 | **name**       | String        | **Required** The license name used for the CIDL.                                       |
-| **identifier** | String        | **Optional** An [SPDX](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60) license expression for the API.                                   |
-| **url**        | String \| URL | **Optional** A URL to the license used for the API. This MUST be in the form of a URL. |
+| **identifier** | String        | **Mutually Required** An [SPDX](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60) license expression for the API.                                   |
+| **url**        | String \| URL | **Mutually Required** A URL to the license used for the API. This MUST be in the form of a URL. |
 
 :::info
 Between identifier and url, only one is required.
@@ -172,7 +172,7 @@ Between identifier and url, only one is required.
 
 ### Info Object Sample
 
-```
+```yaml showLineNumbers
 info: # Smart Contract Information
   name: LamportTransfer
   title: Transfer Lamports between 2 accounts
@@ -197,16 +197,16 @@ External CIDL locations can be versioned, to lock a specific version of a CIDL, 
 
 ### Imports Schema (Optional)
 
-```
+```yaml showLineNumbers
 imports: # Array external CIDLs
 - ref: name | name to be referenced inside this document. 
   loc: url [ local file system, https, github ] 
 ```
 
-### Imports Array
+<!-- ### Imports Array
 
 | **imports** | Array [Import Object] | **Optional** |
-|-------------|-----------------------|--------------|
+|-------------|-----------------------|--------------| -->
 
 ### Import Object
 
@@ -249,7 +249,7 @@ This section defines new Data Structures. These structures are referenced by met
 
 ### Types Schema (Optional)
 
-```
+```yaml showLineNumbers
 types:
   <type-name>: # Identifier for this Structure
     summary: account description summary
@@ -274,23 +274,22 @@ types:
 
 ### Type-name Key
 
-| Type name &lt;type-name&gt; | String It has to comply with the Smart Contract Data Structure naming policies. | The Type name is, the key to the type object map, is used to identify the data structure within the Method definition. This identifier will also become the name for the SmartContract Data Structure to be referenced within the code. |
-|-----------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Type name &lt;type-name&gt; String It has to comply with the Smart Contract Data Structure naming policies. The Type name is, the key to the type object map, is used to identify the data structure within the Method definition. This identifier will also become the name for the SmartContract Data Structure to be referenced within the code. 
 
 ### Type Object
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
 | **summary**    | String \| markup | **Recommended** Documentation summary of the Data Structure |
-| **solana**     | Solana Extension Object for Type           | **Optional** (relevant if Target Blockchain is Solana) To define Solana Extensions for this Data Structure. This defined the Structure as a Solana Account |
+| **solana**     | Solana Extension           | **Optional** (relevant if Target Blockchain is Solana) Solana Extention for custom-defined data types through which we can define additional configurations. |
 | **fields**     | Array [Field Object] | **Required** |
 
 ### Solana Extension Object for Type
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **owner**    | String \| sol: pubkey | *To be supported in future versions:* **Optional** The Program identifier( Pubkey) that Owns this Account. Codigo will add runtime checks to validate that the right account’s owner matches this field. If this field is ignored or set as **self**, the check is done with the current program id.|
-| **seeds**    | Array [Seed Object] | **Optional** Required for PDA accounts. |
+| **owner**    | self \| Static public key | *To be supported in future versions:* **Optional** Adds the security check; verifies the owner of the Solana account is the specified public key or the program. When set to `self` it will be verified against the program id. If omitted it will be set to `self`.|
+| **seeds**    | Array [Seed Object] | **Optional** When specified, the type will be transpile to a Solana PDA Account. |
 
 ### Seed Object
 
@@ -311,13 +310,13 @@ The Field array field is required even if it has a single entry. Future reviews 
 | **format**    | String | *To be supported in future versions:* **Optional** Represents the internal format of the field. For example a String can represent a **date, an email address or a url**. Extended types can also be used to represent Blockchain Accounts, PublicKeys, etc. |
 | **attributes**    | [&lt;attr name: attr value&gt;] | *To be supported in future versions:* **Optional** See Native Types table for supported attributes |
 | **description**| String \| Markup  | **Recommended** Field description in markup |
-| **solana**    | Solana Extension Object for Field | **Optional** (relevant if Target Blockchain is Solana) To define Solana Extensions for this Data Structure. This defined the Structure as a Solana Account |
+| **solana**    | Solana Extension Object for Field | **Optional** (relevant if Target Blockchain is Solana) Solana Extention for fields through which we can define additional configurations. |
 
 ### Solana Extension Object for Field
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **attributes**    | Array [Attribute] | **Optional** Where Attribute is a string following this format: attr-name: attr-value. The only supported attribute is cap:nnn, which is required for types vec, string, opt&lt;string&gt;. See Type Extensions table for supported attributes |
+| **attributes**    | Array [Attribute] | **Optional** The currently supported attributes is `cap:[0-9]+`, i.e `cap:36`; required when the field's type is `string`, `rs:option<string>;` and `rs:vec<t>`. |
 
 ## Methods
 
@@ -325,7 +324,7 @@ The Method Section describes the interface signature for each instruction expose
 
 ### Methods Schema (Required)
 
-```
+```yaml showLineNumbers
 methods: # Array of methods | instructions
 - name: method name 
   version: version of this method
@@ -354,20 +353,20 @@ methods: # Array of methods | instructions
 | **name**    | String \| Method name It has to comply with the Smart Contract method/functions naming policies.| **Required** |
 | **version**    | String | **Recommended** Semantic version of the specification used in this document  |
 | **summary**    | String \| Markup | **Optional** Documentation summary of the Data Structure |
-| **solana**     | Solana Extension Object for Method           | **Optional** (relevant if Target Blockchain is Solana) To define Solana Extensions for this Data Structure. |
+| **solana**     | Solana Extension Object for Method           | **Optional** (relevant if Target Blockchain is Solana) Solana Extention for methods through which we can define additional configurations. |
 | **inputs**    | Array [Input Object] | **Optional** |
 
 ### Solana Extension Object For Method
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **signers**    | Array [Signer Object] | **Optional** Defines names for the accounts of received signatures. The first signer name will be the one assigned to fee-paying account. Because of that, it can't have a custom account type. Also, when its name is not specified "feePayer" will be used as name. |
+| **signers**    | Array [Signer Object] | **Optional** List of signers for the given method. When specified, the first signer will be the fee payer of the transaction. |
 
 ### Signer Object
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **name**    | String | **Required** The name for the signing account. If the signer name coincides with an input name, it is assumed the input will be the signer. |
+| **name**    | String | **Required** The name for the signing account. If the signer name coincides with an input name, the input will be the signer. |
 | **type**    | String | **Optional** Setting a type in the signer makes the program perform the account checks in the signing account. If a signer's name matches an input with type, the input's type will be checked. |
 | **executable**    | boolean | **Optional** Setting a signer as executable, indicates the account refers to a Solana program. |
 | **address**    | String | **Optional** When an address is specified the signer will be required to match it. |
@@ -378,10 +377,10 @@ methods: # Array of methods | instructions
 |------------|------------------|---------------------------------------------|
 | **name**    | String | **Required** The input name. This name is used to generate source code. It will be used as the Method parameters. |
 | **type**    | String | **Required** Data types supported by this version of the CIDL: **Native Types**: Native primitive data types. **Types**: Types defined in this or external CIDL. **Extended Types**: Built in extended types implemented by Codigo. |
-| **solana**    | Solana Extension Object for Input | **Optional** (relevant if Target Blockchain is Solana) To define Solana Extensions for this Data Structure. |
+| **solana**    | Solana Extension Object for Input | **Optional** (relevant if Target Blockchain is Solana) Solana Extention for inputs through which we can define additional configurations. |
 | **description**    | String | **Recommended** Documents the input parameter. This description is used to document in source code and while building the Web Documentation. |
 
-:::note
+<!-- :::note
 To reference external types the type field  is created by adding the Import “ref” as prefix.
 
 ref.type
@@ -391,10 +390,10 @@ Where ref is the import ref field and type is the name of the type from the impo
  I.e. To reference Type record from CIDL with reference user, the type is created as:
 
 user.record
-:::
+::: -->
 
 :::info
-For Solana, if the type is a StructureID it represents a Solana Account, where the input is a Solana PubKey.
+When targeting the Solana blockchain, custom-defined data structure specified in the input's type will be transpile to Solana Accounts.
 :::
 
 ### Solana Extension Object for Input
@@ -410,21 +409,22 @@ For Solana, if the type is a StructureID it represents a Solana Account, where t
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **attribute**    | string | **Required** If parameter type is an Account, the following attributes apply: **mut**: account is writable. **init**: account initialized in each transaction. Initialization is rent exempt. **init-if-needed**: account initialized if not exists yet. Initialization is rent exempt. |
+| **attribute**    | string | **Optional** Supported attributes are `mut`, `init`, and `init_if_needed`: **mut**: will set the account writable; thus, can be modify. **init**: when indicated Código's AI-generator will create the code to initialize the account. If the account is already created it will throw an error. **init-if-needed**: similar to init the difference is that when passing an account that is already created it won't throw an error. |
 
 ### Seeds Map
 
 | Field Name | Type             | Notes                                       |
 |------------|------------------|---------------------------------------------|
-| **seed-name**    | String | **Optional** If a seed-name for the account doesn't appear in the map, it will be automatically generated as an extra parameter in the sdk instruction call. When a seed-name is defined, it lets the user define where its value will be taken from. |
-| **Input-name**    | String | **Required** The value must be the name of the input where to take seed's value from. In this case, seed's type must match the inputs' type. *To be supported in future versions:* The input-name may instead refer to a signer. |
+| **map's key**    | String | **Optional** The map's key must be the same name defined in the seeds list for a type. |
+| **map's value**    | String | **Required** The value of the map must be the name of an input or signer. |
 
 ## Errors
 
 This section defines how to allow users to include personalized error messages associated to their business logic.
 
 ### Errors Schema (Optional)
-```
+
+```yaml showLineNumbers
 errors: # Array - Custom Errors definition
 - id: Error identifier
   msg: Error message 
@@ -443,7 +443,7 @@ errors: # Array - Custom Errors definition
 
 ### Errors Sample
 
-```
+```yaml showLineNumbers
 errors: # Array - Custom Errors definition
 - id: 001
   msg: not enough balance
@@ -463,9 +463,9 @@ This work in progress table describes the built in native types supported by thi
 |----------------------|----------------|-----------|
 | **Int8, int16, int32, int64, int128**           |                |           |
 | **uint8, uint16, uint32, uint64, uint128**           |                |           |
-| **float32, float64**           |      min,max          | Types supported *To be supported in future versions:* Minimum and Maximum attributes |
-| **string**           |      cap:nnn          |   Text Require the Capacity attribute when used in a type    |
-| **bytes**           |     cap:nnn           |   *To be supported in future versions:* Sequence of bytes. Requires the Capacity attribute when used in a type  |
+| **float32, float64**           |      min,max          | Minimum and Maximum attributes |
+| **string**           |      cap:[0-9]+          |   Capacity attribute required when targeting the Solana blockchain.   |
+| **bytes**           |     cap:[0-9]+           |   *To be supported in future versions:* |
 
 ### Type Extensions
 
@@ -481,15 +481,15 @@ This work in progress table describes the built in extended types supported by t
 
 | **CIDL Extended Type** | **Attributes** | **Notes** |
 |------------------------|----------------|-----------|
-| **rs:option&lt;native&gt;**          |     cap:nnn           |   Requires the Capacity attribute when used with native type string in a type definition        |
-| **rs:vec&lt;num*-native&gt;**          |    cap:nnn            |  num*=numeric+bool Requires the Capacity attribute when used in a type definition   |
+| **rs:option&lt;t&gt;**          |     cap:[0-9]+           |   Where `t` can be any native type or the extended type `sol:pubkey`. Capacity attribute require when `t` is of type `string` and targets the solana blockchain.        |
+| **rs:vec&lt;t&gt;**          |    cap:[0-9]+            |  Where `t` can be any native or the extended type `sol:pubkey`. Capacity attributes is always required when targeting the solana blockchain.   |
 
 ### Solana Type Extension
 Prefix Identifier: **sol**
 
 | **CIDL Extended Type** | **Attributes** | **Notes** |
 |------------------------|----------------|-----------|
-| **sol:pubkey**          |                |   Pubkey is a Solana specific Structure in Rust        |
+| **sol:pubkey**          |                |   Data type specific to the Solana blockchain. Will be transpile the Pubkey data type.        |
 
 
 
