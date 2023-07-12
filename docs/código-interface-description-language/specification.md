@@ -190,7 +190,7 @@ info: # Smart Contract Information
     identifier: Apache-2.0
 ``` 
 
-## Imports
+<!-- ## Imports
 
 This section defines how to import external CIDL to be reused while defining a new interface.
 External CIDL locations can be versioned, to lock a specific version of a CIDL, or generic, pointing to the latest version ( not recommended ). To be supported in future versions.
@@ -208,15 +208,15 @@ imports: # Array external CIDLs
 | **imports** | Array [Import Object] | **Optional** |
 |-------------|-----------------------|--------------| -->
 
-### Import Object
+<!-- ### Import Object
 
 | **Field Name** | Type          | Notes                                                                                                                                                                               |
 |----------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **ref**        | String        | **Required** Reference name. Used as a prefix when an element of this CIDL is used locally. Each ref has to be unique                                                                            |
 | **loc**            | String \| URL | **Required** Location of the CIDL. The location can be: Local File System, URL (GitHub, HTTP), CIDL Hub. Locations can include a version indicator to lock the external CIDL to a stable version |
-| **solana**         | object        | **Optional** Extensions needed to support the Solana Blockchain                                                                                                                                  |
+| **solana**         | object        | **Optional** Extensions needed to support the Solana Blockchain                                                                                                                                  | -->
 
-### Solana Object 
+<!-- ### Solana Object 
 
 | Field Name | Type                  | Notes                                                                             |
 |------------|-----------------------|-----------------------------------------------------------------------------------|
@@ -241,7 +241,7 @@ methods:
   - name: srcAccount
     type: token.TokenAccount       # Referencing an imported CIDL
     description: source account
-```
+```  -->
 
 ## Types
 
