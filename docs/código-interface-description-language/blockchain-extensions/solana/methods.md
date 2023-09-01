@@ -16,6 +16,16 @@ Anything not specified in this document is because it works exactly as how
 the [Learning the Basics](../../learning-the-basics.md) defines it.
 :::
 
+## Default payer
+The generator will automatically add a default fee payer to each transaction that will be an expected signer. This behavior can be deactivated by specifying the `default-payer` property to the method’s solana extension. In the CIDL it looks as follows:
+
+```yaml showLineNumbers
+methods:
+  - name: disable_default_payer
+    solana:
+      default-payer: false
+```
+
 ## Signers
 
 One of Solana's “neat” features is that instructions support multiple signers. By default, any defined method will have
@@ -51,8 +61,31 @@ simultaneously.
 :::
 
 :::caution Alert
-Only Non-PDA accounts are supported as a value for `type` in the private beta.
+Only Non-PDA accounts are supported as a value for `type` in the public beta.
 :::
+
+## Uses
+Another of Solana's “neat” features that unlocks a realm of possibilities is Cross Program Invocation (CPI). This feature allows developers to call other programs' instructions from their program. After importing a CIDL we can reference other CIDL methods within the `uses` property. The `uses` is an array of strings. In the CIDL it looks as follows:
+
+```yaml showLineNumbers
+imports:
+  - ref: cidl_b
+    loc: ./cidl_b.yaml
+    solana:
+      progid: MyCIDLBProgramId
+methods:
+  - name: do_work
+    uses:
+      - cidl_b.ix1
+      - cidl_b.ix2
+```
+
+In the `uses` property you can reference as many instructions as your use case requires. When using uses, there are some rules to remember:
+- The generator will automatically add the accounts the referenced method requires, including the program account.
+- The permission will be elevated if an input-of-type account has the same name and data type between the referenced methods or the local method.
+- The data instruction arguments must be specified by the developer.
+- PDA accounts with dynamic seeds; the dynamic seed’s inputs won’t be generated on-client unless linked.
+- If an account needs to be initialized in the referenced method, and this account has a data structure defined; the account will be transpiled into an account info.
 
 ## Inputs
 
@@ -73,12 +106,24 @@ methods:
         solana:
           seeds:
             - seed_name: my_second_input
-          attributes: [ mut, init ]
+          attributes: [ init ]
           rent-payer: my_rent_payer
       - name: my_second_input
         type: string
+      - name: account_info
+        type: sol:account_info
         solana:
-          attributes: [ cap:26 ]
+          attributes: [init]
+          owner: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs
+      - name: system_program
+        type: sol:account_info
+        solana:
+          address: 11111111111111111111111111111111
+       - name: account_to_close
+         type: CustomDataStructure
+         solana:
+           attributes: [ close ]
+           rent-receiver: fee_payer
 ```
 
 :::note
@@ -92,17 +137,55 @@ Custom define data structure will be transpile to a Solana account.
 Whenever we need to modify an account, we must specify the `mut` attribute. This will mark the account meta from the
 transaction instruction as writable, and in the stub functions, the data structure will be marked as `mut`.
 
+:::info
+Accounts not owned by your program can be marked as `mut`; this will set the `is_writable` property to true and, in the program, will define an immutable variable to store the account.
+:::
 ### `init`
 
 If we need to initialize an account, we specify the `init` attribute. This attribute will tell Código AI Generator to
 generate all the required code to initialize the given account; it can be a PDA Account or a Non-PDA Account.
 
+:::note
+If the account space (size) is greater than **10240 bytes**, the account will be created on the client side. Solana runtime doesn’t allow the creation of accounts greater than the specified size on the program.
+:::
 ### `init_if_needed`
 
 Similar to [init](#init). The only difference is that when specifying `init_if_needed` the generated code will add a
 validation check to verify if the account has already been initialized. If the account has already been initialized, it
 will go directly to the stub; contrary to `init` if the account has been initialized, it will throw an error.
 
+### `close`
+When we need to close an account, we specify the `close` attribute this will generate the required code to close the given account. When closing an account, Solana runtime must transfer the rent-exempt funds into another account; by default, the funds will be transferred to the fee payer. This can be overridden through the `rent-receiver` property.
+
+:::caution
+At the moment, `close` is only supported on Anchor programs.
+:::
+
+### `space`
+When specifying `init` or `init_if_needed` to a `sol:account_info`, we must set the space of the account; it can be done through the `space` attribute. In the CIDL, it looks as follows:
+
+```yaml showLineNumbers
+methods:
+  - name: init_account
+    inputs:
+      - name: account
+        type: sol:account_info
+        solana:
+          attributes: [init, space:50]
+```
+
+### `cap`
+When specifying `init` or `init_if_needed` to a `sol:merkle_tree` we must set the capacity of the account, we can do this through the `cap` attribute. This will tell the generator how many “accounts you which to compress wihtin the specified merkle tree” In the CIDL, it looks as follow:
+
+```yaml showLineNumbers
+methods:
+  - name: init_merkle_tree
+    inputs:
+      - name: account
+        type: sol:merkle_tree
+        solana:
+          attributes: [init, cap:100000]
+```
 ### Seeds
 
 As discussed in [Solana Extension - Data Types - Seeds](./data-types#seeds),
@@ -138,7 +221,7 @@ methods:
       - name: user_record
         type: Record
         solana:
-          attributes: [ mut, init ]
+          attributes: [ init ]
           # Seeds map
           signers:
             signer: client
@@ -159,7 +242,7 @@ In Solana, all accounts are required to pay rent when we specify the init or ini
 rent payer will be the fee payer. We can overwrite this behavior by specifying the property `rent-payer` where the value
 is a signer's name. For example:
 
-```yaml showLieNumbers
+```yaml showLineNumbers
 methods:
   - name: create_user_record
     solana:
@@ -171,9 +254,27 @@ methods:
         type: Record
         solana:
           rent-payer: custom_rent_payer
-          attributes: [ mut, init ]
+          attributes: [ init ]
 ```
 
+### Rent receiver
+When closing an account, the deposited rent-exempt funds will be transferred into an account. If not specified, the fee payer of the transaction will receive these lamports. To override this behavior, we specify the `rent-receiver`. The `rent-receiver` can be another account from the input’s or signer’s list or a static pubkey.
+
+```yaml showLineNumbers
+methods:
+  - name: close_user_record
+    inputs:
+      - name: user_record
+        type: Record
+        solana:
+          rent-payer: custom_rent_receiver
+          attributes: [ close ]
+      - name: custom_rent_receiver
+        type: sol:account_info
+```
+:::caution
+ At the moment `close` is only supported on Anchor programs.
+:::
 ## Next Steps
 
 **Congratulations!**🎉👏 at this point, you should have a basic understanding of the additional configuration we can
