@@ -4,17 +4,28 @@ sidebar_position: 1
 
 # Código's CLI
 
-Through Código CLI, developers can interact with Código AI Generator. For the private beta, developers can only access
+Through Código CLI, developers can interact with Código AI Generator. For the public beta, developers can only access
 the Código CLI from [Código Studio](https://studio.codigo.ai). The Código CLI is configured to the PATH of the
 web-based environment; thus, you can access it from the terminal by going to Terminal -> New Terminal and typing the
 command `codigo`.
 
 ## Commands
 
+## Solana
+Solana sub-command to generate programs and client libraries
+
 ### generate
 
-Executes the Código AI Generator. For the private beta, it will generate the TypScript client library and the native
-Solana smart contract.
+Generate client libraries or programs
+
+**Flags**
+
+| -a, --anchor  | Generates the program or client using the Anchor framework  |
+|---------------|-------------------------------------------------------------|
+| -c, –only-client  | Generates only the TypeScript client library  |
+| -p, –only-program | Generates only the program  |
+| –out-client  | Output for the generated client library  |
+| –out-program | Output for the generated program  |
 
 :::caution
 For the moment, the generate command will overwrite the stub files. Make sure to save any information before rerunning
@@ -24,7 +35,7 @@ it.
 #### Usage
 
 ```shell
-codigo generate /path/to/your/cidl.yaml
+codigo solana generate /path/to/your/cidl.yaml
 ```
 
 ## Join the Código community 💚
