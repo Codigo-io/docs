@@ -14,6 +14,22 @@ programming language. An extension can be defined in various places of the CIDL.
 
 This document will show the different areas and properties available for the `solana` extension.
 
+## Imports
+For imports, we must define the solana extension when targeting the Solana blockchain.
+```yaml showLineNumbers
+imports:
+  - ref: another_cidl
+    loc: ./another_cidl.yaml
+    solana:
+      progid: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs  
+```
+
+- `progid`:  Program ID of the deployed program. Accounts whose owner is set to `self` in the imported CIDL will take this `progid` as the owner’s value.
+
+:::caution
+Currently, `loc` only supports file system.
+:::
+
 ## Types
 
 We can define the `solana` extension to our custom types. The valid properties for the `solana` extension in the context
@@ -25,6 +41,7 @@ types:
     # ...
     solana:
       owner: self | Pubkey
+      compress: false | true
       seeds:
         - name: Static Value | Name of the seed
           type: Type of seed for non-static value
@@ -35,6 +52,8 @@ types:
   [Solana Extension - Data Types - Types owner](./data-types.md#ownership)
 - `seeds`: Solana PDA account’s seed definition. To learn more about this property, check
   [Solana Extension - Data Types - Types' seeds](./data-types.md#seeds)
+- `compress`: Indicates the generator if this type will be used for state compression. To learn more about this property, check [Solana Extension - Data Types - Types](./data-types.md)
+
 
 ## Fields
 
@@ -66,6 +85,7 @@ look like this:
 methods:
   - name: my_instruction
     solana:
+      default-payer: [Optional] false | true
       signers:
         - name: Name of the signer
           type: [ Optional ] Account type
@@ -73,7 +93,7 @@ methods:
           executable: [ Optional ] Validate if the account is a program
     # ...
 ```
-
+- `default-payer`: Defaults to true, automatically generate a default payer into the defined method.
 - `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more
   about this property, check [Solana Extension - Methods' signers](./methods.md#signers)
 
@@ -94,12 +114,24 @@ methods:
         solana:
           seeds:
             - seed_name: my_second_input
-          attributes: [ mut, init ]
+          attributes: [ init ]
           rent-payer: my_rent_payer
       - name: my_second_input
         type: string
+      - name: account_info
+        type: sol:account_info
         solana:
-          attributes: [ cap:26 ]
+          attributes: [init]
+          owner: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs
+      - name: system_program
+        type: sol:account_info
+        solana:
+          address: 11111111111111111111111111111111
+       - name: account_to_close
+         type: CustomDataStructure
+         solana:
+           attributes: [ close ]
+           rent-receiver: fee_payer
 ```
 
 - `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about
@@ -110,6 +142,10 @@ methods:
 - `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an
   account. To learn more about this property,
   check [Solana Extension - Methods - Inputs' rent-payer](./methods.md#rent-payer)
+- `rent-receiver`: Through the `rent-receiver` property, we can specify which account will receive the lamports held by an account that will close. Defaults to the fee payer.
+- `owner`: When working with a `sol:account_info` type, we can specify the owner of this account. This will generate the ownership security check for the given account.
+- `address`: When working with a `sol:account_info` type, we can specify the address of this account. This will generate the address security check for the given account, ensuring the received account matches the address.
+
 
 ## Next Steps
 
