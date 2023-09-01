@@ -24,7 +24,7 @@ imports:
       progid: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs  
 ```
 
-- `progid`:  Program ID of the deployed program. Accounts whose owner is set to `self` defined in the imported CIDL will take this `progid` as the owner’s value.
+- `progid`:  Program ID of the deployed program. Accounts whose owner is set to `self` in the imported CIDL will take this `progid` as the owner’s value.
 
 :::caution
 Currently, `loc` only supports file system.
