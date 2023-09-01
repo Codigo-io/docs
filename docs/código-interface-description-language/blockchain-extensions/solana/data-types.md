@@ -51,6 +51,9 @@ When used in a data structure field, the `rs:option<string>` data type in solana
 because the inner type of option is a string. Thus, rs:option&lt;string&gt; capacity is defined similarly to string;
 check [Solana Extension - Data Types - string](#string) to learn more.
 
+### rs:c_option&lt;string&gt;
+This extended type is intended to support only the Solana Program Library. No custom de/serialization is generated for this type; the de/serialization depends on the spl_token crate.
+
 ### rs:vec&lt;t&gt;
 
 When defining a field of type `rs:vec<t>`, the `rs:vec<t>` data type must have a fixed length because the data structure
@@ -80,8 +83,9 @@ We don’t need to specify the capacity attributes to `rs:vec<t>` when using it 
 
 Currently, the only places we can specify the `sol:account_info` data type are in the method’s input and signer types.
 
-When specifying `sol:account_info` to an input will transpile to a read-only parameter; this means we cannot specify the
-attributes `mut`, `init`, or `init_if_needed` to the input.
+### sol:merkle_tree
+Currently, the only places we can specify the `sol:merkle_tree` data type are in the method’s input. This extended type is used to work with state compression.  Check the guide “Implement state compression using the CIDL” to learn more.
+
 
 ## Types
 
@@ -119,6 +123,19 @@ The `owner` property accepts the values:
 2. **Static pubkey**: A valid base58 static string. This value will transpile to verify that the account’s owner equals
    the static bas58 string.
 
+If the type is referenced in another CIDL, the owner of the type will follow the subsequent rules:
+- If the type owner is `self`, the owner will be the defined `progid` in the import
+- If the type owner defined a static pubkey, the owner would be the specified static pubkey.
+
+### Compress
+Within the solana extension for a type, we can set the `compress` property; the valid values are false or true, defaults to false. When set to true, the generator will generate the corresponding code, allowing you to compress this data type.  Check the guide “Implementing state compression using the CIDL” to learn more.
+
+```yaml showLineNumbers
+types:
+    MyAccount:
+        solana:
+            compress: true
+```
 ### Seeds
 
 To define PDA Accounts, we need to specify the `seeds` definition within the `solana` extension in the context of types.
