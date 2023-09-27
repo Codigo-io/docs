@@ -177,7 +177,10 @@ library. For that, open a new terminal; Terminal -> New Terminal
 |:------------------------------------------------------------:|
 |                        *New Terminal*                        |
 
-Type the following command to execute the generator: `codigo generate cidl.yaml`
+Type the following command to execute the generator: 
+```bash 
+codigo solana generate cidl.yaml
+```
 
 When it completes generating the code, you will see three new directories in the explorer as follows:
 
