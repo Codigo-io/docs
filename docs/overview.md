@@ -78,6 +78,12 @@ The current solution:
    Código adds automatic checks for all variables and parameters, the platform also checks the signatures and the actual
    ownership of the data.
 
+## Join the Código community 💚
+
+Código is a growing community of developers. Join us on
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
+
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 
 [![Button Example]][Link]

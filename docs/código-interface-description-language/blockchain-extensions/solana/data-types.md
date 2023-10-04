@@ -39,7 +39,9 @@ types:
           attributes: [ cap:32 ]
 ```
 
+:::tip
 We don’t need to specify the capacity attributes to `string` when using it in a method’s input type.
+:::
 
 ## Extended Data Types
 
@@ -51,8 +53,10 @@ When used in a data structure field, the `rs:option<string>` data type in solana
 because the inner type of option is a string. Thus, rs:option&lt;string&gt; capacity is defined similarly to string;
 check [Solana Extension - Data Types - string](#string) to learn more.
 
-### rs:c_option&lt;string&gt;
-This extended type is intended to support only the Solana Program Library. No custom de/serialization is generated for this type; the de/serialization depends on the spl_token crate.
+### rs:c_option&lt;t&gt;
+
+This extended type is intended to support only the Solana Program Library. No custom de/serialization is generated for
+this type; the de/serialization depends on the spl_token crate.
 
 ### rs:vec&lt;t&gt;
 
@@ -61,7 +65,7 @@ this field belongs to will be transpile to a Solana account. The length of the v
 four additional bytes; in these 4 bytes, we stored the capacity value.
 
 :::caution
-`vec<string>` is still WIP; thus, it is unavailable for the private beta.
+`vec<string>` is in WIP
 :::
 
 The capacity of a vector can be defined through the `attributes` property, which can be specified to fields via
@@ -77,15 +81,18 @@ types:
           attributes: [ cap:8 ]
 ```
 
+:::tip
 We don’t need to specify the capacity attributes to `rs:vec<t>` when using it in a method’s input type.
+:::
 
 ### sol:account_info
 
 Currently, the only places we can specify the `sol:account_info` data type are in the method’s input and signer types.
 
 ### sol:merkle_tree
-Currently, the only places we can specify the `sol:merkle_tree` data type are in the method’s input. This extended type is used to work with state compression.  Check the guide “Implement state compression using the CIDL” to learn more.
 
+Currently, the only places we can specify the `sol:merkle_tree` data type are in the method’s input. This extended type
+is used to work with state compression.
 
 ## Types
 
@@ -123,19 +130,26 @@ The `owner` property accepts the values:
 2. **Static pubkey**: A valid base58 static string. This value will transpile to verify that the account’s owner equals
    the static bas58 string.
 
+:::info
 If the type is referenced in another CIDL, the owner of the type will follow the subsequent rules:
+
 - If the type owner is `self`, the owner will be the defined `progid` in the import
 - If the type owner defined a static pubkey, the owner would be the specified static pubkey.
 
+:::
+
 ### Compress
-Within the solana extension for a type, we can set the `compress` property; the valid values are false or true, defaults to false. When set to true, the generator will generate the corresponding code, allowing you to compress this data type.  Check the guide “Implementing state compression using the CIDL” to learn more.
+
+Within the solana extension for a type, we can set the `compress` property; the valid values are false or true, defaults
+to false. When set to true, the generator will generate the corresponding code, allowing you to compress this data type.
 
 ```yaml showLineNumbers
 types:
-    MyAccount:
-        solana:
-            compress: true
+  MyAccount:
+    solana:
+      compress: true
 ```
+
 ### Seeds
 
 To define PDA Accounts, we need to specify the `seeds` definition within the `solana` extension in the context of types.
@@ -163,11 +177,6 @@ The `seeds` property is an array of objects, where each object is composed of th
   supported [native](../../learning-the-basics.md#native-data-types) or
   the [extended data type `sol:pubkey`](../../learning-the-basics.md#extended-data-types).
 
-:::note
-For seeds of type string, the generated code will have the validation: that the string doesn’t exceed 32 bytes; if it
-does, it will throw an error.
-:::
-
 ## Next Steps
 
 **Congratulations!** 🎉👏 at this point, you should have a basic understanding of how to expand the capabilities of data
@@ -186,11 +195,11 @@ These links may help you on your journey to writing smart contracts with the CID
 
 - [Part I - Building Solana Programs](../../../guides/part-1-building-solana-programs.md)
 
-### Join the Código community 💚
+## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 
