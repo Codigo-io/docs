@@ -24,6 +24,8 @@ sidebar_position: 3
 - Solana has done a fantastic job helping the community reduce blockchain fees; thus, this release introduces state
   compression support.
 
+Download: https://github.com/Codigo-io/platform/releases/tag/v0.1.0
+
 ## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
