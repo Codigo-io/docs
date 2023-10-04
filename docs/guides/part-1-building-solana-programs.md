@@ -108,7 +108,7 @@ Let’s go into detail about each entity defined in the above diagram.
 
 ## Our first 10 lines of CIDL code
 
-You can follow along this guide by cloning the repo https://github.com/Codigo-io/examples
+You can follow along this guide by cloning the repo https://github.com/Codigo-io/platform
 
 :::info
 CIDL stands for Código Interface Description Language; through the CIDL, we can define our smart contracts interfaces.
@@ -146,9 +146,9 @@ target multiple blockchains with 1 CIDL and minimum configurations through exten
 In the previous code, we defined a solana extension for the field named `display_name`. Within the field solana
 extension, we defined the property `attributes`, `attributes` is an array of strings through which we can define the
 capacity of `display_name` using the `cap` attribute. To learn more,
-check [Solana Extension - Data Types](../código-interface-description-language/blockchain-extensions/solana/data-types.md).
+check [Solana Extension - Data Types - string](../código-interface-description-language/blockchain-extensions/solana/data-types.md#string).
 
-:::tip
+:::info
 Any data structure defined in the CIDL that targets the Solana blockchain will be transpile to a Solana account. Solana
 accounts must have a fixed length; thus, we need to specify the capacity of a string data type.
 :::
@@ -203,6 +203,8 @@ to learn more.
 Besides the account ownership verification, Código automatically generates the account length security check. This
 security check will verify that everywhere an Account is used matches the account length. The account length is
 determined by the fields’ data type plus their capacity for the string and vector data type.
+Check [Solana Extension - Data Types - Types - Length](../código-interface-description-language/blockchain-extensions/solana/data-types.md#account-length)
+to learn more.
 
 ## Challenge - Define the Post type
 
@@ -317,6 +319,7 @@ If you follow along, update your Post data structure with the seed definition.
 
 For PDA Accounts, Código generates the verified PDA seeds security checks. Without this security check, an attacker can
 pass valid PDA accounts but not the intended account you might expect, causing unwanted behavior.
+Check [Security - Solana](../security/solana.md#verify-ownership) to learn more.
 
 ## Challenge - Define the Comments type
 
@@ -382,11 +385,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Learning the Basics](../código-interface-description-language/learning-the-basics.md)
 - [Solana Extension](../código-interface-description-language/blockchain-extensions/solana)
 
-### Join the Código community 💚
+## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

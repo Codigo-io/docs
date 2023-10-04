@@ -14,7 +14,7 @@ business logic and create a simple integration app. Let’s get started!
 
 Remember to follow along from the repository clone in part I.
 
-## Execute Código AI Generator
+## Execute Código Generator
 
 After completing our contract's interface through the CIDL; the next step is to generate the smart contract and client
 libraries. For that, open a new terminal; Terminal -> New Terminal
@@ -23,29 +23,29 @@ libraries. For that, open a new terminal; Terminal -> New Terminal
 |:---------------------------------------------------------------:|
 |                         *New Terminal*                          |
 
-Type the following command to execute the generator: `codigo generate cidl.yaml`. The generation process will take a few
+Type the following command to execute the generator: `codigo solana generate cidl.yaml`. The generation process will take a few
 seconds; after it completes, in the explorer, we will see the following directories in the explorer:
 
 | ![Directories](../../static/img/Directories-CodigoStudio.png) |
 |:-------------------------------------------------------------:|
 |                         *Directories*                         |
 
-- `codigolib` this directory contains all security verification and serialization/deserialization utils with
-  corresponding test cases.
-- `generated` this directory contains all the files for a native solana contract and the stubs where we will implement
+- `program` this directory contains all the files for a native solana contract and the stubs where we will implement
   the business logic.
-- `sdk` this directory will contain all the files for the TypeScript client library.
+- `program_client` this directory will contain all the files for the TypeScript client library.
 
 We can go through the generation process until we have achieved the desired smart contract interface.
 
-:::caution
-Código AI Generator will overwrite your stubs file for the private beta. Save your stub changes before rerunning the
-generator.
+:::tip
+You can also generate the contract for the Anchor framework by executing the command
+```shell
+codigo solana generate cidl.yaml --anchor
+```
 :::
 
 ## Implement the business logic
 
-Código AI Generators generates 100% of the client libraries and smart contract boilerplate; thus, our business logic is
+Código Generators generates 100% of the client libraries and smart contract boilerplate; thus, our business logic is
 the only code we need to write.
 
 We implement our business logic within the `stubs` directory; we can find the `stubs` in the
@@ -357,11 +357,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Generating the web-based documentation](./generating-the-web-based-documentation.md)
 - [Completing the stubs and using the SDK](./completing-the-stubs-and-using-the-sdk.md)
 
-### Join the Código community 💚
+## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

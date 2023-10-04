@@ -36,6 +36,7 @@ info:
   summary: What this contract is about
   license:
     name: Unlicensed
+    identifier: Unlicensed
 ```
 
 The above properties are the **required** or **recommended** properties that any CIDL needs as basic contract
@@ -45,14 +46,19 @@ information. Let’s quickly go through each property:
 - `name`: The contract’s name; must follow the convention of the targeted programming language.
 - `title`: A pretty name to be used in the web-based documentation.
 - `version`: The contract version, must follow the semantic versioning convention.
-- `summary`: This recommended property enables developers to generate web-based documentation.
+- `summary`: This **recommended** property enables developers to generate web-based documentation.
 - `license.name`: The license’s name. This will be the license of the contract and SDK clients.
+- `license.identifier`: The license’s SPDX id. This will be the license of the contract and SDK clients.
 
 We can specify additional properties to enhance the CIDL; you can check them in the
-[CIDL Specification](./specification)
+[CIDL Specification](./specification#general-information)
 
 ## Imports
-Through `imports`, we can support a new set of use cases. When importing another CIDL, we can reference other methods or types. Depending on the targeted blockchain, these references will behave differently, i.e., for Solana, a reference method will be a cross-program invocation call (CPI); check Solana CPI to learn more. To import other CIDLs we need to define them under the imports block as follow:
+
+Through `imports`, we can support a new set of use cases. When importing another CIDL, we can reference other methods or
+types. Depending on the targeted blockchain, these references will behave differently, i.e., for Solana, a reference
+method will be a cross-program invocation call (CPI); check Solana CPI to learn more. To import other CIDLs we need to
+define them under the imports block as follow:
 
 ```yaml showLineNumbers
 imports:
@@ -73,7 +79,7 @@ Currently, `loc` only supports file system.
 
 The CIDL defines three forms of data types. A developer or organization can cover all available use cases through these.
 
-:::info
+:::tip
 
 Data types in the CIDL are all specified in lowercase, except for (custom) types.
 
@@ -98,13 +104,11 @@ The following table is a comprehensive list of the supported native type by the 
 | u32       | 32-bit unsigned integer            |
 | u64       | 64-bit unsigned integer            |
 | u128      | 128-bit unsigned integer           |
-| u256      | 256-bit unsigned integer           |
 | i8        | 8-bit signed integer               |
 | i16       | 16-bit signed integer              |
 | i32       | 32-bit signed integer              |
 | i64       | 64-bit signed integer              |
 | i128      | 128-bit signed integer             |
-| i256      | 256-bit signed integer             |
 | f32       | 32-bit signed float                |
 | f64       | 64-bit signed float                |
 | bool      | 1 bit                              |
@@ -114,18 +118,18 @@ The following table is a comprehensive list of the supported native type by the 
 
 The following table is a comprehensive list of the supported extended type by the CIDL.
 
-| Data Types         | Length                    | Comments                                                                                                                                                                            |
-|--------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sol:pubkey         | 32 bytes                  | Type specific to the Solana blockchain. Transpiles to [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html) data type.                          |
-| sol:account_info   | It depends                | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type.          |
-| sol:merkle_tree | It depends | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type with the owner set to the account compression program.          |
-| rs:option&lt;t&gt; | 1 bit + the length of t   | Type specific to Rust-based blockchain. Transpiles to [Option&lt;T&gt;](https://doc.rust-lang.org/std/option/enum.Option.html) where T can be any supported native type or sol:pubkey |
-| rs:c_option&lt;t&gt; | 4 bytes + the length of t   | Type specific to Rust-based blockchain. Transpiles to [COption&lt;T&gt;](https://doc.rust-lang.org/std/option/enum.Option.html) where T can be any supported native type or sol:pubkey. This type is only intended to be used with the Solana SPL. |
-| rs:vec&lt;t&gt;    | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to [vec&lt;T&gt;](https://doc.rust-lang.org/std/vec/index.html) where T can be any supported native type or sol:pubkey          |
+| Data Types           | Length                    | Comments                                                                                                                                                                                                                                           |
+|----------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sol:pubkey           | 32 bytes                  | Type specific to the Solana blockchain. Transpiles to [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html) data type.                                                                                          |
+| sol:account_info     | It depends                | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type.                                                                          |
+| sol:merkle_tree      | It depends                | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type with the owner set to the account compression program.                    |
+| rs:option&lt;t&gt;   | 1 bit + the length of t   | Type specific to Rust-based blockchain. Transpiles to [Option&lt;T&gt;](https://doc.rust-lang.org/std/option/enum.Option.html) where T can be any supported native type or sol:pubkey                                                              |
+| rs:c_option&lt;t&gt; | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to [COption&lt;T&gt;](https://doc.rust-lang.org/std/option/enum.Option.html) where T can be any supported native type or sol:pubkey. This type is only intended to be used with the Solana SPL. |
+| rs:vec&lt;t&gt;      | 4 bytes + the length of t | Type specific to Rust-based blockchain. Transpiles to [vec&lt;T&gt;](https://doc.rust-lang.org/std/vec/index.html) where T can be any supported native type or sol:pubkey                                                                          |
 
 :::caution
 
-`vec<string>` is still WIP; thus, it is unavailable for the public beta.
+`rs:vec<string>` is in WIP
 
 :::
 
@@ -154,23 +158,26 @@ Custom types must have at least **one** field.
 
 :::
 
-A custom data structure can define two basic properties, `summary` and `fields`. The `summary` is a recommended property
+A custom data structure can define two basic properties, `summary` and `fields`. The `summary` is a **recommended**
+property
 allowing developers to generate web-based documentation. We specify the properties of our custom data structure through
-the' fields' property.
+the fields' property.
 
 The `fields` is an array of objects, each defining the simple structure seen above. In detail:
 
 - `name`: The field's name; must follow the rules of the targeted programming language.
-- `type`: The field's data type; can be any supported native or extended type except for `sol:account_info` or other
+- `type`: The field's data type; can be any supported native or extended type except
+  for `sol:account_info`, `sol:merkle_tree`, or other
   custom-defined data types.
-- `description`: This recommended property enables developers to generate web-based documentation.
+- `description`: This **recommended** property enables developers to generate web-based documentation.
 
 :::tip
 You can define any number of data structures and fields required for your use case.
 :::
 
 :::caution
-We cannot specify another custom type to the field’s type or the extended `sol:account_info` data type.
+We cannot specify another custom type to the field’s type or the extended `sol:account_info` or `sol:merkle_tree` data
+types.
 :::
 
 That’s it. As simple as that, we can define a custom data structure. Now, via extension, we can expand the capabilities
@@ -185,7 +192,7 @@ contract instructions, for example:
 methods:
   - name: my_first_instruction
     summary: This is my first instruction
-      uses:
+    uses:
       - my_other_program.instruction_1
     inputs:
       - name: my_first_input
@@ -200,14 +207,17 @@ comprises the following properties:
 
 - `name`: The name of the smart contract instruction; must follow the rules of the targeted programming language.
 - `summary`: This **recommended** property enables developers to generate web-based documentation.
-- `uses`: Array of reference methods. The behavior varies per blockchain, for Solana, the methods defined in the `uses` property will be transpile to Solana CPI calls.
+- `uses`: Array of reference methods. The behavior varies per blockchain, for Solana, the methods defined in the `uses`
+  property will be transpile to Solana CPI calls. Reference methods take the form of `ref.method_name`, where ref is the
+  value set in the [imports](#imports)
 - `inputs`: The instruction parameters. `inputs` is an array of objects, where each object will be transpile to a
   parameter.
 
 The input object also has a simple structure composed of the following properties:
 
 - `name`:  Parameters’ name; must follow the naming rules of the targeted programming language.
-- `type`: The parameters’ data type; can be any supported native, extended, custom data types, or referefence types
+- `type`: The parameters’ data type; can be any supported native, extended, custom data types, or reference types.
+  Referenced types takes the form of `ref.type_name`, where ref is the value set in the [imports](#imports)
 - `description`: This **recommended** property enables developers to generate web-based documentation.
 
 :::info
@@ -224,7 +234,7 @@ what we learned:
 
 - CIDL stands for Código’s Interface Description Language
 - We need to specify some basic information about the contract
-- CIDL supports native, extended, and custom-defined data types
+- CIDL supports native, extended, and \[imported\] custom-defined data types
 - Custom-defined data types go under the object named `types`
 - Smart contract instructions are defined under the array of objects named `methods`
 - Methods inputs are just parameters
@@ -235,11 +245,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Solana Extension](./blockchain-extensions/solana)
 - [Part I - Building Solana Programs](../guides/part-1-building-solana-programs.md)
 
-### Join the Código community💚
+## Join the Código community💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

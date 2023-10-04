@@ -15,7 +15,9 @@ programming language. An extension can be defined in various places of the CIDL.
 This document will show the different areas and properties available for the `solana` extension.
 
 ## Imports
+
 For imports, we must define the solana extension when targeting the Solana blockchain.
+
 ```yaml showLineNumbers
 imports:
   - ref: another_cidl
@@ -24,7 +26,8 @@ imports:
       progid: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs  
 ```
 
-- `progid`:  Program ID of the deployed program. Accounts whose owner is set to `self` in the imported CIDL will take this `progid` as the owner’s value.
+- `progid`:  Program ID of the deployed program. Accounts whose owner is set to `self` in the imported CIDL will take
+  this `progid` as the owner’s value.
 
 :::caution
 Currently, `loc` only supports file system.
@@ -33,9 +36,9 @@ Currently, `loc` only supports file system.
 ## Types
 
 We can define the `solana` extension to our custom types. The valid properties for the `solana` extension in the context
-of the `types` are `owner` and `seeds`. In the CIDL, it can look like this:
+of the `types` are `owner`, `seeds` and `compress`. In the CIDL, it can look like this:
 
-```yarml showLineNumbers
+```yaml showLineNumbers
 types:
   CustomDataStructure:
     # ...
@@ -52,8 +55,8 @@ types:
   [Solana Extension - Data Types - Types owner](./data-types.md#ownership)
 - `seeds`: Solana PDA account’s seed definition. To learn more about this property, check
   [Solana Extension - Data Types - Types' seeds](./data-types.md#seeds)
-- `compress`: Indicates the generator if this type will be used for state compression. To learn more about this property, check [Solana Extension - Data Types - Types](./data-types.md)
-
+- `compress`: Indicates the generator if this type will be used for state compression. To learn more about this
+  property, check [Solana Extension - Data Types - Types](./data-types.md#compress)
 
 ## Fields
 
@@ -73,34 +76,37 @@ types:
 ```
 
 - `attributes`: Through the attributes property, we can define the capacity of the data type. To learn more about this
-  property, check [Solana Extension - Data Types - Extended Types](./data-types.md#extended-data-types)
+  property, check [Solana Extension - Data Types](./data-types.md)
 
 ## Methods
 
 In some cases, we need to specify additional configurations to our solana methods; this can be done through the `solana`
-extension. In the context of the methods, the `solana` extension defines the property `signers`. In the CIDL, it can
+extension. In the context of the methods, the `solana` extension defines the properties `signers` and `default-payer`.
+In the CIDL, it can
 look like this:
 
 ```yaml showLineNumbers
 methods:
   - name: my_instruction
     solana:
-      default-payer: [Optional] false | true
+      default-payer: [ Optional ] false | true
       signers:
-        - name: Name of the signer
-          type: [ Optional ] Account type
-          address: [ Optional ] Static Pubkey
-          executable: [ Optional ] Validate if the account is a program
+          - name: Name of the signer
+            type: [ Optional ] Account type
+            address: [ Optional ] Static Pubkey
+            executable: [ Optional ] Validate if the account is a program
     # ...
 ```
-- `default-payer`: Defaults to true, automatically generate a default payer into the defined method.
+
+- `default-payer`: By default, it is set to true. Set to false with an empty signer list to remove all signers from the
+  method
 - `signers`: We can define one or more signers to our solana instructions through the `signers` property. To learn more
   about this property, check [Solana Extension - Methods' signers](./methods.md#signers)
 
 ## Inputs
 
-The last place where we can define the `solana` extension is in the `inputs`. Here, we have the
-properties `seeds`, `attributes`, and `rent-payer`. In the CIDL, it looks like this:
+The last place where we can define the `solana` extension is in the `inputs`. Here, we have numerous
+properties. In the CIDL, it looks like this:
 
 ```yaml showLineNumbers
 methods:
@@ -121,31 +127,35 @@ methods:
       - name: account_info
         type: sol:account_info
         solana:
-          attributes: [init]
+          attributes: [ init ]
           owner: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs
       - name: system_program
         type: sol:account_info
         solana:
           address: 11111111111111111111111111111111
-       - name: account_to_close
-         type: CustomDataStructure
-         solana:
-           attributes: [ close ]
-           rent-receiver: fee_payer
+      - name: account_to_close
+        type: CustomDataStructure
+        solana:
+          attributes: [ close ]
+          rent-receiver: fee_payer
 ```
 
-- `seeds`: The `seeds` in the context of inputs, tells the CIDL how to build the requires seeds. To learn more about
+- `seeds`: The `seeds` in the context of inputs, tells the generator how to build match the seeds with the inputs or
+  signers. To learn more about
   this property, check [Solana Extension - Methods - Inputs' seeds](./methods.md#seeds)
 - `attributes`:  With the `attribute` property in the input context, we can specify different values depending on the
   type. To learn more about this property,
   check [Solana Extension - Methods - Inputs' attributes](./methods.md#attributes)
 - `rent-payer`:  Through the `rent-payer` property, we can specify from which signer we which to pay the rent of an
-  account. To learn more about this property,
+  account. Defaults to the fee payer. To learn more about this property,
   check [Solana Extension - Methods - Inputs' rent-payer](./methods.md#rent-payer)
-- `rent-receiver`: Through the `rent-receiver` property, we can specify which account will receive the lamports held by an account that will close. Defaults to the fee payer.
-- `owner`: When working with a `sol:account_info` type, we can specify the owner of this account. This will generate the ownership security check for the given account.
-- `address`: When working with a `sol:account_info` type, we can specify the address of this account. This will generate the address security check for the given account, ensuring the received account matches the address.
-
+- `rent-receiver`: Through the `rent-receiver` property, we can specify which account will receive the lamports held by
+  an account that will close. Defaults to the fee payer. To learn more about this property,
+  check [Solana Extension - Methods - Inputs' rent-receiver](./methods.md#rent-receiver)
+- `owner`: When working with a `sol:account_info` type, we can specify the owner of this account. This will generate the
+  ownership security check for the given account.
+- `address`: When working with a `sol:account_info` type, we can specify the address of this account. This will generate
+  the address security check for the given account, ensuring the received account matches the address.
 
 ## Next Steps
 
@@ -153,10 +163,10 @@ methods:
 the `solana` extension. To summarize what we learned:
 
 - We can define the `solana` extension in the context of `types`, `fields`, `methods`, and `inputs`.
-- The `solana` extension for `types` comprises the properties `owner` and `seeds`.
+- The `solana` extension for `types` comprises the properties `owner`, `seeds`, and `compress`.
 - The `solana` extension for `fields` comprises the property `attributes`.
-- The `solana` extension for `methods` comprises the property `signers`.
-- The `solana` extension for `inputs` comprises the properties `seeds`, `rent-payer`, and `attributes`.
+- The `solana` extension for `methods` comprises the property `signers` and `default-payer`.
+- The `solana` extension for `inputs` comprises the properties `seeds`, `rent-payer`, `rent-receiver`, `owner`, `address` and `attributes`.
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
@@ -164,11 +174,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Solana Extension - Methods](./methods.md)
 - [Part I - Building Solana Programs](../../../guides/part-1-building-solana-programs.md)
 
-### Join the Código community💚
+## Join the Código community💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** and
-**[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

@@ -98,7 +98,7 @@ const config = {
               },
               {
                 label: 'Examples',
-                href: 'https://github.com/Codigo-io/examples',
+                href: 'https://github.com/Codigo-io',
               },
             ],
           },
@@ -107,15 +107,15 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform',
+                href: 'https://github.com/Codigo-io',
               },
               {
                 label: 'Discord',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform',
+                href: 'https://discord.gg/8XHQGS832k',
               },
               {
                 label: 'Twitter',
-                href: 'https://docs.google.com/forms/d/e/1FAIpQLScjS74ZBfurdjSDlZICyKeqmTRYiCx230FywfCEDvyf1iYqjA/viewform',
+                href: 'https://twitter.com/CodigoPlatform',
               },
             ],
           },
@@ -138,6 +138,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['rust'],
       },
     }),
 };

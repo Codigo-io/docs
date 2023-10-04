@@ -24,7 +24,7 @@ methods:
       - name: user
         type: User
         solana:
-          attributes: [ mut, init ]
+          attributes: [ init ]
       - name: display_name
         type: string
 ```
@@ -38,10 +38,13 @@ property `summary`. Besides those properties, we can define different extensions
 structure, read [Learning the Basic - Methods](../código-interface-description-language/learning-the-basics.md#methods).
 
 In the first input named `user`, we can see a solana extension. If we remember the definition of extension from the last
-doc: An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain,
-framework, or programming language. Through the solana extension, we define the attributes `mut` and `init`. These
-attributes will make the `User` account writable and generate all the code to create the account. To learn more about
-the solana extension within inputs,
+doc:
+
+> An extension in the CIDL is an object composed of multiple properties that can target a specific blockchain,
+> framework, or programming language.
+
+Through the solana extension, we define the attribute `init`. This attributes will make the `User` account writable and
+generate all the code to create the account. To learn more about the solana extension within inputs,
 read [Solana Extension - Methods - Inputs](../código-interface-description-language/blockchain-extensions/solana/methods.md#inputs).
 
 :::tip
@@ -68,6 +71,7 @@ attribute.
 
 From the above information, Código will generate the verified signers check. This check will verify that the expected
 accounts are signers. Malicious individuals can apply various vector attacks to hack your accounts without this check.
+Check [Security - Solana](../security/solana.md#verify-signers) to learn more.
 
 ## Challenge - Define the method to create Posts account
 
@@ -75,7 +79,7 @@ We encourage you to do the following challenge using the repository you cloned f
 
 > Define the method named `create_posts_account`. With the following inputs:
 
-- post of type `Posts`, attributes`mut` and `init`
+- post of type `Posts`, attributes `init`
 - title of type `string`
 - short_description of type `string`
 - feature_image_url of type `rs:option<string>`
@@ -97,7 +101,7 @@ methods:
       - name: post
         type: Posts
         solana:
-          attributes: [ mut, init ]
+          attributes: [ init ]
       - name: title
         type: string
       - name: short_description
@@ -150,7 +154,7 @@ methods:
       - name: post
         type: Posts
         solana:
-          attributes: [ mut, init ]
+          attributes: [ init ]
 ```
 
 Secondary, we link the input named author to the Posts’ owner seed, we do this by defining the `seeds` property in the
@@ -180,7 +184,8 @@ We encourage you to do the following challenge using the repository you cloned f
 
 > Define the method named `create_comment_account`. With the following inputs
 
-- comment of type `Comments`, attributes `mut` and `init` and seeds `user` and `post` linked to there corresponding input
+- comment of type `Comments`, attributes `init` and seeds `user` and `post` linked to there corresponding
+  input
 - user of type `User`
 - post of type `Post`
 - content of type `string`
@@ -197,7 +202,7 @@ methods:
       - name: comment
         type: Comments
         solana:
-          attributes: [ mut, init ]
+          attributes: [ init ]
           seeds:
             user: user
             post: post
@@ -217,8 +222,7 @@ methods:
 the PDA Account’s seeds. To summarize what we learned:
 
 - Through methods, we define the instruction of the smart contract.
-- Código AI Generators add the verified signers' security check to each method.
-- To make an account writable, specify the attribute `mut`.
+- Código Generators add the verified signers' security check to each method.
 - Specifying the `init` attribute generates all the code to initialize an account.
 - We can link inputs to PDA Account’s seeds.
 
@@ -228,11 +232,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Learning the Basic](../código-interface-description-language/learning-the-basics.md)
 - [Solana Extension - Methods](../código-interface-description-language/blockchain-extensions/solana/methods.md)
 
-### Join the Código community 💚
+## Join the Código community 💚
 
-Código is a growing community of developers. Join us on 
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** 
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+Código is a growing community of developers. Join us on
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

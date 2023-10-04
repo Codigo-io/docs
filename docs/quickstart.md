@@ -18,12 +18,6 @@ this guide, we will target the Solana blockchain.
 
 Open [Código Studio](https://studio.codigo.ai)
 
-:::info
-Código Studio requires the developers to identify with their pre-created user for the private beta. You should have
-received your credentials via email if you are a private beta developer. If you have issues accessing Código Studio,
-don't hesitate to contact us at support@codigo.ai or via the Telegram Group.
-:::
-
 When you first open Código Studio, you will see in the explorer a file called `cidl.yaml` with the following content:
 
 ```yaml showLineNumbers
@@ -79,7 +73,7 @@ methods:
       - name: user_record
         type: Record
         solana:
-          attributes: [ mut, init_if_needed ]
+          attributes: [ init_if_needed ]
       - name: user_name
         type: string
         description: The username to be assigned to the Record.name property
@@ -98,7 +92,7 @@ methods:
 The CIDL contains three TODOs for you to complete. But before you start working on the TODOS, let's talk about some CIDL
 basics.
 
-- The CIDL is the input for Código’s AI Generator. We use the CIDL to define the interfaces of a smart contract.
+- The CIDL is the input for Código’s Generator. We use the CIDL to define the interfaces of a smart contract.
 - The generator requires some general information about the contract; we define these data in the `info` section.
 - The `methods` are the instructions of the smart contract; through the methods, we add behavior.
 - We can define custom data structure; this can be done within the `types` object.
@@ -141,7 +135,7 @@ With this basic knowledge and the description for each TODO, you should be able 
     - name: user_record
       type: Record
       solana:
-      attributes: [ mut ]
+        attributes: [ mut ]
     - name: amount
       type: u32
       description: The amount to be registered as the income.
@@ -160,7 +154,7 @@ With this basic knowledge and the description for each TODO, you should be able 
       type: Record
       description: The user record account
       solana:
-      attributes: [ mut ]
+        attributes: [ mut ]
     - name: amount
       type: u32
       description: Number to be added to the outcome accumulator
@@ -168,7 +162,7 @@ With this basic knowledge and the description for each TODO, you should be able 
 
 </details>
 
-## 2. Execute Código AI Generator
+## 2. Execute Código Generator
 
 Congratulations on completing the TODOs. With the CIDL completed, we can generate the smart contract and TypeScript
 library. For that, open a new terminal; Terminal -> New Terminal
@@ -177,7 +171,7 @@ library. For that, open a new terminal; Terminal -> New Terminal
 |:------------------------------------------------------------:|
 |                        *New Terminal*                        |
 
-Type the following command to execute the generator: `codigo generate cidl.yaml`
+Type the following command to execute the generator: `codigo solana generate cidl.yaml`
 
 When it completes generating the code, you will see three new directories in the explorer as follows:
 
@@ -185,21 +179,19 @@ When it completes generating the code, you will see three new directories in the
 |:----------------------------------------------------------:|
 |                       *Directories*                        |
 
-- `codigolib` this directory contains all security verification and serialization/deserialization utils with
-  corresponding test cases.
-- `generated` this directory contains all the files for a native solana contract and the stubs where we will implement
+- `program` this directory contains all the files for a native solana contract and the stubs where we will implement
   the business logic.
-- `sdk` this directory will contain all the files for the TypeScript client library.
+- `program_client` this directory will contain all the files for the TypeScript client library.
 
 ## 3. Implement the business logic
 
-When we expand the `generated` directory, we will see numerous files corresponding to a native solana smart contract; we
+When we expand the `program` directory, we will see numerous files corresponding to a native solana smart contract; we
 don’t need to change anything on these files; thus, we can ignore them. The files we are interested in and where we will
-implement the business logic are inside the `stub` directory.
+implement the business logic are inside the `src` directory.
 
-| ![Stub Directory](../static/img/Directories-CodigoStudio.png) |
-|:-------------------------------------------------------------:|
-|                       *Stub Directory*                        |
+| ![Stub Directory](../static/img/Directories-CodigoStudioStub.png) |
+|:-----------------------------------------------------------------:|
+|                         *Stub Directory*                          |
 
 If we open one of those files, we will see a function with the same name as the file. Each file corresponds to a method
 defined in the CIDL. Inside each file, we can see a function where we will be implementing the business logic, the
@@ -207,7 +199,7 @@ parameters of the function are determined by the inputs define for the method in
 
 ### 3.1 Implement `create_user_record`
 
-Open the file `generated/rendered/stubs/create_user_record.rs` and replace the comment `// Place your custom code here…`
+Open the file `program/src/create_user_record.rs` and replace the comment<br />`// Implement your business logic here...`
 with the following line:
 
 ```rust showLineNumbers
@@ -216,7 +208,7 @@ user_record.data.name = user_name;
 
 ### 3.2 Implement `register_income`
 
-Open the file `generated/rendered/stubs/register_income.rs` and replace the comment `// Place your custom code here…`
+Open the file `program/src/register_income.rs` and replace the comment<br />`// Implement your business logic here...`
 with the following line:
 
 ```rust showLineNumbers
@@ -227,7 +219,7 @@ user_record.data.total_balance += amount as i64;
 
 ### 3.3 Implement `register_outcome`
 
-Open the file `generated/rendered/stubs/register_outcome.rs` and replace the comment `// Place your custom code here…`
+Open the file `program/src/register_outcome.rs` and replace the comment<br />`// Implement your business logic here...`
 with the following line:
 
 ```rust showLineNumbers
@@ -243,8 +235,8 @@ next step is to build and deploy it!
 
 Código Studio comes with all the tools and programs for building and deploying smart contracts.
 
-First, let’s build the contract. Open a new terminal by going to Terminal -> New Terminal. Navigate to the generated
-directory by typing the command `cd generated`, and inside the `generated` directory, type the following command:
+First, let’s build the contract. Open a new terminal by going to Terminal -> New Terminal. Navigate to the `program`
+directory by typing the command `cd program`, and inside the `program` directory, type the following command:
 
 ```shell
 cargo build-sbf
@@ -272,54 +264,91 @@ completes, it will return the _Program Id_ of the contract and save it for later
 Wow! We have built and deployed a Solana smart contract in just a few minutes. The last step is to use this smart
 contract from our application. For this QuickStart, our application will be a command line interface.
 
-Create a new file inside the `sdk` directory named `app.ts`. The file's content is the following:
+Create a new file inside the `program_client` directory named `app.ts`. The file's content is the following:
+
+:::tip
+Copy and paste your program ID in line 20 of the app.ts file.
+:::
 
 ```typescript showLineNumbers
-import {
-    createUserRecordSendAndConfirm,
-    getRecord,
-    registerIncomeSendAndConfirm,
-    registerOutcomeSendAndConfirm,
-    SetProgramId
-} from "./index";
-import {Connection, Keypair} from "@solana/web3.js";
+import {Connection, Keypair, PublicKey} from "@solana/web3.js";
 import * as fs from "fs/promises";
 import * as path from "path";
 import * as os from "os";
+import {
+  createUserRecordSendAndConfirm,
+  deriveRecordPDA,
+  getRecord,
+  initializeClient,
+  registerIncomeSendAndConfirm,
+  registerOutcomeSendAndConfirm
+} from "budget_tracker";
+import * as console from "console";
 
 async function main(feePayer: Keypair) {
-    // TODO: Specify the smart contract Program Id we saved from when we deploy the smart contract
-    SetProgramId("PASTE_YOUR_PROGRAM_ID");
+  const connection = new Connection("http://127.0.0.1:8899", {
+    commitment: "confirmed"
+  });
+  // TODO: Paste your ProgramId HERE
+  const progId = new PublicKey("YOUR_PROGRAM_ID");
 
-    // Instantiate a new Solana connection
-    const connection = new Connection("http://127.0.0.1:8899");
+  initializeClient(progId, connection);
 
-    // 1. Create a user record, logs the state of the account after creating it
-    await createUserRecordSendAndConfirm(connection, "John Doe", feePayer.publicKey, feePayer);
-    let record = await getRecord(connection, feePayer.publicKey);
-    console.info(record);
+  /**
+   * 0. Derive Record PDA to retrieve from Blockchain
+   */
+  const [recordPub] = deriveRecordPDA({
+    index: 0,
+    signer: feePayer.publicKey,
+  }, progId);
 
-    // 2. Registered a new income with a value of 100
-    await registerIncomeSendAndConfirm(connection, 100, feePayer.publicKey, feePayer);
-    record = await getRecord(connection, feePayer.publicKey);
-    console.info(record);
+  /**
+   * 1. Create a user record, logs the state of the account after creating it
+   */
+  await createUserRecordSendAndConfirm({
+    userName: "John Doe",
+    userRecordSeedIndex: 0,
+    signers: {
+      feePayer
+    }
+  });
+  let record = await getRecord(recordPub);
+  console.info(record);
 
-    // 3. Registered a new outcome with a value of 50
-    await registerOutcomeSendAndConfirm(connection, 50, feePayer.publicKey, feePayer);
-    record = await getRecord(connection, feePayer.publicKey);
-    console.info(record);
+  /**
+   * 2. Registered a new income with a value of 100
+   */
+  await registerIncomeSendAndConfirm({
+    amount: 100,
+    userRecordSeedIndex: 0,
+    signers: {
+      feePayer
+    }
+  });
+  record = await getRecord(recordPub);
+  console.info(record);
+
+  /**
+   * 3. Registered a new outcome with a value of 50
+   */
+  await registerOutcomeSendAndConfirm({
+    amount: 50,
+    userRecordSeedIndex: 0,
+    signers: {
+      feePayer
+    }
+  });
+  record = await getRecord(recordPub);
+  console.info(record);
 }
 
 fs.readFile(path.join(os.homedir(), ".config/solana/id.json"))
-    .then(file => main(Keypair.fromSecretKey(new Uint8Array(JSON.parse(file.toString())))));
+        .then(file => main(Keypair.fromSecretKey(new Uint8Array(JSON.parse(file.toString())))));
 ```
 
-Before executing the file, we need to specify the contract we want to communicate. When we deployed the smart contract,
-it returned a _Program Id_; this _Progrma Id_ should be pasted as a string to the function `SetProgramId();`
-
-Finally, execute the app.ts file. Open a new terminal by going to Terminal -> New Terminal. Navigate to the sdk
-directory `cd sdk`; install the node dependencies executing the command `yarn install` and then execute the file using
-the following command:
+Finally, execute the `app.ts` file. Open a new terminal by going to Terminal -> New Terminal. Navigate to the sdk
+directory `cd program_client`; install the node dependencies executing the command `yarn install`, and install the dev
+dependency ts-node executing the command `yarn add -D ts-node`. Finally, execute the file using the following command:
 
 ```shell
 npx ts-node app.ts
@@ -328,35 +357,26 @@ npx ts-node app.ts
 If everything went Ok, you should see the following output:
 
 ```shell
-Record {
+{
   name: 'John Doe',
   moves: 0,
   outcome: 0,
   income: 0,
-  totalBalance: 0n,
-  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
-    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
-  }
+  totalBalance: 0n
 }
-Record {
+{
   name: 'John Doe',
   moves: 1,
   outcome: 0,
   income: 100,
-  totalBalance: 100n,
-  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
-    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
-  }
+  totalBalance: 100n
 }
-Record {
+{
   name: 'John Doe',
   moves: 2,
   outcome: 50,
   income: 100,
-  totalBalance: 50n,
-  pubkey: PublicKey [PublicKey(HoFZA9XdaR28mm7YGcqAvo1tk8C9UY6Mz2fKEQRcbAZG)] {
-    _bn: <BN: f9942a305de619bad344e097e6cdbef152ae52420a78507a3f429dba72ca1953>
-  }
+  totalBalance: 50n
 }
 ``` 
 
@@ -376,11 +396,11 @@ These links may help you on your journey to writing smart contracts with the CID
 - [Learning the Basics](./código-interface-description-language/learning-the-basics)
 - [Part I - Building Solana Programs](./guides/part-1-building-solana-programs)
 
-### Join the Código community 💚
+## Join the Código community 💚
 
-Código is a growing community of developers. Join us on 
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)** 
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+Código is a growing community of developers. Join us on
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

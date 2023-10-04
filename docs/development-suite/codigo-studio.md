@@ -89,7 +89,7 @@ contracts and TypeScript clients
 
 The available commands are:
 
-- `codigo generate path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client.
+- `codigo solana generate /path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client.
 
 You can learn more about Código CLI by clicking [here](./codigo-cli.md)
 
@@ -103,6 +103,7 @@ are:
   environment.
 - The **Git CLI** is a tool for managing and tracking changes to your codebase. With Git, you can create and maintain
   code branches, collaborate with others, and track changes over time.
+- The **Anchor CLI** Anchor is a framework for quickly building secure Solana programs.
 
 ## Next Steps
 
@@ -117,6 +118,12 @@ These links may help you on your journey to writing smart contracts with the CID
 
 - [Learning the Basics](../código-interface-description-language/learning-the-basics.md)
 - [Part I - Building Solana Programs](../guides/part-1-building-solana-programs.md)
+
+## Join the Código community 💚
+
+Código is a growing community of developers. Join us on
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 

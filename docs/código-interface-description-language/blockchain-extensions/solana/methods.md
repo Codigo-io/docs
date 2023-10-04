@@ -82,9 +82,10 @@ methods:
 
 In the `uses` property you can reference as many instructions as your use case requires. When using uses, there are some rules to remember:
 - The generator will automatically add the accounts the referenced method requires, including the program account.
-- The permission will be elevated if an input-of-type account has the same name and data type between the referenced methods or the local method.
+- The permission will be elevated if applicable
+- When an account input has the same name and data type between the referenced methods or the local method, this will be treated as the same input.
 - The data instruction arguments must be specified by the developer.
-- PDA accounts with dynamic seeds; the dynamic seed’s inputs won’t be generated on-client unless linked.
+- PDA accounts with dynamic seeds; the dynamic seed’s inputs will always be generated unless the PDA requires initialization.
 - If an account needs to be initialized in the referenced method, and this account has a data structure defined; the account will be transpiled into an account info.
 
 ## Inputs
@@ -113,17 +114,17 @@ methods:
       - name: account_info
         type: sol:account_info
         solana:
-          attributes: [init]
+          attributes: [ init ]
           owner: 8WtjCDLNXNKCDzQHro6vsQT3PTUX4TuLuTbFomMSoMrs
       - name: system_program
         type: sol:account_info
         solana:
           address: 11111111111111111111111111111111
-       - name: account_to_close
-         type: CustomDataStructure
-         solana:
-           attributes: [ close ]
-           rent-receiver: fee_payer
+      - name: account_to_close
+        type: CustomDataStructure
+        solana:
+          attributes: [ close ]
+          rent-receiver: fee_payer
 ```
 
 :::note
@@ -132,7 +133,7 @@ Custom define data structure will be transpile to a Solana account.
 
 ### Attributes
 
-### `mut`
+#### `mut`
 
 Whenever we need to modify an account, we must specify the `mut` attribute. This will mark the account meta from the
 transaction instruction as writable, and in the stub functions, the data structure will be marked as `mut`.
@@ -140,28 +141,28 @@ transaction instruction as writable, and in the stub functions, the data structu
 :::info
 Accounts not owned by your program can be marked as `mut`; this will set the `is_writable` property to true and, in the program, will define an immutable variable to store the account.
 :::
-### `init`
+#### `init`
 
-If we need to initialize an account, we specify the `init` attribute. This attribute will tell Código AI Generator to
+If we need to initialize an account, we specify the `init` attribute. This attribute will tell Código Generator to
 generate all the required code to initialize the given account; it can be a PDA Account or a Non-PDA Account.
 
 :::note
 If the account space (size) is greater than **10240 bytes**, the account will be created on the client side. Solana runtime doesn’t allow the creation of accounts greater than the specified size on the program.
 :::
-### `init_if_needed`
+#### `init_if_needed`
 
 Similar to [init](#init). The only difference is that when specifying `init_if_needed` the generated code will add a
 validation check to verify if the account has already been initialized. If the account has already been initialized, it
 will go directly to the stub; contrary to `init` if the account has been initialized, it will throw an error.
 
-### `close`
+#### `close`
 When we need to close an account, we specify the `close` attribute this will generate the required code to close the given account. When closing an account, Solana runtime must transfer the rent-exempt funds into another account; by default, the funds will be transferred to the fee payer. This can be overridden through the `rent-receiver` property.
 
 :::caution
 At the moment, `close` is only supported on Anchor programs.
 :::
 
-### `space`
+#### `space`
 When specifying `init` or `init_if_needed` to a `sol:account_info`, we must set the space of the account; it can be done through the `space` attribute. In the CIDL, it looks as follows:
 
 ```yaml showLineNumbers
@@ -174,8 +175,8 @@ methods:
           attributes: [init, space:50]
 ```
 
-### `cap`
-When specifying `init` or `init_if_needed` to a `sol:merkle_tree` we must set the capacity of the account, we can do this through the `cap` attribute. This will tell the generator how many “accounts you which to compress wihtin the specified merkle tree” In the CIDL, it looks as follow:
+#### `cap`
+When using`sol:merkle_tree` we must set the capacity of the account, we can do this through the `cap` attribute. This will tell the generator how many “accounts you which to compress within the specified merkle tree” In the CIDL, it looks as follow:
 
 ```yaml showLineNumbers
 methods:
@@ -186,11 +187,25 @@ methods:
         solana:
           attributes: [init, cap:100000]
 ```
+
+#### `canopy`
+When using`sol:merkle_tree` we can optional set the [canopy](https://docs.solana.com/learn/state-compression#canopy-depth) of the account, we can do this through the `canopy` attribute. The canopy default value is 5. In the CIDL, it looks as follow:
+
+```yaml showLineNumbers
+methods:
+  - name: init_merkle_tree
+    inputs:
+      - name: account
+        type: sol:merkle_tree
+        solana:
+          attributes: [ init, cap:100000, canopy:6 ]
+```
+
 ### Seeds
 
 As discussed in [Solana Extension - Data Types - Seeds](./data-types#seeds),
 we can create PDA accounts. When the seed is a static string, everything is handled for you. But, sometimes, we need
-dynamic seeds that will be set in runtime.
+dynamic seeds that will be set at runtime.
 
 By default, any dynamic seed will be added as a parameter to the client library. In other cases, we want to specify that
 a given input or signer must be used as the value for this dynamic seed, or we want to receive a seed value in the stub.
@@ -293,11 +308,11 @@ These links may help you on your journey to writing smart contracts with the CID
 
 - [Part I - Building Solana Programs](../../../guides/part-1-building-solana-programs.md)
 
-### Join the Código community💚
+## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
-**[Discord](https://docs.google.com/forms/d/e/1FAIpQLSdSG0OgJ5xuwwU7JiSGBdn01L3ID68qNCd2HAnFSztXVYKmBg/viewform)**
-and **[GitHub](https://docs.google.com/forms/d/e/1FAIpQLSdGDGH4bwQf5dX3-uFCYeRKzIGbd5dVEPxHKQPTt63bBVVcVQ/viewform)**
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
 
 #### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
 
