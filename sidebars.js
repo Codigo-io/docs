@@ -19,7 +19,7 @@ const sidebars = {
       {
           "type": "link",
           "label": "Examples",
-          "href": "https://github.com/Codigo-io/examples"
+          "href": "https://github.com/Codigo-io/platform"
       },
   ],
 
