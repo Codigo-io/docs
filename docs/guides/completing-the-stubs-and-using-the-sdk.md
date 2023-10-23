@@ -17,7 +17,7 @@ our [Terms of Service](https://codigo.ai/documents/Codigo---Terms-of-Service.pdf
 ## Implementing business logic
 
 For this doc, we will use the budget tracker example; you can clone it
-from [Código Examples](https://github.com/Codigo-io/examples). The budget tracker CIDL will generate the following stub
+from [Código Examples](https://github.com/Codigo-io/platform). The budget tracker CIDL will generate the following stub
 files.
 
 | ![Budget Tracker Stub Files](../../static/img/Budget%20Tracker%20Stub%20Files.png) |
@@ -106,7 +106,7 @@ the SDK. To summarize what we learned:
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Código Examples](https://github.com/Codigo-io/examples)
+- [Código Examples](https://github.com/Codigo-io/platform)
 
 ### Join the Código community 💚
 

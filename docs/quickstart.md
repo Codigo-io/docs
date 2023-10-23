@@ -41,7 +41,7 @@ info:
     name: Código
     web: https://codigo.ai
     email: support@codigo.ai
-    git: https://github.com/Codigo-io/examples
+    git: https://github.com/Codigo-io/platform
   license:
     name: MIT
     url: https://opensource.org/license/mit
