@@ -1,9 +1,3 @@
----
-sidebar_position: 1
-id: Código Docs
-slug: /
----
-
 # Overview
 
 Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development time

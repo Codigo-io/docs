@@ -14,9 +14,9 @@ all the dependencies and configurations required to build dApps at the speed of 
 You can [**Sign Up**](https://studio.codigo.ai) using your GitHub account or create a new account using your email/password.
 When opening the link, you will be received with the following screen:
 
-![Código Studio Sign Up](../static/img/sign_codigo_studio.png)
+![Código Studio Sign Up](../../static/img/sign_codigo_studio.png)
 
-To learn more about Código Studio [click here](./development-suite/codigo-studio.md)
+To learn more about Código Studio [click here](../development-suite/codigo-studio.md)
 
 ## VSCode extension
 
@@ -49,9 +49,9 @@ you are required to sign in with a GitHub account. To sign in, follow the next s
 2. Open the GitHub link https://github.com/login/device
 3. Copy the 8 alphanumeric codes printed in your terminal by Código CLI
 4. Paste the code in the GitHub page
-   ![GitHub Device Code Input](../static/img/github_input_code.png)
+   ![GitHub Device Code Input](../../static/img/github_input_code.png)
 5. Authorize the GitHub Código CLI app.
 6. If everything went ok, you will be prompted
    with a success message from GitHub. In the terminal you will see
    "Login successfully!" message
-   ![GitHub Device Code Input](../static/img/github_input_success.png)
+   ![GitHub Device Code Input](../../static/img/github_input_success.png)
