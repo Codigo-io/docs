@@ -15,35 +15,51 @@
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   masterSidebar: [
-    "index",
     "whats-new",
     {
       type: "category",
-      label: "Introduction",
+      label: "Getting started",
       collapsed: false,
+      link: {
+        type: "doc",
+        id: "getting-started/index"
+      },
       items: [
-        "getting_started/installation",
-        "getting_started/specification",
+        "getting-started/installation",
+        "getting-started/specification",
         {
           type: "category",
           label: "Quickstart",
           collapsed: false,
+          collapsible: false,
           items: [
-            "getting_started/quickstart-solana-native",
-            "getting_started/quickstart-solana-anchor",
+            "getting-started/quickstart-solana-native",
+            "getting-started/quickstart-solana-anchor",
           ],
         },
       ],
     },
     {
       type: "category",
-      label: "Learning the basics",
+      label: "Development suite",
       collapsed: false,
       items: [
-        "learning-the-basics/info",
+        "development-suite/codigo-cli",
+        "development-suite/codigo-studio",
+      ]
+    },
+    {
+      type: "category",
+      label: "Learning the basics",
+      collapsed: false,
+      link: {
+        type: "doc",
+        id: "learning-the-basics/index"
+      },
+      items: [
         "learning-the-basics/data-types",
+        "learning-the-basics/info",
         "learning-the-basics/custom-types",
-        "learning-the-basics/attributes",
         "learning-the-basics/imports",
         "learning-the-basics/methods",
         "learning-the-basics/errors",
@@ -58,6 +74,7 @@ const sidebars = {
         "guides/integrating-the-sdk",
         "guides/lender",
         "guides/solana-nft",
+        "guides/state-compression",
         "guides/inventory",
         {
           type: "link",
@@ -66,16 +83,6 @@ const sidebars = {
         },
       ]
     },
-    {
-      type: "category",
-      label: "Development suite",
-      collapsed: false,
-      items: [
-        "development-suite/codigo-cli",
-        "development-suite/codigo-studio",
-      ]
-    },
-
   ],
 
   // But you can create a sidebar manually

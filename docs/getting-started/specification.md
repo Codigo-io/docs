@@ -55,8 +55,9 @@ engineering. The CIDL Specification removes guesswork in calling a Smart Contrac
 
 ## CIDL Schema Definition
 
-:::caution
-CIDL Specification is a WIP
+:::tip
+CIDL Specification is a WIP. You can contribute to this specification by opening an 
+issues in the [Código Platform Repo](https://github.com/Codigo-io/platform/issues/new?assignees=&labels=enhancement%2Ctriage&projects=Codigo-io%2F8&template=enhancement-request.yaml&title=%5BEnhancement%5D%3A+)
 :::
 
 ```yaml
@@ -417,9 +418,8 @@ Programming Languages types will be added in followup up reviews.
 | f32       | 32-bit signed float                |            |
 | f64       | 64-bit signed float                |            |
 | bool      | 1 bit                              |            |
-| string    | Depends on the targeted blockchain | `cap:\d+`  |
-| bytes     | Depends on the targeted blockchain | `cap:\d+`  |
-| array     | Depends on the targeted blockchain | `cap:\d+`  |
+| string    | Depends on the targeted blockchain | `cap=\d+`  |
+| bytes     | Depends on the targeted blockchain | `cap=\d+`  |
 
 ### Extended
 
@@ -428,11 +428,12 @@ generator. Future revisions may add custom-made Type Extensions.
 
 They are identified by a prefix identifier, a colon and the name of the type, i.e. **prefix:identifier**.
 
-| Data Types                      | Length     | Attributes                                                                                                                                                                                                                                                                     | Comments                                                                                                                                                                                                                                                                                              |
-|---------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sol:pubkey                      | 32 bytes   |                                                                                                                                                                                                                                                                                | Type specific to the Solana blockchain. Transpiles to [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html) data type.                                                                                                                                             |
-| sol:account&lt;T?, seeds.K?&gt; | It depends | `sol:writable` <br /> `sol:init` <br /> `sol:init_if_needed` <br /> `sol:close` <br /> `sol:close_uncheck` <br /> `sol:space=\d+` <br /> `sol:owner=Pubkey` <br /> `sol:address=Pubkey` <br /> `sol:rent-payer=signer_name` <br /> `sol:rent-receiver=input_name\|signer_name` | Type specific to the Solana blockchain. `T` is the name of a custom-defined type, it can be omitted with underscored `_`. `K` is the name of a seed definition. `T` and `K` can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) | 
-| sol:merkle_tree                 | It depends | `sol:authority=signer_name` <br/> `sol:canopy=\d+` <br/> `cap=\d+`                                                                                                                                                                                                             | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type with the owner set to the account compression program.                                                                       |
+| Data Types                      | Length                             | Attributes                                                                                                                                                                                                                                                                     | Comments                                                                                                                                                                                                                                                                                              |
+|---------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| array                           | Depends on the targeted blockchain | `cap=\d+`                                                                                                                                                                                                                                                                      |
+| sol:pubkey                      | 32 bytes                           |                                                                                                                                                                                                                                                                                | Type specific to the Solana blockchain. Transpiles to [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html) data type.                                                                                                                                             |
+| sol:account&lt;T?, seeds.K?&gt; | It depends                         | `sol:writable` <br /> `sol:init` <br /> `sol:init_if_needed` <br /> `sol:close` <br /> `sol:close_uncheck` <br /> `sol:space=\d+` <br /> `sol:owner=Pubkey` <br /> `sol:address=Pubkey` <br /> `sol:rent-payer=signer_name` <br /> `sol:rent-receiver=input_name\|signer_name` | Type specific to the Solana blockchain. `T` is the name of a custom-defined type, it can be omitted with underscored `_`. `K` is the name of a seed definition. `T` and `K` can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) | 
+| sol:merkle_tree                 | It depends                         | `sol:authority=signer_name` <br/> `sol:canopy=\d+` <br/> `cap=\d+`                                                                                                                                                                                                             | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type with the owner set to the account compression program.                                                                       |
 
 ### Data type modifier
 

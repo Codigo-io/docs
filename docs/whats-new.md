@@ -4,13 +4,17 @@ sidebar_position: 3
 
 # What's new
 
-## v0.2.0
+## v0.2.0 (CIDL 0.9)
 
 We have heard your feedback, and have adjusted accordingly. This release focuses on increasing the CIDL usability,
 reducing verbosity, expanding the supported use cases, and setting the basis for future new cases i.e. pass data
 structure as inputs, enums, and more.
 
 > Until we hit GA, the releases will not be backward compatible. Thus, this release contains breaking changes.
+
+:::info
+New CIDL spec version: 0.9
+:::
 
 ### Highlights
 
@@ -276,7 +280,11 @@ documented in our https://docs.codigo.ai
 - Fix https://github.com/Codigo-io/platform/issues/55
 - Fix https://github.com/Codigo-io/platform/issues/96
 
-## v0.1.0
+## v0.1.0 (CIDL 0.8)
+
+:::info
+New CIDL spec version: 0.9
+:::
 
 ### General
 

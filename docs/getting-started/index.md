@@ -1,3 +1,7 @@
+--- 
+slug: /
+---
+
 # Overview
 
 Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development time
@@ -77,11 +81,3 @@ The current solution:
 Código is a growing community of developers. Join us on
 **[Discord](https://discord.gg/8XHQGS832k)**
 and **[GitHub](https://github.com/Codigo-io)**
-
-#### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
-
-[![Button Example]][Link]
-[Link]: https://docs.google.com/forms/d/e/1FAIpQLSeiSwnKQ8zu5GC5bB0w2HQCAiwqSCi_9HeD9Cp5Lxq761_Y1A/viewform
-[Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge
-
-
