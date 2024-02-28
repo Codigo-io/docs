@@ -15,7 +15,7 @@ the underlying Blockchain.
 
 Interacting with a Smart Contract is already possible via the RPC interfaces exposed by Blockchains Clients and
 Validators. However, writing the boilerplate code that translates a programming language construct into RPC calls and
-back is time consuming, prone to errors and brittle - implementation bugs and security vulnerabilities can only be
+back is time-consuming, prone to errors and brittle - implementation bugs and security vulnerabilities can only be
 detected during runtime.
 
 ## Goals
@@ -48,7 +48,7 @@ Generator takes care of all the rest.
 CIDL is a work in progress, open initiative to standardize how Smart Contracts Interfaces and data structures are
 described.
 
-The Codigo Interface Description Language defines a, programming language-agnostic, interface description for Smart
+The Codigo Interface Description Language defines a programming language-agnostic, interface description for Smart
 Contract Interfaces and custom data types, which allows both humans and computers to discover and understand the
 capabilities of a Smart Contract without requiring access to source code, additional documentation, or reverse
 engineering. The CIDL Specification removes guesswork in calling a Smart Contract.
