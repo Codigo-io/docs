@@ -396,6 +396,59 @@ errors: # Array - Custom Errors definition
 | id      | string | Required    | Must comply with the targeted programming language |
 | msg     | string | Required    |                                                    |
 
+### Solana
+
+This section defines how to allow users to include Solana specific definitions
+
+#### `solana`
+
+```yaml showLineNumbers
+solana:
+  seeds:
+    <seed-name>: # Identifier for this seed definition
+      bump: hardcoded bump value
+      persist-bump: bump should be persisted or not
+      items: # Array of seed's element, static or dynamic
+        - name: literal value or variable name
+          type: native or extended type, required to define dynamic seeds
+```
+
+| Keyword | Type                       | Optionality | Description |
+|---------|----------------------------|-------------|-------------|
+| solana  | [SolanaBody](#solana-body) | Optional    |             |
+
+##### Solana Body
+
+| Keyword | Type                                                    | Optionality | Description |
+|---------|---------------------------------------------------------|-------------|-------------|
+| seeds   | Map&lt;[SeedKey](#seed-key), [SeedBody](#seed-body)&gt; | Optional    |             |
+
+#### Seed Key
+
+Seed name `<seed-name>` must comply with the targeted programming language. The Seed
+name is, the key to the seed object map, is used to identify the seed definition within the method definition.
+
+#### Seed Body
+
+The seed body object defines additional keywords to describe the seed
+
+| Keyword | Type                                | Optionality | Description                                                                |
+|---------|-------------------------------------|-------------|----------------------------------------------------------------------------|
+| summary | string                              | Recommended | Documentation summary of the seed. Supports markdown                       |
+| items   | Array&lt;[ItemBody](#item-body)&gt; | Optional    | An array of items through which we can define the static and dynamic seeds |
+
+##### Item Body
+
+An item that is part of the seeds array. And item can be a literal static value or a dynamic value. Dynamic value are
+set
+on runtime.
+
+| Keyword     | Type                                       | Optionality | Description                                                                                                                                             |
+|-------------|--------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name        | string                                     | Required    | A literal value or a variable for when the item is dynamic. If the item is dynamic the variable name must comply with the targeted programming language |
+| type        | [native](#native) \| [extended](#extended) | Optional    | The seed type of this property.                                                                                                                         |
+| description | string                                     | Recommended | Documentation of the field. Supports markdown                                                                                                           |
+
 ## Built-in data types
 
 ### Native

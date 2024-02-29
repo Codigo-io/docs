@@ -11,9 +11,11 @@ You can define any number of methods required for your use case.
 `errors` is an array of objects where each object is an error
 
 ```yaml showLineNumbers
-errors: # Array - Custom Errors definition
-  - id: ErrorIdentifier
-    msg: Error message 
+errors:
+  - id: InvalidUserName
+    msg: The provided username is not valid
+  - id: WarehouseIsClose
+    msg: The warehouse cannot transact because
 ```
 
 | Keyword | Type                       | Optionality | Description |

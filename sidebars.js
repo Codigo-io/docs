@@ -67,6 +67,7 @@ const sidebars = {
         "learning-the-basics/imports",
         "learning-the-basics/methods",
         "learning-the-basics/errors",
+        "learning-the-basics/solana",
       ]
     },
     {
@@ -80,6 +81,7 @@ const sidebars = {
         "guides/solana-nft",
         "guides/state-compression",
         "guides/inventory",
+        "guides/solana-linked-seeds",
         {
           type: "link",
           label: "Additional guides",

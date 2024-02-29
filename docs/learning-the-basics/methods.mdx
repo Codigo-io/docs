@@ -64,14 +64,14 @@ Check the [Inventory guide](../guides/inventory) to learn how to implement metho
 
 #### Method Body
 
-| Keyword | Type                                    | Optionality | Description                                                                                                              |
-|---------|-----------------------------------------|-------------|--------------------------------------------------------------------------------------------------------------------------|
-| name    | string                                  | Required    | The name of the method, it must follow the targeted programming naming convention                                       |
-| summary | string                                  | Recommended | Documentation summary of the method. Supports markdown                                                                   |
-| solana  | [Solana](#solana-method-extension)      | Optional    |                                                                                                                          |
-| signers | Array&lt;[SignerBody](#signer-body)&gt; | Optional    |                                                                                                                          |
-| inputs  | Array&lt;[InputBody](#input-body)&gt;   | Optional    |                                                                                                                          |
-| uses    | Array&lt;string&gt;                     | Optional    | List of reference methods in the form of `ref.method_name`, where `ref` is the value set in the [imports](#imports-body) |
+| Keyword | Type                                    | Optionality | Description                                                                                                        |
+|---------|-----------------------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
+| name    | string                                  | Required    | The name of the method, it must follow the targeted programming naming convention                                  |
+| summary | string                                  | Recommended | Documentation summary of the method. Supports markdown                                                             |
+| solana  | [Solana](#solana-method-extension)      | Optional    |                                                                                                                    |
+| signers | Array&lt;[SignerBody](#signer-body)&gt; | Optional    |                                                                                                                    |
+| inputs  | Array&lt;[InputBody](#input-body)&gt;   | Optional    |                                                                                                                    |
+| uses    | Array&lt;string&gt;                     | Optional    | List of reference methods in the form of `ref.method_name`, where `ref` is the value set in the [imports](imports) |
 
 ##### Solana Method Extension
 
@@ -84,17 +84,17 @@ Check the [Inventory guide](../guides/inventory) to learn how to implement metho
 
 | Keyword | Type                                                                | Optionality | Description                                                                                                                                                                                    |
 |---------|---------------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type    | [Type](#types) \| ref.[Type](#types)                                | Required    | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body)                                                                      |
+| type    | [Type](custom-types) \| ref.[Type](custom-types)                    | Required    | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](imports)                                                                            |
 | mode    | append \| insert_or_append           \| replace_leaf \| verify_leaf | Required    | How should this type be compress. Each mode corresponds to a method of the [state compression program](https://github.com/Codigo-io/platform/blob/develop/solana/spl_account_compression.yaml) |
 
 ###### Signer Body
 
-| Keyword    | Type                                 | Optionality        | Description                                                                                                               |
-|------------|--------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------|
-| name       | string                               | Mutually exclusive | The name for the signing account.                                                                                         |
-| type       | [Type](#types) \| ref.[Type](#types) | Mutually exclusive | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) |
-| input      | string                               | Mutually exclusive | Reference to an input's name. It will set the input as a signer                                                           |
-| attributes | Array&lt;string&gt;                  | Optional           | Attributes to modify/extend the type. Only applicable when type is defined                                                |
+| Keyword    | Type                                             | Optionality        | Description                                                                                                         |
+|------------|--------------------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|
+| name       | string                                           | Mutually exclusive | The name for the signing account.                                                                                   |
+| type       | [Type](custom-types) \| ref.[Type](custom-types) | Mutually exclusive | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](imports) |
+| input      | string                                           | Mutually exclusive | Reference to an input's name. It will set the input as a signer                                                     |
+| attributes | Array&lt;string&gt;                              | Optional           | Attributes to modify/extend the type. Only applicable when type is defined                                          |
 
 :::info
 `name`/`type` are mutually exclusive with `input`. This means
@@ -162,12 +162,12 @@ pub struct MethodWithCustomSigner<'info> {
 
 ##### Input Body
 
-| Keyword     | Type                                                                               | Optionality | Description                                                                                                                                                                      |
-|-------------|------------------------------------------------------------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name        | string                                                                             | Required    | The name of the parameter, it must follow the targeted programming naming convention                                                                                            |
-| type        | [native](#native) \| [extended](#extended) \| [Type](#Types) \| ref.[Type](#Types) | Required    | The data type of this parameter&lt;br /&gt;&lt;br /&gt;Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) |
-| description | string                                                                             | Recommended | Documentation of the input. Supports markdown                                                                                                                                    |
-| attributes  | Array&lt;string&gt;                                                                | Optional    | Attributes to modify/extend the type                                                                                                                                             |
+| Keyword     | Type                                                                                                         | Optionality | Description                                                                                                                                                                |
+|-------------|--------------------------------------------------------------------------------------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name        | string                                                                                                       | Required    | The name of the parameter, it must follow the targeted programming naming convention                                                                                       |
+| type        | [native](data-types#native) \| [extended](data-types#extended) \| [Type](custom-types) \| ref.[Type](#Types) | Required    | The data type of this parameter&lt;br /&gt;&lt;br /&gt;Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](imports) |
+| description | string                                                                                                       | Recommended | Documentation of the input. Supports markdown                                                                                                                              |
+| attributes  | Array&lt;string&gt;                                                                                          | Optional    | Attributes to modify/extend the type                                                                                                                                       |
 
 :::info
 We can specify any native, extended, or custom data type to the input type.
