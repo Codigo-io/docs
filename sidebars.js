@@ -75,13 +75,20 @@ const sidebars = {
       label: "Guides",
       collapsed: false,
       items: [
-        "guides/implementing-business-logic",
-        "guides/integrating-the-sdk",
-        "guides/lender",
-        "guides/solana-nft",
-        "guides/state-compression",
-        "guides/inventory",
-        "guides/solana-linked-seeds",
+        {
+          type: "category",
+          label: "Solana",
+          collapsed: false,
+          items: [
+            "guides/implementing-business-logic",
+            "guides/integrating-the-sdk",
+            "guides/solana-linked-seeds",
+            "guides/state-compression",
+            "guides/solana-nft",
+            "guides/lender",
+            "guides/inventory",
+          ],
+        },
         {
           type: "link",
           label: "Additional guides",

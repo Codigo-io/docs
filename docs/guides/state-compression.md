@@ -1,1 +1,1 @@
-# Solana State Compression
+# State Compression
