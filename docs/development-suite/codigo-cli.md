@@ -13,17 +13,12 @@ web-based environment; thus, you can access it from the terminal by going to Ter
 command `codigo`.
 
 :::tip
-To use the Código CLI, you must log in using your GitHub account, execute the following command to log in:
-
-```shell
-codigo login
-```
-
+To use the Código CLI, you must log in using your GitHub account. Learn how [here](../getting-started/installation#sign-in-to-código-cli)
 :::
 
-# Commands
+## Commands
 
-## login
+### login
 
 Log in using your GitHub account.
 
@@ -38,7 +33,7 @@ codigo login
 | --whoami | Prints the authenticated username                   |
 | --logout | Sign out, the user will need to execute login again |
 
-## upgrade
+### upgrade
 
 Updates the Código CLI to the latest version
 
@@ -53,11 +48,11 @@ codigo upgrade
 | -c, --check    | Verifies if there is a new version available. Doesn't perform any update |
 | -r, --rollback | Rollback the update. Fails if no update to rollback is available.        |
 
-## solana
+### solana
 
 Sub-command to generate programs and client libraries for the Solana blockchain
 
-### generate
+#### generate
 
 sub command to generate client libraries or programs
 
@@ -81,9 +76,3 @@ codigo solana generate /path/to/my/cidl.yaml
 Código is a growing community of developers. Join us on
 **[Discord](https://discord.gg/8XHQGS832k)**
 and **[GitHub](https://github.com/Codigo-io)**
-
-#### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
-
-[![Button Example]][Link]
-[Link]: https://docs.google.com/forms/d/e/1FAIpQLScBjQuX663e-PnJnrZokK5mEIvBp_JZE-hL1Pcn6WvnGP68_A/viewform
-[Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge

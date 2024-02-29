@@ -56,8 +56,9 @@ engineering. The CIDL Specification removes guesswork in calling a Smart Contrac
 ## CIDL Schema Definition
 
 :::tip
-CIDL Specification is a WIP. You can contribute to this specification by opening an 
-issues in the [Código Platform Repo](https://github.com/Codigo-io/platform/issues/new?assignees=&labels=enhancement%2Ctriage&projects=Codigo-io%2F8&template=enhancement-request.yaml&title=%5BEnhancement%5D%3A+)
+CIDL Specification is a WIP. You can contribute to this specification by opening an
+issues in
+the [Código Platform Repo](https://github.com/Codigo-io/platform/issues/new?assignees=&labels=enhancement%2Ctriage&projects=Codigo-io%2F8&template=enhancement-request.yaml&title=%5BEnhancement%5D%3A+)
 :::
 
 ```yaml
@@ -350,11 +351,12 @@ methods: # Array of methods | instructions
 
 ###### Signer Body
 
-| Keyword | Type                                 | Optionality        | Description                                                                                                               |
-|---------|--------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------|
-| name    | string                               | Mutually exclusive | The name for the signing account.                                                                                         |
-| type    | [Type](#types) \| ref.[Type](#types) | Mutually exclusive | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) |
-| input   | string                               | Mutually exclusive | Reference to an input's name. It will set the input as a signer                                                           |
+| Keyword    | Type                                 | Optionality        | Description                                                                                                               |
+|------------|--------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------|
+| name       | string                               | Mutually exclusive | The name for the signing account.                                                                                         |
+| type       | [Type](#types) \| ref.[Type](#types) | Mutually exclusive | Can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](#imports-body) |
+| input      | string                               | Mutually exclusive | Reference to an input's name. It will set the input as a signer                                                           |
+| attributes | Array&lt;string&gt;                  | Optional           | Attributes to modify/extend the type. Only applicable when type is define                                                 |
 
 :::info
 `name`/`type` are mutually exclusive with `input`. This means

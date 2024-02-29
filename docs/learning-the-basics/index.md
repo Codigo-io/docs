@@ -30,13 +30,6 @@ cidl: 0.9
 
 Check the [change logs](../whats-new.md) to get the latest spec version
 
-If you want a more in-depth technical read on the CIDL and all the available properties, check the
-[CIDL Specification](./specification)
-
-:::caution
-The CIDL specification defines properties that may have not been implemented.
-:::
-
 ## Next steps
 
 Learn about the supported data types and how to modify/extend their behavior through attributes. If you

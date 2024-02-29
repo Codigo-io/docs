@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Data types
 
 The CIDL defines three forms of data types. A developer can cover all available use cases through these.
@@ -177,7 +180,7 @@ where an attacker can pass any account owned by your program and close it.
 Non-PDA accounts are those accounts where K is not defined. `sol:account<T?, K?>`.
 :::
 
-:::tip
+:::note
 This attribute is only applicable to Non-PDA accounts.
 :::
 
@@ -201,7 +204,7 @@ If your account defined a layout `sol:account<MyCustomType>` you can omit this a
 will be automatically calculated.
 :::
 
-:::caution
+:::note
 This attribute doesn't affect `sol:merkle_tree` data type, since the calculation for a merkle tree is different
 from other accounts.
 :::
@@ -212,6 +215,7 @@ types:
     fields:
       - name: title
         type: string
+        attributes: [ cap=36 ]
 methods:
   - name: creating_accounts
     inputs:
@@ -222,6 +226,59 @@ methods:
         type: sol:account<Metadata>
         attributes: [ sol:init_if_needed ] # sol:space omitted because it will be inferred from the Metadata type
 ```
+
+The `sol:space` attribute will generate the following check for the method `creating_accounts`. If the account
+defined a layout, the space will be automatically calculated.
+
+:::info
+For the Anchor framework 8 additional bytes are added to the space to take into account the Anchor discriminator
+:::
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+    
+```rust showLineNumbers
+pub fn process_creating_accounts(/* ... */) -> ProgramResult {
+  //...
+  
+  if mint_info.data_len() != 82usize {
+    return Err(CounterError::InvalidAccountLen.into());
+  }
+  
+  if metadata_info.data_len() != 40usize {
+    return Err(CounterError::InvalidAccountLen.into());
+  }
+  
+  //...
+}
+```
+    
+  </TabItem>
+  
+  <TabItem value="anchor" label="Anchor">
+    
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct CreatingAccounts<'info> {
+  // ...
+
+  #[account(
+    space=90,
+  )]
+  /// CHECK: implement manual checks if needed
+  pub mint: UncheckedAccount<'info>,
+
+  #[account(
+    space=48,
+  )]
+  pub metadata: Account<'info, Metadata>,
+
+  // ...
+} 
+```
+    
+  </TabItem>
+</Tabs>
 
 ### sol\:owner
 
@@ -236,7 +293,58 @@ methods:
       - name: wallet
         type: sol:account
         attributes: [ sol:owner=11111111111111111111111111111111 ]
+      - name: delegate
+        type: sol:account
 ```
+
+The `sol:owner` attribute will generate the following security check for the method `transfer_fund_from_wallet`.
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+
+```rust showLineNumbers
+pub fn process_transfer_fund_from_wallet(/* ... */) -> ProgramResult {
+  //...
+
+  if *wallet_info.owner != Pubkey::from_str("11111111111111111111111111111111").unwrap() {
+    return Err(CounterError::WrongAccountOwner.into());
+  }
+
+  if *delegate_info.owner != *program_id {
+    return Err(CounterError::WrongAccountOwner.into());
+  }
+
+  //...
+}
+```
+
+  </TabItem>
+
+  <TabItem value="anchor" label="Anchor">
+
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct TransferFundFromWallet<'info> {
+  // ...
+    
+  #[account(
+    owner=Pubkey::from_str("11111111111111111111111111111111").unwrap(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub wallet: UncheckedAccount<'info>,
+
+  #[account(
+    owner=id(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub delegate: UncheckedAccount<'info>,
+    
+  // ...
+}
+```
+
+  </TabItem>
+</Tabs>
 
 ### sol\:address
 
@@ -245,18 +353,47 @@ The `sol:address=Pubkey` attribute defines the exact address an account must hav
 
 ```yaml showLineNumbers
 methods:
-  - name: call_system_program
+  - name: account_with_custom_address
     inputs:
-      - name: system_program
+      - name: account
         type: sol:account
-        attributes: [ sol:address=11111111111111111111111111111111 ]
+        attributes: [ sol:address=24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p ]
 ```
 
-:::tip
-When creating an account with the `sol:init` or `sol:init_if_needed` attribute, you don't need to add the system
-program account, since this will be added automatically for you. This example only wants to demonstrate how we can
-set the owner attribute.
-:::
+The `sol:address` attribute will generate the following security check for the method `account_with_custom_address`.
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+
+```rust showLineNumbers
+pub fn process_account_with_custom_address(/* ... */) -> ProgramResult {
+  //...
+
+  if *account_info.key != Pubkey::from_str("24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p").unwrap() {
+    return Err(CounterError::NotExpectedAddress.into());
+  }
+    
+  //...
+}
+```
+
+  </TabItem>
+
+  <TabItem value="anchor" label="Anchor">
+
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct AccountWithCustomAddress<'info> {
+  #[account(
+    address=Pubkey::from_str("24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p").unwrap(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub account: UncheckedAccount<'info>,
+}
+```
+
+  </TabItem>
+</Tabs>
 
 ### sol\:rent-payer
 

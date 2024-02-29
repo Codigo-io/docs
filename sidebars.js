@@ -29,9 +29,13 @@ const sidebars = {
         "getting-started/specification",
         {
           type: "category",
-          label: "Quickstart",
+          label: "Solana",
           collapsed: false,
           collapsible: false,
+          link: {
+            type: "doc",
+            id: "getting-started/quickstart-solana"
+          },
           items: [
             "getting-started/quickstart-solana-native",
             "getting-started/quickstart-solana-anchor",

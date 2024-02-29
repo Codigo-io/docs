@@ -1,4 +1,4 @@
-# Solana Native
+# Native Program
 
 In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch
 using our web-based IDE, [Código Studio](https://studio.codigo.ai). Código Studio has all the necessary tools and

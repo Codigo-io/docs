@@ -116,17 +116,10 @@ comes with. To summarize what we learned:
 
 These links may help you on your journey to writing smart contracts with the CIDL:
 
-- [Learning the Basics](../código-interface-description-language/learning-the-basics.md)
-- [Part I - Building Solana Programs](../guides/part-1-building-solana-programs.md)
+- [Learning the Basics](../learning-the-basics)
 
 ## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
 **[Discord](https://discord.gg/8XHQGS832k)**
 and **[GitHub](https://github.com/Codigo-io)**
-
-#### Documentation detectives wanted! If you've spotted any gaps or have suggestions to level up our documentation game, we'd love to hear from you!
-
-[![Button Example]][Link]
-[Link]: https://docs.google.com/forms/d/e/1FAIpQLScEDXevIHiSlzDo98zxowWMunwcb6zJZfRHvK8262XMEE0suw/viewform
-[Button Example]: https://img.shields.io/badge/Feedback-FD971F?style=for-the-badge
