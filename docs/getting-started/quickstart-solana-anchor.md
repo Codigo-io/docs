@@ -52,7 +52,7 @@ objects.
 - In the `types` object we can define our program's custom types. Check the custom types section to
   [learn more](../learning-the-basics/custom-types.md)
 - In the `methods` object we can define our program instructions, these are the instructions that will be called
-  from the client or from other programs. Check the methods section to [learn more](../learning-the-basics/methods.md)
+  from the client or from other programs. Check the methods section to [learn more](../learning-the-basics/methods.mdx)
 
 ## 2. Generate code
 
@@ -259,7 +259,7 @@ TypeScript client library with an application. To summarize what we learned:
 
 These links may help you on your journey to writing Solana programs with the CIDL:
 
-- [Overview](../index.md)
+- [Overview](/)
 - [Learning the Basics](../learning-the-basics)
 - [Build and informal lender program](../guides/lender.md)
 

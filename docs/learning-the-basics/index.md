@@ -35,7 +35,7 @@ Check the [change logs](../whats-new.md) to get the latest spec version
 Learn about the supported data types and how to modify/extend their behavior through attributes. If you
 dominate these concepts, then you have mastered the CIDL.
 
-- [Data Types](./data-types.md)
+- [Data Types](data-types)
 
 ## Join the Código community💚
 

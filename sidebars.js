@@ -82,11 +82,11 @@ const sidebars = {
           items: [
             "guides/implementing-business-logic",
             "guides/integrating-the-sdk",
-            "guides/solana-linked-seeds",
-            "guides/state-compression",
+            // "guides/solana-linked-seeds",
+            // "guides/state-compression",
             "guides/solana-nft",
-            "guides/lender",
-            "guides/inventory",
+            // "guides/lender",
+            // "guides/inventory",
           ],
         },
         {
