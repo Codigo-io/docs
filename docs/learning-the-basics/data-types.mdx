@@ -1,0 +1,555 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Data types
+
+The CIDL defines three forms of data types. A developer can cover all available use cases through these.
+
+:::tip
+Data types in the CIDL are all specified in lowercase, except for custom-defined types.
+:::
+
+**Native Types:** These are primitive data types like `u32`, `bool`, `string`, etc. It is important to note that what is
+a primitive type in the context of the CIDL may not be a primitive type in the generated version.
+
+**Extended Types:** Built-in extended types implemented by Código like `sol:pubkey`, `sol:merkle_tree`, and others.
+These data types can be specific to a programming language, blockchain, or a particular form of handling them.
+
+**Types:** These are the custom types defined by a developer. In this document, we will cover everything related to
+native and extended data types. For custom-defined types read more [here](custom-types)
+
+## Definition
+
+### Native
+
+The following table is a comprehensive list of the supported native types by the CIDL.
+
+| Data Type | Length                             | Attributes  |  
+|-----------|------------------------------------|-------------|
+| u8        | 8-bit unsigned integer             |             |
+| u16       | 16-bit unsigned integer            |             |
+| u32       | 32-bit unsigned integer            |             |
+| u64       | 64-bit unsigned integer            |             |
+| u128      | 128-bit unsigned integer           |             |
+| i8        | 8-bit signed integer               |             |
+| i16       | 16-bit signed integer              |             |
+| i32       | 32-bit signed integer              |             |
+| i64       | 64-bit signed integer              |             |
+| i128      | 128-bit signed integer             |             |
+| f32       | 32-bit signed float                |             |
+| f64       | 64-bit signed float                |             |
+| bool      | 1 bit                              |             |
+| string    | Depends on the targeted blockchain | [cap](#cap) |
+
+### Extended
+
+The following table is a comprehensive list of the supported extended types by the CIDL.
+
+| Data Types                      | Length                             | Attributes                                                                                                                                                                                                                                                                                                                                                                                                                                       | Comments                                                                                                                                                                                                                                                                                                                              |
+|---------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| array                           | Depends on the targeted blockchain | [cap](#cap)                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| sol:pubkey                      | 32 bytes                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Type specific to the Solana blockchain. Transpiles to [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html) data type.                                                                                                                                                                             |
+| sol:account&lt;T?, seeds.K?&gt; | It depends                         | [`sol:writable`](#solwritable) <br /> [`sol:init`](#solinit) <br /> [`sol:init_if_needed`](#solinit_if_needed) <br /> [`sol:close`](#solclose) <br /> [`sol:close_uncheck`](#solclose_uncheck) <br /> [`sol:space`](#solspace) <br /> [`sol:owner`](#solowner) <br /> [`sol:address`](#soladdress) <br /> [`sol:rent-payer`](#solrent-payer) <br /> [`sol:rent-receiver`](#solrent-receiver) <br /> [`sol:uncheck_account`](#soluncheck_account) | Type specific to the Solana blockchain. `T` is the name of a custom-defined type, it can be omitted with underscored `_`. `K` is the name of a seed definition. `T` and `K` can reference imported CIDLs in the form of `ref.type_name`, where `ref` is the value set in the [imports](../getting-started/specification#imports-body) | 
+| sol:merkle_tree                 | It depends                         | [`sol:init`](#solinit) <br /> [`sol:init_if_needed`](#solinit_if_needed) <br /> [`sol:authority`](#solauthority) <br/> [`sol:canopy`](#solcanopy) <br/> [`cap`](#cap)                                                                                                                                                                                                                                                                            | Type specific to the Solana blockchain. Transpiles to [AccountInfo](https://docs.rs/solana-program/1.15.2/solana_program/account_info/struct.AccountInfo.html) data type with the owner set to the account compression program.                                                                                                       |
+
+:::caution
+`array<string>` is in WIP
+:::
+
+## Attributes
+
+:::note
+In the below examples, certain keywords are omitted so the attribute can stand out
+:::
+
+:::tip
+Multiple attributes can be combined to achieve the desired behavior. Learning how to combine them
+is the complex part of the CIDL.
+:::
+
+:::tip
+Attributes that require a value i.e. `cap`, `sol:owner`, etc. are set with the assignment operator `=` a.k.a. equal
+sign.
+:::
+
+:::tip
+Attributes that are prefixed with `sol:` are only applicable to the Solana blockchain.
+:::
+
+### cap
+
+The `cap=\d+` (capacity) attribute defines the maximum length/size of a type. The capacity attribute is required
+for `string`, `array`, and `sol:merkle_tree` when creating the account, read more about
+`sol:merkle_tree` [here](../guides/state-compression).
+
+```yaml showLineNumbers
+types:
+  Example:
+    fields:
+      - name: product_name
+        type: string
+        attributes: [ cap=36 ]
+      - name: rating
+        type: array<u8>
+        attributes: [ cap=5 ]
+methods:
+  - name: initialize_merkle_tree
+    inputs:
+      - name: merkle_tree
+        type: sol:merkle_tree
+        attributes: [ cap=100000000 ]
+```
+
+### sol\:writable
+
+The `sol:writable` attribute sets the `is_writable` property of an account to `true`. If omitted, the account will
+be read-only, you can read more about read-only [here](https://solana.com/docs/core/accounts#read-only). This attribute
+is only applicable to `sol:account<T?, K?>` types.
+
+```yaml showLineNumbers
+methods:
+  - name: transfer_funds_from_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:writable ]
+```
+
+### sol\:init
+
+The `sol:init` attribute generates the code to do a CPI call to the create_account method of the Solana SystemProgram.
+Methods that have input with this attribute can only be called once per account, otherwise, it will throw a Solana
+runtime error because it will try to create an account that's already created. This attribute
+is only applicable to `sol:account<T?, K?>` and `sol:merkle_tree` types.
+
+```yaml showLineNumbers
+methods:
+  - name: create_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:init ]
+```
+
+### sol\:init_if_needed
+
+The `sol:init_if_needed` attribute behaves how `sol:init` does, with the difference that before trying to create the
+account it will check if the account is already created. Thus, avoiding the Solana runtime error.
+
+:::danger
+This can sound convenient, but take special care because this can open the possibility of Reinitialization attacks.
+A reinitialization attack is when the data of your account is reset to the initial/default state.
+:::
+
+```yaml showLineNumbers
+methods:
+  - name: create_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:init_if_needed ]
+```
+
+### sol\:close
+
+The `sol:close` attribute generates the code to close an account. An account is closed when the account's data is
+zeroed out, all the lamports are withdrawn, and the Solana runtime garbage collects the account. This attribute is only
+applicable to `sol:account<T?, K?>` and `sol:merkle_tree` types.
+
+```yaml showLineNumbers
+methods:
+  - name: close_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:close ]
+```
+
+### sol\:close_uncheck
+
+The `sol:close_uncheck` attribute behaves how `sol:close` does, with the difference that if the account is a Non-PDA
+account it **WILL NOT** set the account as a signer. To understand this behavior, first, we need to understand that in
+Solana, accounts can only be modified by their owner, Solana doesn't enforce that a Non-PDA account requires to be a signer when closing it.
+
+:::danger
+Take special care when using this attribute, otherwise, you will be open to a vulnerability
+where an attacker can pass any account owned by your program and close it.
+:::
+
+:::info
+Non-PDA accounts are those accounts where K is not defined. `sol:account<T?, K?>`.
+:::
+
+:::note
+This attribute is only applicable to Non-PDA accounts.
+:::
+
+```yaml showLineNumbers
+methods:
+  - name: close_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:close_uncheck ]
+```
+
+### sol\:space
+
+The `sol:space=\d+` attribute defines the size of the account. This attribute is only applicable when an account is being
+created, either by using the [`sol:init`](#solinit) or [`sol:init_if_needed`](#solinit_if_needed) attribute. This
+attribute can be omitted when `sol:account<T?, K?>` defined `T`.
+
+:::tip
+If your account defined a layout `sol:account<MyCustomType>` you can omit this attribute, since the space
+will be automatically calculated.
+:::
+
+:::note
+This attribute doesn't affect `sol:merkle_tree` data type, since the calculation for a merkle tree is different
+from other accounts.
+:::
+
+```yaml showLineNumbers
+types:
+  Metadata:
+    fields:
+      - name: title
+        type: string
+        attributes: [ cap=36 ]
+methods:
+  - name: creating_accounts
+    inputs:
+      - name: mint
+        type: sol:account
+        attributes: [ sol:init, sol:space=82 ]
+      - name: metadata
+        type: sol:account<Metadata>
+        attributes: [ sol:init_if_needed ] # sol:space omitted because it will be inferred from the Metadata type
+```
+
+The `sol:space` attribute will generate the following check for the method `creating_accounts`. If the account
+defined a layout, the space will be automatically calculated.
+
+:::info
+For the Anchor framework 8 additional bytes are added to the space to take into account the Anchor discriminator
+:::
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+    
+```rust showLineNumbers
+pub fn process_creating_accounts(/* ... */) -> ProgramResult {
+  //...
+  
+  if mint_info.data_len() != 82usize {
+    return Err(CounterError::InvalidAccountLen.into());
+  }
+  
+  if metadata_info.data_len() != 40usize {
+    return Err(CounterError::InvalidAccountLen.into());
+  }
+  
+  //...
+}
+```
+    
+  </TabItem>
+  
+  <TabItem value="anchor" label="Anchor">
+    
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct CreatingAccounts<'info> {
+  // ...
+
+  #[account(
+    space=90,
+  )]
+  /// CHECK: implement manual checks if needed
+  pub mint: UncheckedAccount<'info>,
+
+  #[account(
+    space=48,
+  )]
+  pub metadata: Account<'info, Metadata>,
+
+  // ...
+} 
+```
+    
+  </TabItem>
+</Tabs>
+
+### sol\:owner
+
+The `sol:owner=Pubkey|self` attribute defines the owner of an account, by default all account owner will be set
+to self, where self is the program id passed by the Solana runtime when executing the program. If an account requires
+to set another owner, it can do so by assigning a literal [Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html).
+
+```yaml showLineNumbers
+methods:
+  - name: transfer_fund_from_wallet
+    inputs:
+      - name: wallet
+        type: sol:account
+        attributes: [ sol:owner=11111111111111111111111111111111 ]
+      - name: delegate
+        type: sol:account
+```
+
+The `sol:owner` attribute will generate the following security check for the method `transfer_fund_from_wallet`.
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+
+```rust showLineNumbers
+pub fn process_transfer_fund_from_wallet(/* ... */) -> ProgramResult {
+  //...
+
+  if *wallet_info.owner != Pubkey::from_str("11111111111111111111111111111111").unwrap() {
+    return Err(CounterError::WrongAccountOwner.into());
+  }
+
+  if *delegate_info.owner != *program_id {
+    return Err(CounterError::WrongAccountOwner.into());
+  }
+
+  //...
+}
+```
+
+  </TabItem>
+
+  <TabItem value="anchor" label="Anchor">
+
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct TransferFundFromWallet<'info> {
+  // ...
+    
+  #[account(
+    owner=Pubkey::from_str("11111111111111111111111111111111").unwrap(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub wallet: UncheckedAccount<'info>,
+
+  #[account(
+    owner=id(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub delegate: UncheckedAccount<'info>,
+    
+  // ...
+}
+```
+
+  </TabItem>
+</Tabs>
+
+### sol\:address
+
+The `sol:address=Pubkey` attribute defines the exact address an account must have. The value assigned must be a literal
+[Pubkey](https://docs.rs/solana-program/1.15.2/solana_program/pubkey/struct.Pubkey.html).
+
+```yaml showLineNumbers
+methods:
+  - name: account_with_custom_address
+    inputs:
+      - name: account
+        type: sol:account
+        attributes: [ sol:address=24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p ]
+```
+
+The `sol:address` attribute will generate the following security check for the method `account_with_custom_address`.
+
+<Tabs groupId="extension">
+  <TabItem value="native" label="Native">
+
+```rust showLineNumbers
+pub fn process_account_with_custom_address(/* ... */) -> ProgramResult {
+  //...
+
+  if *account_info.key != Pubkey::from_str("24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p").unwrap() {
+    return Err(CounterError::NotExpectedAddress.into());
+  }
+    
+  //...
+}
+```
+
+  </TabItem>
+
+  <TabItem value="anchor" label="Anchor">
+
+```rust showLineNumbers
+#[derive(Accounts)]
+pub struct AccountWithCustomAddress<'info> {
+  #[account(
+    address=Pubkey::from_str("24PNhTaNtomHhoy3fTRaMhAFCRj4uHqhZEEoWrKDbR5p").unwrap(),
+  )]
+  /// CHECK: implement manual checks if needed
+  pub account: UncheckedAccount<'info>,
+}
+```
+
+  </TabItem>
+</Tabs>
+
+### sol\:rent-payer
+
+The `sol:rent-payer=input_name|signer_name` attribute defines which account will be paying the rent when an
+account. This attribute is only applicable when an account is being created, either by using the
+[`sol:init`](#solinit) or [`sol:init_if_needed`](#solinit_if_needed) attribute. By default, the rent payer will be
+the first signer of the method, to override this behavior we need to assign the name of a signer or an input,
+where this input is a solana account.
+
+:::tip
+If the rent payer points to an input, this input will be a signer.
+:::
+
+> Example, where rent payer points to an input
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    inputs:
+      - name: account
+        type: sol:account
+        attributes: [ sol:init, sol:rent-payer=wallet ]
+      - name: wallet
+        type: sol:account
+```
+
+> Example, where rent payer points to a signer
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    signers:
+      - name: fee_payer
+        type: sol:account
+      - name: wallet
+        type: sol:account
+    inputs:
+      - name: account
+        type: sol:account
+        attributes: [ sol:init_if_needed, sol:rent-payer=wallet ]
+```
+
+### sol\:rent-receiver
+
+The `sol:rent-receiver=input_name|signer_name` attribute defines which account will be receiving the lamports the
+account holds. This attribute is only applicable when an account is being closed, either by using the
+[`sol:close`](#solclose) or [`sol:close_uncheck`](#solclose_uncheck) attribute. By default, the rent receiver will be
+the first signer of the method, to override this behavior we need to assign the name of a signer or an input,
+where this input is a solana account.
+
+:::tip
+The input or signer to which the rent receiver points to will be marked as writable
+:::
+
+> Example, where the rent receiver points to an input
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    inputs:
+      - name: account
+        type: sol:account
+        attributes: [ sol:close, sol:rent-receiver=wallet ]
+      - name: wallet
+        type: sol:account
+```
+
+> Example, where rent receiver points to a signer
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    signers:
+      - name: fee_payer
+        type: sol:account
+      - name: wallet
+        type: sol:account
+    inputs:
+      - name: account
+        type: sol:account
+        attributes: [ sol:close_uncheck, sol:rent-receiver=wallet ]
+```
+
+### sol\:uncheck_account
+
+The `sol:uncheck_account` attribute tells the generator to **NOT** generate any ownership or address checks. There
+some cases where the owner or address of the account is unknown. This attribute exists for those cases, usually, this
+case will be presented when you are building a program that will be called from another program (CPI).
+
+:::danger
+Take special care with this attribute, and only use it, if you really know what you are doing.
+:::
+
+```yaml showLineNumbers
+methods:
+  - name: unknown_owner
+    inputs:
+      - name: owner
+        type: sol:account
+        attributes: [ sol:uncheck_account ]
+```
+
+### sol\:authority
+
+The `sol:authority=input_name|signer_name` attribute is only applicable to the `sol:merkle_tree` data type. It tells
+the generator which account has the authority to modify a merkle tree account. To learn about this check the guide
+[Solana State Compression](../guides/state-compression). By default, the authority will be the first signer.
+
+> Example, where authority points to an input
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    inputs:
+      - name: account
+        type: sol:merkle_tree
+        attributes: [ sol:authority=wallet ]
+      - name: wallet
+        type: sol:account
+```
+
+> Example, where authority points to a signer
+```yaml showLineNumbers
+methods:
+  - name: create_account
+    signers:
+      - name: fee_payer
+        type: sol:account
+      - name: wallet
+        type: sol:account
+    inputs:
+      - name: account
+        type: sol:merkle_tree
+        attributes: [ sol:authority=wallet ]
+```
+
+### sol\:canopy
+
+The `sol:canopy=\d+` attribute is only applicable to the `sol:merkle_tree` data type. It tells
+the generator which is the canopy of the merkle tree. To learn about this check the guide
+[Solana State Compression](../guides/state-compression). By default, the authority will be the first signer.
+
+```yaml showLineNumbers
+methods:
+  - name: state_compression
+    inputs:
+      - name: account
+        type: sol:merkle_tree
+        attributes: [ sol:canopy=7 ]
+```
+
+## Next steps
+
+Now you have learned about the supported data types, the next step is to learn where to use them and how to combine
+them to achieve the desire solution. For that you can continue your learning path in the following links:
+
+- [Custom-defined Types](custom-types)
+- [Methods](methods)
+
+## Join the Código community 💚
+
+Código is a growing community of developers. Join us on
+**[Discord](https://discord.gg/8XHQGS832k)**
+and **[GitHub](https://github.com/Codigo-io)**
