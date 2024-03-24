@@ -4,15 +4,15 @@ In this guide, you’ll learn how to build a simple defi dApp in under an hour u
 
 Código is an AI-powered code Generation Platform for blockchain developers and web3 teams that saves development time and increases the code's security.
 
-To get started, create an account by accessing [Código Studio](https://studio.codigo.ai) 
+To get started, **Create an account** on [Código Platform](https://studio.codigo.ai) following the steps mentioned [here](../getting-started/installation.md#código-studio)
 
-## Create an account
+<!-- ## Create an account
 When entering ![](https://studio.codigo.ai) you will be received with the following screen. You can access Código Studio using your GitHub account or by creating a new account with any email address:
 
 ![Código Studio Sign Up](../../static/img/sign_codigo_studio.png)
 ![Código Studio Register](../../static/img/register_codigo_studio.png)
 
-Código Studio is a web-based IDE that allows you to develop dApp using Solana and the Código Platform. The web-based IDE comes with all the required components to build Solana dApp i.e. Solana Development suite tool, Anchor, Código CLI, Node.js, Rust, and more
+Código Studio is a web-based IDE that allows you to develop dApp using Solana and the Código Platform. The web-based IDE comes with all the required components to build Solana dApp i.e. Solana Development suite tool, Anchor, Código CLI, Node.js, Rust, and more -->
 
 :::info
 The first time you create an account, provisioning your environment can take **3 to 5 minutes**.
@@ -20,7 +20,7 @@ The first time you create an account, provisioning your environment can take **3
 
 ## Create & implement the CIDL for a simple DeFi
 
-After creating your account and successfully accessing the environment we can start writing the CIDL. Create a new file named `cidl.yaml` from your file explorer. 
+After creating your account and successfully accessing the environment we can start writing the CIDL. Create a new file named `main.cidl` from your file explorer. 
 
 The *CIDL (Código Interface Description Language)* is the input to Código’s Generator; in it, we define our Solana program types and methods.
 
@@ -28,10 +28,10 @@ The *CIDL (Código Interface Description Language)* is the input to Código’s 
 
 ### Implementing the CIDL metadata
 
-The first part we need to implement of the CIDL is the CIDL’s spec version and program information. With this metadata information, Código’s Generator and other people will know which CIDL specification version is used, the contract name, its license, and more. Copy and paste the following code to your `cidl.yaml` file:
+The first part we need to implement of the CIDL is the CIDL’s spec version and program information. With this metadata information, Código’s Generator and other people will know which CIDL specification version is used, the contract name, its license, and more. Copy and paste the following code to your `main.cidl` file:
 
 ```yaml
-cidl: "0.8"
+cidl: "0.9"
 info:
   name: informal_lender
   title: Informal Lender
@@ -44,7 +44,7 @@ info:
     identifier: MIT
 ```
 
-After copying and pasting successfully, your `cidl.yaml` file should look like this:
+After copying and pasting successfully, your `main.cidl` file should look like this:
 
 ![Código Studio CIDL-Lender1](../../static/img/cidl_lender1.png)
 
@@ -55,17 +55,26 @@ The Broker will store the capital amount that is available to lend, the amount i
 
 The Loan type will store the data for a given loan. Like the amount lent and paid, whether the loan is approved or not, and the KYC (Know Your Customer) information. These 2 last points are really important, based on the country's law before lending money the lender needs to screen the person to whom it will lend money. This is the small step we mentioned previously, where the informal lender needs to intervene in the approval of a loan.
 
-Finally, copy and paste the following code into your `cidl.yaml` file
+Finally, copy and paste the following code into your `main.cidl` file
 
 ```yaml
+solana:
+  seeds:
+    Broker:
+      items:
+        - name: broker
+    Loan:
+      items:
+        - name: loan
+        - name: client
+          type: sol:pubkey
+        - name: index
+          type: u32
 types:
   Broker:
     summary: |-
       Broker is an account that can only exist once per contract.
       It stores all the require information to lend money.
-    solana:
-      seeds:
-        - name: broker
     fields:
       - name: delegate
         type: sol:pubkey
@@ -78,7 +87,7 @@ types:
         description: The amount of money lended
       - name: revenue
         type: u128
-        description: The amount of money earn 
+        description: The amount of money earn
       - name: fee
         type: u8
         description: The percentage a client needs to pay when paying a loan
@@ -87,13 +96,6 @@ types:
       Loan is an account that will exist as many times is required
       per client it stores a request to a Loan and if the loan is approved
       it stores the amount payed.
-    solana:
-      seeds: 
-        - name: loan
-        - name: client
-          type: sol:pubkey
-        - name: index
-          type: u32
     fields:
       - name: client
         type: sol:pubkey
@@ -107,8 +109,7 @@ types:
       - name: kyc_url
         type: string
         description: URL to the client's KYC document require by law
-        solana:
-          attributes: [cap:96]
+        attributes: [ cap=96 ]
       - name: fee
         type: u8
         description: The fee this client needs to pay for this loan when making payments
@@ -117,7 +118,7 @@ types:
         description: Flag state if the loan was approved by the broker or not
 ```
 
-After copying and pasting successfully, your `cidl.yaml` file should look like this:
+After copying and pasting successfully, your `main.cidl` file should look like this:
 
 ![Código Studio CIDL-Lender2](../../static/img/cidl_lender2.png)
 
@@ -130,7 +131,7 @@ The final step in implementing the CIDL is to implement the methods. Through the
 4. Approve loan allows the informal lender to approve a loan, when the loan is approved the funds will be transferred to the client’s wallet
 5. Pay loan will be used by the client to pay the lent money, every time a client makes a payment it will pay interest, and this interest will be the informal lender revenue.
 
-Copy and paste the following methods into your `cidl.yaml` file
+Copy and paste the following methods into your `main.cidl` file
 
 ```yaml
 methods:
@@ -138,20 +139,19 @@ methods:
     summary: |-
       After deploying the contract this must be the first instruction
       to call. It will configure the broker account.
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
+        type: sol:account
         description: This will be the account that has permission to update the broker and approved request.
-        solana:
-          attributes: [ mut ]
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ init ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:init ]
       - name: amount
         type: u64
         description: The amount to be added to the capital. It will be debited from the delegate account
@@ -159,39 +159,36 @@ methods:
         type: u8
   - name: add_capital_to_broker
     summary: Through this instruction any one can add capital to the broker
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: amount
         type: u64
         description: The amount to be added to the capital. It will be debited from the delegate account
   - name: request_loan
     summary: This instruction is used by a client to request a loan
-    solana:
-      signers:
-        - name: fee_payer
-        - name: client
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: client
     inputs:
       - name: client
-        type: sol:account_info
+        type: sol:account
       - name: loan
-        type: Loan
-        solana:
-          attributes: [ init ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:init ]
       - name: broker
-        type: Broker
+        type: sol:account<Broker, seeds.Broker>
       - name: amount
         type: u64
         description: The request amount to borrow
@@ -202,65 +199,57 @@ methods:
       Through this instruction the delegate can approve a loan.
       Upon approval, the funds will be transfer from the broker
       account to the client's account.
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
+        type: sol:account
       - name: loan
-        type: Loan
-        solana:
-          attributes: [ mut ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: client
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
   - name: pay_loan
     summary: |-
       A client can pay a loan through this instruction. When paying
       the contract will calculate the interest based on the loan approved
       fee. Additioanlly, it will transfer money from the client's account
       to the broker account
-    solana:
-      signers:
-        - name: fee_payer
-        - name: client
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: client
     inputs:
       - name: client
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
       - name: loan
-        type: Loan
-        solana: 
-          attributes: [ mut ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: amount
         type: u64
         description: The amount to pay to the loan
 ```
 
-After copying and pasting successfully, your cidl.yaml file should look like this in the methods section (with them collapsed):
+After copying and pasting successfully, your main.cidl file should look like this in the methods section (with them collapsed):
 
 ![Código Studio CIDL-Lender3](../../static/img/cidl_lender3.png)
 
 The final CIDL must look like this:
 
 ```yaml
-cidl: "0.8"
+cidl: "0.9"
 info:
   name: informal_lender
   title: Informal Lender
@@ -271,14 +260,23 @@ info:
   license:
     name: MIT
     identifier: MIT
+solana:
+  seeds:
+    Broker:
+      items:
+        - name: broker
+    Loan:
+      items:
+        - name: loan
+        - name: client
+          type: sol:pubkey
+        - name: index
+          type: u32
 types:
   Broker:
     summary: |-
       Broker is an account that can only exist once per contract.
       It stores all the require information to lend money.
-    solana:
-      seeds:
-        - name: broker
     fields:
       - name: delegate
         type: sol:pubkey
@@ -291,7 +289,7 @@ types:
         description: The amount of money lended
       - name: revenue
         type: u128
-        description: The amount of money earn 
+        description: The amount of money earn
       - name: fee
         type: u8
         description: The percentage a client needs to pay when paying a loan
@@ -300,13 +298,6 @@ types:
       Loan is an account that will exist as many times is required
       per client it stores a request to a Loan and if the loan is approved
       it stores the amount payed.
-    solana:
-      seeds: 
-        - name: loan
-        - name: client
-          type: sol:pubkey
-        - name: index
-          type: u32
     fields:
       - name: client
         type: sol:pubkey
@@ -320,8 +311,7 @@ types:
       - name: kyc_url
         type: string
         description: URL to the client's KYC document require by law
-        solana:
-          attributes: [cap:96]
+        attributes: [ cap=96 ]
       - name: fee
         type: u8
         description: The fee this client needs to pay for this loan when making payments
@@ -333,60 +323,56 @@ methods:
     summary: |-
       After deploying the contract this must be the first instruction
       to call. It will configure the broker account.
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
+        type: sol:account
         description: This will be the account that has permission to update the broker and approved request.
-        solana:
-          attributes: [ mut ]
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ init ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:init ]
       - name: amount
         type: u64
         description: The amount to be added to the capital. It will be debited from the delegate account
       - name: fee
         type: u8
   - name: add_capital_to_broker
-    summary: Through this insturction any one can add capital to the broker
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    summary: Through this instruction any one can add capital to the broker
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: amount
         type: u64
         description: The amount to be added to the capital. It will be debited from the delegate account
   - name: request_loan
     summary: This instruction is used by a client to request a loan
-    solana:
-      signers:
-        - name: fee_payer
-        - name: client
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: client
     inputs:
       - name: client
-        type: sol:account_info
+        type: sol:account
       - name: loan
-        type: Loan
-        solana:
-          attributes: [ init ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:init ]
       - name: broker
-        type: Broker
+        type: sol:account<Broker, seeds.Broker>
       - name: amount
         type: u64
         description: The request amount to borrow
@@ -397,52 +383,44 @@ methods:
       Through this instruction the delegate can approve a loan.
       Upon approval, the funds will be transfer from the broker
       account to the client's account.
-    solana:
-      signers:
-        - name: fee_payer
-        - name: delegate
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: delegate
     inputs:
       - name: delegate
-        type: sol:account_info
+        type: sol:account
       - name: loan
-        type: Loan
-        solana:
-          attributes: [ mut ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: client
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
   - name: pay_loan
     summary: |-
       A client can pay a loan through this instruction. When paying
       the contract will calculate the interest based on the loan approved
       fee. Additioanlly, it will transfer money from the client's account
       to the broker account
-    solana:
-      signers:
-        - name: fee_payer
-        - name: client
+    signers:
+      - name: fee_payer
+        type: sol:account
+        attributes: [ sol:writable ]
+      - input: client
     inputs:
       - name: client
-        type: sol:account_info
-        solana:
-          attributes: [ mut ]
+        type: sol:account
+        attributes: [ sol:writable ]
       - name: loan
-        type: Loan
-        solana: 
-          attributes: [ mut ]
-          seeds:
-            client: client
+        type: sol:account<Loan, seeds.Loan(client=client)>
+        attributes: [ sol:writable ]
       - name: broker
-        type: Broker
-        solana:
-          attributes: [ mut ]
+        type: sol:account<Broker, seeds.Broker>
+        attributes: [ sol:writable ]
       - name: amount
         type: u64
         description: The amount to pay to the loan
@@ -473,7 +451,7 @@ Enter the command `codigo login` and you will be prompted with a GitHub URL and 
 
 ![Login Successfully](../../static/img/login_successfully.png)
 
-After login to Código CLI, from the terminal type the command `codigo solana generate cidl.yaml` with this command, Código CLI will generate the Solana program and client library
+After login to Código CLI, from the terminal type the command `codigo solana generate main.cidl` with this command, Código CLI will generate the Solana program and client library
 
 ![Código Solana Generate](../../static/img/codigo_solana_generate.png)
 
