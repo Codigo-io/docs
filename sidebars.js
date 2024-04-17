@@ -85,7 +85,7 @@ const sidebars = {
             // "guides/solana-linked-seeds",
             // "guides/state-compression",
             "guides/solana-nft",
-            // "guides/lender",
+            "guides/lender",
             // "guides/inventory",
           ],
         },
