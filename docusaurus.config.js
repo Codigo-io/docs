@@ -74,9 +74,9 @@ const config = {
         },
         items: [
           {
-            href: 'https://studio.codigo.ai',
+            href: 'https://hub.codigo.ai',
             position: 'right',
-            label: 'Código Studio',
+            label: 'Código Hub',
           },
         ],
       },

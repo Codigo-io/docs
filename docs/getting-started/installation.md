@@ -1,23 +1,23 @@
 # Installation
 
 There are multiple options to get started with the Código Platform.
-The faster way is through [Código Studio](https://studio.codigo.ai).
+The faster way is through [Código Hub](https://hub.codigo.ai).
 
-## Código Studio
+## Código Hub
 
-Código Studio is built on the foundation of Visual Studio Code, a popular
+Código Hub is built on the foundation of Visual Studio Code, a popular
 desktop code editor many developers use. As a result, if you have experience
-using VSCode, you'll find that the web-based environment of Código Studio
-will feel familiar and intuitive. [Código Studio](https://studio.codigo.ai) comes with
+using VSCode, you'll find that the web-based environment of Código Hub
+will feel familiar and intuitive. [Código Hub](https://hub.codigo.ai) comes with
 all the dependencies and configurations required to build dApps at the speed of light.
 
-You can [**Sign Up**](https://studio.codigo.ai) using your GitHub account or create a new account using your
+You can [**Sign Up**](https://hub.codigo.ai) using your GitHub account or create a new account using your
 email/password.
 When opening the link, you will be received with the following screen:
 
-![Código Studio Sign Up](../../static/img/sign_codigo_studio.png)
+![Código Hub Sign Up](../../static/img/sign_codigo_studio.png)
 
-To learn more about Código Studio [click here](../development-suite/codigo-studio)
+To learn more about Código Hub [click here](../development-suite/codigo-studio)
 
 ## VSCode extension
 
@@ -41,12 +41,12 @@ that corresponds to your operating system
 | Microsoft Windows    | [Download](#)                                  |
 
 :::tip
-Código Studio comes pre-install with Código CLI
+Código Hub comes pre-install with Código CLI
 :::
 
 ### Sign in to Código CLI
 
-If you have accessed the platform through Código Studio or installed the Código CLI manually
+If you have accessed the platform through Código Hub or installed the Código CLI manually
 you are required to sign in with a GitHub account. To sign in, follow the next steps:
 
 1. Execute the command `codigo login`. This command will print a GitHub link and a device code

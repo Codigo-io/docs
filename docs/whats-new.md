@@ -293,7 +293,7 @@ New CIDL spec version: 0.9
 - Improve the Código CLI
     - Added flags to overwrite the default location for the generated program and program client
     - Added flags only to generate the program or the client
-- Added the Anchor CLI to Código Studio
+- Added the Anchor CLI to Código Hub
 - Downloadable CLI. Now, you can download Código CLI to work from your local environment.
 
 ### Solana
