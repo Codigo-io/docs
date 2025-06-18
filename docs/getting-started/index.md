@@ -50,9 +50,6 @@ Código helps you ship production ready web3 apps with less effort.
 
 - **UX Test Interface**  
   Test your smart contracts visually—Código provides a built-in interface to simulate and run your instructions with real inputs, accounts, and expected outputs. No frontend needed.
-
-- **CIDL (Código Interface Description Language)**  
-  Describe your smart contract interface using a formal, blockchain-agnostic language that powers code generation, validation, and documentation.
 ---
 
 ## 🧱 Build Anything
