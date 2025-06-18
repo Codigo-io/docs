@@ -26,7 +26,6 @@ const sidebars = {
       },
       items: [
         "getting-started/installation",
-        "getting-started/specification",
         {
           type: "category",
           label: "Solana",
@@ -48,26 +47,7 @@ const sidebars = {
       label: "Development suite",
       collapsed: false,
       items: [
-        "development-suite/codigo-cli",
         "development-suite/codigo-studio",
-      ]
-    },
-    {
-      type: "category",
-      label: "Learning the basics",
-      collapsed: false,
-      link: {
-        type: "doc",
-        id: "learning-the-basics/index"
-      },
-      items: [
-        "learning-the-basics/data-types",
-        "learning-the-basics/info",
-        "learning-the-basics/custom-types",
-        "learning-the-basics/imports",
-        "learning-the-basics/methods",
-        "learning-the-basics/errors",
-        "learning-the-basics/solana",
       ]
     },
     {
@@ -94,6 +74,26 @@ const sidebars = {
           label: "Additional guides",
           href: "https://github.com/Codigo-io/platform"
         },
+      ]
+    },
+    {
+      type: "category",
+      label: "Expert System",
+      collapsed: true,
+      link: {
+        type: "doc",
+        id: "expert-system/index"
+      },
+      items: [
+        "expert-system/specification",
+        "expert-system/codigo-cli",
+        "expert-system/data-types",
+        "expert-system/info",
+        "expert-system/custom-types",
+        "expert-system/imports",
+        "expert-system/methods",
+        "expert-system/errors",
+        "expert-system/solana",
       ]
     },
   ],

@@ -47,12 +47,10 @@ methods:
 The CIDL is composed of a few top-level objects. In the counter CIDL we can see the `info`, `types`, and `methods`
 objects.
 
-- In the `info` object we can define the program metadata i.e. name, version, description, license, and more. Check the
-  info section to [learn more](../learning-the-basics/info.md)
-- In the `types` object we can define our program's custom types. Check the custom types section to
-  [learn more](../learning-the-basics/custom-types.md)
+- In the `info` object we can define the program metadata i.e. name, version, description, license, and more. 
+- In the `types` object we can define our program's custom types.
 - In the `methods` object we can define our program instructions, these are the instructions that will be called
-  from the client or from other programs. Check the methods section to [learn more](../learning-the-basics/methods.mdx)
+  from the client or from other programs.
 
 ## 2. Generate code
 

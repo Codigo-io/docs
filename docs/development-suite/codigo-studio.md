@@ -82,16 +82,6 @@ The Solana CLI RPC URL comes preconfigured to: http://127.0.0.1:8899
 
 :::
 
-### Código CLI
-
-The Código CLI is a powerful command-line tool used for managing CIDL files. With it, you can easily generate Solana
-contracts and TypeScript clients
-
-The available commands are:
-
-- `codigo solana generate /path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client.
-
-You can learn more about Código CLI by clicking [here](./codigo-cli.md)
 
 ### Others programs and Tools
 
@@ -115,8 +105,6 @@ comes with. To summarize what we learned:
 - Código Hub comes with a web-based documentation extension
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-
-- [Learning the Basics](../learning-the-basics)
 
 ## Join the Código community 💚
 
