@@ -2,82 +2,87 @@
 slug: /
 ---
 
-# Overview
+# Welcome to Código 👋  
+Your AI powered copilot for blockchain development.
 
-Código is an AI-Powered Code Generation Platform for blockchain developers and web3 teams that saves development time
-and increases the security of the code across a variety of blockchains.
+Código is the AI development platform built for web3 teams and blockchain developers. From generating secure smart contracts to deploying ready to use client libraries and documentation, Código helps you build faster, safer, and smarter.
 
-## Código Interface Description Language (CIDL)
+---
 
-The starting point for blockchain developers using the Código platform is the Código Interface Description Language (
-CIDL). The CIDL is a formal language used to describe the interface of a blockchain smart contract. It specifies the
-data types, functions, and events that can be accessed by other contracts or users. The CIDL is accessible from a
-developer’s IDE or from Código’s web-based IDE.
+## ⚡ Get Started Fast
 
-## Code Generation
+Whether you're building your first smart contract or shipping production grade code, Código gives you a powerful foundation.
 
-Using the CIDL, Código Generator engines automatically generate Smart Contract boilerplate source code, Smart Contract
-Clients libraries, testing and Documentation in multiple programming languages. The source code is delivered in the
-developers’ IDE or in Código’s web-based IDE, organized in clearly labeled libraries following software development best
-practices and resulting in weeks of development time saved by blockchain developers.
+- [Installation →](getting-started/installation)  
+Install Código CLI or use the web IDE to get started in minutes.
 
-## Security
+- [Introduction →](getting-started/index)  
+Learn how Código works, from CIDL to client generation.
 
-Código ensures that the code can run and is secure through comprehensive testing. Código has checks for all variables
-and parameters, signatures and ownership of the data. In addition, Código’s source code is externally audited from one
-of the two leading blockchain security firms, providing an additional layer of vetting of the code to developers.
+- [Guides & Examples →](getting-started/quickstart-solana)  
+Start with beginner friendly tutorials or dive into more complex examples, there’s something for every level.
 
-## Blockchains
+---
 
-Código currently supports Solana. The Código platform has been architected with the explicit objective of supporting any
-blockchain. Código will add additional blockchains on a regular basis.
+## 🔧 Core Features  
+Código helps you ship production ready web3 apps with less effort.
 
-## Programming Languages
+- **Code Generation**  
+  Instantly generate smart contract, client SDKs, full test suites, and documentation all from prompt.
 
-Código currently generates client code in TypeScript. The Código platform has been architected with the explicit
-objective of supporting many programming languages. Código will add additional programming languages on a regular basis.
+- **Ready-to-Use Templates**
+   Kickstart your project with a library of production ready templates. From NFT marketplaces to DeFi vaults, Código provides pre-built examples you can deploy, customize, or learn from, no need to start from scratch.
 
-## Applications
+- **Pre-Audit Checker**  
+  Automatically catch common vulnerabilities before deployment. Código analyzes your contract and flags security issues early in the dev cycle.
 
-There are no limitations to the types of applications that can be built through the CIDL. The CIDL can enable any use
-case, such as creating decentralized applications that interact with multiple smart contracts, creating decentralized
-finance applications that allow for the exchange of tokens or assets across different platforms, or creating supply
-chain management systems that allow for the tracking of goods across multiple stakeholders. In general, the CIDL can
-help facilitate the creation of simple smart contracts, all the way to complex, interconnected systems, that can operate
-in a decentralized and transparent manner.
+- **Build & Deploy in One Click**  
+  Compile, test, and deploy your smart contracts directly from the web IDE or CLI. No setup, no guesswork.
 
-## Solutions
+- **Security by Design**  
+  Código injects automated checks for parameter validation, signature verification, and ownership enforcement. For added assurance, you can request a third-party audit from a top blockchain security firm.
 
-Código is committed to providing an expanding range of solutions that provide blockchain developers with productivity
-boosts through automation, security and flexibility of development.
+- **Cross-Chain Ready**  
+  Código currently supports Solana, with support for more blockchains in active development.
 
-The current solution:
+- **Effortless Experience**  
+  Start coding instantly on the IDE, without installation or setup required. Everything runs in the browser
 
-1. **Generates “Smart Contract” boilerplate and stubs**
+- **UX Test Interface**  
+  Test your smart contracts visually—Código provides a built-in interface to simulate and run your instructions with real inputs, accounts, and expected outputs. No frontend needed.
 
-   Código Generators abstract all the initialization, validation, verification and parsing for each incoming request,
-   and route the call to the specific stub method.
+- **CIDL (Código Interface Description Language)**  
+  Describe your smart contract interface using a formal, blockchain-agnostic language that powers code generation, validation, and documentation.
+---
 
-2. **Generates Client Libraries**
+## 🧱 Build Anything
 
-   Código Generators simplify Smart Contract adoption by generating “Smart Contract” client libraries in multiple
-   programming languages. Method calls are abstracted behind a simple API interface. All the boilerplate code to
-   generate the actual Blockchain Smart Contract call is automatically generated by Código Generators for each
-   programming language.
+With Código, you can generate code for:
 
-3. **Generates web-based documentation**
+- DeFi protocols and token exchanges  
+- NFT mints and marketplaces  
+- DAOs and governance platforms  
+- Cross-chain applications  
+- And much more...
 
-   Código Generators create full web-based Smart Contract documentation based on the CIDL file. This documentation will
-   list all exposed methods by the Smart Contract and input parameters. For Account based VMs, like Solana, full account
-   structure is documented as well. The details of the documentation are an integral part of the CIDL file.
+The CIDL is expressive enough to support any smart contract architecture—from simple counters to complex permission systems.
 
-4. **Generate all the test cases and provide an external security audit guarantee**
+---
 
-   Código adds automatic checks for all variables and parameters, the platform also checks the signatures and the actual
-   ownership of the data.
+## 💚 Join the Community
 
-## Join the Código community 💚
+Código is powered by builders like you.
 
-Código is a growing community of developers. Join us on
-**[Discord](https://discord.gg/8XHQGS832k)**
-and **[GitHub](https://github.com/Codigo-io)**
+- [Discord →](https://discord.gg/8XHQGS832k)  
+  Ask questions, share feedback, and meet other devs.
+
+- [GitHub →](https://github.com/Codigo-io)  
+  View the source, open issues, and contribute to the platform.
+
+- [Follow us on Twitter →](https://twitter.com/CodigoPlatform)  
+  Stay up to date with the latest features, releases, and tutorials.
+
+---
+
+Let’s build the future of web3 together.  
+Get started with [installation →](getting-started/installation) or dive into [examples →](getting-started/quickstart-solana).
