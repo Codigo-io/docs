@@ -20,10 +20,10 @@ Start building today: [**Start Now**](https://hub.codigo.ai)
 
 **Código is powered by its own custom-trained AI model**, purpose-built for Solana development. Unlike generic models, it understands account structures, Solana-specific patterns, and ecosystem best practices.
 
-Acting as a true agent, it helps you throughout your entire development workflow — from generating code to fixing bugs and writing tests. It can update multiple files at once, follow cross-file logic, and apply suggestions directly to your project.
+The Agent AI lives inside your workspace and works like an expert teammate. You can talk to it to explore your codebase, ask questions, requests edits or additions. 
 
-* **Generate complete smart contracts** by describing what you want in plain language
-* **Auto-generate unit tests** that match your program logic
+* **Generate complete smart contracts** by describing what you want
+* **Generate unit tests** that match your program logic
 * **Fix common errors**, resolve account mismatches, and suggest improvements in real time
 * **Automatically update multiple files** when your change spans across modules or layers
 * **Simulate transactions**, generate tests, and deploy directly from your browser
