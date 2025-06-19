@@ -47,6 +47,7 @@ const sidebars = {
       label: "Development suite",
       collapsed: false,
       items: [
+        "development-suite/features",
         "development-suite/codigo-studio",
       ]
     },
