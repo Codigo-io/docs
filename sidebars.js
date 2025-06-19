@@ -70,12 +70,17 @@ const sidebars = {
             // "guides/inventory",
           ],
         },
-        {
-          type: "link",
-          label: "Additional guides",
-          href: "https://github.com/Codigo-io/platform"
-        },
       ]
+    },
+    {
+      type: "category",
+      label: "Get Help or Report Bug",
+      collapsed: true,
+      link: {
+        type: "doc",
+        id: "help/index"
+      },
+      items: []
     },
     {
       type: "category",

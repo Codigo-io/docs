@@ -91,8 +91,8 @@ const config = {
                 to: 'https://codigo.ai/',
               },
               {
-                label: 'Examples',
-                href: 'https://github.com/Codigo-io',
+                label: 'Codigo Hub',
+                to: 'https://hub.codigo.ai/',
               },
             ],
           },
@@ -100,16 +100,16 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/Codigo-io',
+                label: 'Twitter',
+                href: 'https://twitter.com/CodigoPlatform',
               },
               {
                 label: 'Discord',
                 href: 'https://discord.gg/8XHQGS832k',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/CodigoPlatform',
+                label: 'GitHub',
+                href: 'https://github.com/Codigo-io',
               },
             ],
           },
