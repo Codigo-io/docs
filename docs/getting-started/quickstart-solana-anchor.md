@@ -258,7 +258,6 @@ TypeScript client library with an application. To summarize what we learned:
 These links may help you on your journey to writing Solana programs with the CIDL:
 
 - [Overview](/)
-- [Learning the Basics](../learning-the-basics)
 - [Build and informal lender program](../guides/lender.md)
 
 ## Join the Código community 💚

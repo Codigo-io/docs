@@ -8,7 +8,7 @@ Código is an AI-powered code Generation Platform for blockchain developers and 
 and increases the code's security.
 
 To get started, **Create an account** on [Código Platform](https://hub.codigo.ai) following the steps
-mentioned [here](../getting-started/installation.md#código-studio)
+mentioned
 
 <!-- ## Create an account
 When entering ![](https://hub.codigo.ai) you will be received with the following screen. You can access Código Hub using your GitHub account or by creating a new account with any email address:

@@ -17,7 +17,7 @@ When opening the link, you will be received with the following screen:
 
 ![Código Hub Sign Up](../../static/img/sign_codigo_studio.png)
 
-To learn more about Código Hub [click here](../development-suite/codigo-studio)
+To learn more about Código Hub
 
 ## VSCode extension
 

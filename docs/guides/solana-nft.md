@@ -422,4 +422,3 @@ TypeScript client library with an application. To summarize what we learned:
 These links may help you on your journey to writing smart contracts with the CIDL:
 
 - [Solana basics](../getting-started/quickstart-solana)
-- [Learning the basics](../learning-the-basics)
