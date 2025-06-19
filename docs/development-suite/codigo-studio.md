@@ -2,51 +2,51 @@
 sidebar_position: 2
 ---
 
-# Código Studio - Web-based IDE
+# Código Hub - Web-based IDE
 
-Welcome to our guide on how to use Código Studio, our web-based development environment. Código Studio provides
+Welcome to our guide on how to use Código Hub, our web-based development environment. Código Hub provides
 comprehensive tools and programs for developers to create projects using our Código Interface Description Language, CIDL
 for short.
 
-Whether an experienced developer or just starting, Código Studio makes writing, debugging, and testing your code in one
-central location easy. In this guide, we'll provide step-by-step instructions on how to get started with Código Studio
+Whether an experienced developer or just starting, Código Hub makes writing, debugging, and testing your code in one
+central location easy. In this guide, we'll provide step-by-step instructions on how to get started with Código Hub
 and begin developing with CIDL.
 
-Open [Código Studio](https://studio.codigo.ai)
+Open [Código Hub](https://hub.codigo.ai)
 
-## Código Studio in Action
+## Código Hub in Action
 
-Código Studio is built on the foundation of Visual Studio Code, a popular desktop code editor many developers use. As a
-result, if you have experience using VSCode, you'll find that the web-based environment of Código Studio will feel
+Código Hub is built on the foundation of Visual Studio Code, a popular desktop code editor many developers use. As a
+result, if you have experience using VSCode, you'll find that the web-based environment of Código Hub will feel
 familiar and intuitive.
 
-| ![Código Studio](../../static/img/Codigo-Studio.png) |
+| ![Código Hub](../../static/img/Codigo-Studio.png) |
 |:----------------------------------------------------:|
-|              *Código Studio Interface*               |
+|              *Código Hub Interface*               |
 
-Código Studio comprises several main sections that provide different functionalities to developers. These sections
+Código Hub comprises several main sections that provide different functionalities to developers. These sections
 include:
 
 - **Editor**: This is the main area where developers write and edit their code. The editor is highly customizable and
   supports a wide range of programming languages.
-- **Sidebar**: The sidebar provides quick access to different features and functionalities of Código Studio, including
+- **Sidebar**: The sidebar provides quick access to different features and functionalities of Código Hub, including
   file explorer, search, source control, debugging, and extensions.
 - **Status Bar**: The status bar displays information about the current file being edited, such as the programming
   language, indentation, and file encoding. It provides access to various features and settings, such as language mode
   and line-ending format.
-- **Command Palette**: The command palette allows developers to execute commands and perform tasks within Código Studio,
+- **Command Palette**: The command palette allows developers to execute commands and perform tasks within Código Hub,
   such as opening files, running tasks, and installing extensions.
-- **Settings**: Código Studio allows developers to customize various settings and preferences to tailor their
+- **Settings**: Código Hub allows developers to customize various settings and preferences to tailor their
   development experience to their specific needs and preferences.
-- **Web-based documentation**: Código Studio provides a web-based documentation extension that allows developers better
+- **Web-based documentation**: Código Hub provides a web-based documentation extension that allows developers better
   understand and collaborate with the CIDL. The documentation is generated in real-time based on the CIDL content.
 
 By leveraging these different sections and their functionalities, developers can efficiently and effectively write,
-debug, and test their code using Código Studio.
+debug, and test their code using Código Hub.
 
 ## Available tools and programs
 
-Código Studio provides a comprehensive set of tools and programs for developers to create projects using our CIDL; these
+Código Hub provides a comprehensive set of tools and programs for developers to create projects using our CIDL; these
 tools are:
 
 ### Cargo CLI
@@ -82,20 +82,10 @@ The Solana CLI RPC URL comes preconfigured to: http://127.0.0.1:8899
 
 :::
 
-### Código CLI
-
-The Código CLI is a powerful command-line tool used for managing CIDL files. With it, you can easily generate Solana
-contracts and TypeScript clients
-
-The available commands are:
-
-- `codigo solana generate /path/to/your_cidl.yaml` with this command you can generate the Solana Contract and TypeScript Client.
-
-You can learn more about Código CLI by clicking [here](./codigo-cli.md)
 
 ### Others programs and Tools
 
-The Código Studio environment comes with additional tools and programs to get you started working with the CIDL. These
+The Código Hub environment comes with additional tools and programs to get you started working with the CIDL. These
 are:
 
 - The **Node CLI** is a tool that allows you to run JavaScript code outside of a web browser. It's essential for
@@ -107,16 +97,14 @@ are:
 
 ## Next Steps
 
-**Congratulations!** 🎉👏 at this point, you should have a basic understanding of the available tools that Código Studio
+**Congratulations!** 🎉👏 at this point, you should have a basic understanding of the available tools that Código Hub
 comes with. To summarize what we learned:
 
-- Código Studio comes with Cargo, Solana, and Código CLI
-- Código Studio is based on the Visual Studio Code editor
-- Código Studio comes with a web-based documentation extension
+- Código Hub comes with Cargo, Solana, and Código CLI
+- Código Hub is based on the Visual Studio Code editor
+- Código Hub comes with a web-based documentation extension
 
 These links may help you on your journey to writing smart contracts with the CIDL:
-
-- [Learning the Basics](../learning-the-basics)
 
 ## Join the Código community 💚
 

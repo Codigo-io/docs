@@ -1,22 +1,22 @@
 # Lender
 
 In this guide, you’ll learn how to build a simple defi dApp in under an hour using
-the [Código Platform](https://studio.codigo.ai). We will be building a dApp that will allow informal lenders to lend
+the [Código Platform](https://hub.codigo.ai). We will be building a dApp that will allow informal lenders to lend
 money.
 
 Código is an AI-powered code Generation Platform for blockchain developers and web3 teams that saves development time
 and increases the code's security.
 
-To get started, **Create an account** on [Código Platform](https://studio.codigo.ai) following the steps
-mentioned [here](../getting-started/installation.md#código-studio)
+To get started, **Create an account** on [Código Platform](https://hub.codigo.ai) following the steps
+mentioned
 
 <!-- ## Create an account
-When entering ![](https://studio.codigo.ai) you will be received with the following screen. You can access Código Studio using your GitHub account or by creating a new account with any email address:
+When entering ![](https://hub.codigo.ai) you will be received with the following screen. You can access Código Hub using your GitHub account or by creating a new account with any email address:
 
-![Código Studio Sign Up](../../static/img/sign_codigo_studio.png)
-![Código Studio Register](../../static/img/register_codigo_studio.png)
+![Código Hub Sign Up](../../static/img/sign_codigo_studio.png)
+![Código Hub Register](../../static/img/register_codigo_studio.png)
 
-Código Studio is a web-based IDE that allows you to develop dApp using Solana and the Código Platform. The web-based IDE comes with all the required components to build Solana dApp i.e. Solana Development suite tool, Anchor, Código CLI, Node.js, Rust, and more -->
+Código Hub is a web-based IDE that allows you to develop dApp using Solana and the Código Platform. The web-based IDE comes with all the required components to build Solana dApp i.e. Solana Development suite tool, Anchor, Código CLI, Node.js, Rust, and more -->
 
 :::info
 The first time you create an account, provisioning your environment can take **3 to 5 minutes**.
@@ -30,7 +30,7 @@ named `main.yaml` from your file explorer.
 The *CIDL (Código Interface Description Language)* is the input to Código’s Generator; in it, we define our Solana
 program types and methods.
 
-![Código Studio SideBar](../../static/img/empty_sidebar_codigo_studio.png)
+![Código Hub SideBar](../../static/img/empty_sidebar_codigo_studio.png)
 
 ### Implementing the CIDL metadata
 
@@ -54,7 +54,7 @@ info:
 
 After copying and pasting successfully, your `main.yaml` file should look like this:
 
-![Código Studio CIDL-Lender1](../../static/img/cidl_lender1.png)
+![Código Hub CIDL-Lender1](../../static/img/cidl_lender1.png)
 
 ### Implementing the types
 
@@ -136,7 +136,7 @@ types:
 
 After copying and pasting successfully, your `main.yaml` file should look like this:
 
-![Código Studio CIDL-Lender2](../../static/img/cidl_lender2.png)
+![Código Hub CIDL-Lender2](../../static/img/cidl_lender2.png)
 
 ### Implementing the methods
 
@@ -267,7 +267,7 @@ methods:
 After copying and pasting successfully, your main.yaml file should look like this in the methods section (with them
 collapsed):
 
-![Código Studio CIDL-Lender3](../../static/img/cidl_lender3.png)
+![Código Hub CIDL-Lender3](../../static/img/cidl_lender3.png)
 
 The final CIDL must look like this:
 
@@ -454,7 +454,7 @@ methods:
 After completing the implementation of your CIDL, the next step is to generate code. Open a new terminal by going
 to `Terminal > New Terminal`
 
-![Código Studio Terminal > New Terminal](../../static/img/Terminal_New%20Terminal.png)
+![Código Hub Terminal > New Terminal](../../static/img/Terminal_New%20Terminal.png)
 
 Before being able to generate code, you need to authenticate with your GitHub account into the Código CLI, you can
 achieve this by typing the command `codigo login`. You can follow a step-by-step
@@ -956,7 +956,7 @@ steps correctly you will get the following output:
 ![App.ts output](../../static/img/app_ts_output.png)
 
 **Congratulations! 🎉👏** you just created your first *Solana DeFi program* using
-the [Código Platform](htttps://studio.codigo.ai). The `app.ts` code is straightforward, first, we create some wallets,
+the [Código Platform](htttps://hub.codigo.ai). The `app.ts` code is straightforward, first, we create some wallets,
 and after that, we create the broker by calling the create_broker function, and we add a check to verify if the broker
 is not already created, otherwise, the Solana program returns an error. Secondly, we start to request, approve, and pay
 some loans, if we implemented the business logic correctly the loan life cycle should work as expected.

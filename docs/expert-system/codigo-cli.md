@@ -5,10 +5,10 @@ sidebar_position: 1
 # Código's CLI
 
 Through Código CLI, developers can interact with Código Generator. Developers can access
-the Código CLI from [Código Studio](https://studio.codigo.ai) or by downloading it
+the Código CLI from [Código Hub](https://hub.codigo.ai) or by downloading it
 from [here](https://github.com/Codigo-io/platform/releases).
 
-When using from Código Studio, the Código CLI is configured to the PATH of the
+When using from Código Hub, the Código CLI is configured to the PATH of the
 web-based environment; thus, you can access it from the terminal by going to Terminal -> New Terminal and typing the
 command `codigo`.
 

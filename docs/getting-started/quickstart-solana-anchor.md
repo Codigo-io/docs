@@ -1,7 +1,7 @@
 # Anchor Program
 
 In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) from scratch
-using our web-based IDE, [Código Studio](https://studio.codigo.ai). Código Studio has all the necessary tools and
+using our web-based IDE, [Código Hub](https://hub.codigo.ai). Código Hub has all the necessary tools and
 programs to develop using the CIDL. The CIDL is the file used as input to Código's AI generators.
 
 :::note
@@ -13,7 +13,7 @@ Native check the [Solana Native Quickstart](./quickstart-solana-native.md)
 
 ## 1. Write the CIDL
 
-1. Open [Código Studio](https://studio.codigo.ai)
+1. Open [Código Hub](https://hub.codigo.ai)
 2. Create a new file name `counter.cidl`
 3. Copy and paste the following CIDL code into the `counter.cidl` file you created
 
@@ -47,12 +47,10 @@ methods:
 The CIDL is composed of a few top-level objects. In the counter CIDL we can see the `info`, `types`, and `methods`
 objects.
 
-- In the `info` object we can define the program metadata i.e. name, version, description, license, and more. Check the
-  info section to [learn more](../learning-the-basics/info.md)
-- In the `types` object we can define our program's custom types. Check the custom types section to
-  [learn more](../learning-the-basics/custom-types.md)
+- In the `info` object we can define the program metadata i.e. name, version, description, license, and more. 
+- In the `types` object we can define our program's custom types.
 - In the `methods` object we can define our program instructions, these are the instructions that will be called
-  from the client or from other programs. Check the methods section to [learn more](../learning-the-basics/methods.mdx)
+  from the client or from other programs.
 
 ## 2. Generate code
 
@@ -140,7 +138,7 @@ pub fn handler(
 
 ## 4. Build and deploy
 
-Código Studio comes with all the tools and programs for building and deploying solana programs.
+Código Hub comes with all the tools and programs for building and deploying solana programs.
 
 First, let’s build the program. Open a new terminal by going to `Terminal -> New Terminal`. Navigate to the `program`
 directory by typing the command `cd program`, and inside the `program` directory, type the following command:
@@ -255,12 +253,11 @@ TypeScript client library with an application. To summarize what we learned:
 - CIDL stands for Código Interface Description Language, and it is the input for Código’s AI Generator.
 - After completing the CIDL, developers only need to implement the business logic of the program.
 - 100% of the client libraries and program boilerplate are generated.
-- Código Studio has all the tools and programs to develop Solana programs using the CIDL.
+- Código Hub has all the tools and programs to develop Solana programs using the CIDL.
 
 These links may help you on your journey to writing Solana programs with the CIDL:
 
 - [Overview](/)
-- [Learning the Basics](../learning-the-basics)
 - [Build and informal lender program](../guides/lender.md)
 
 ## Join the Código community 💚

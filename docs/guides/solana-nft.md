@@ -5,7 +5,7 @@ and increases the code's security across various blockchains.
 
 ## Getting started
 
-- You can immediately start using [Código Studio](https://studio.codigo.ai). Código Studio is a web-based IDE
+- You can immediately start using [Código Hub](https://hub.codigo.ai). Código Hub is a web-based IDE
   environment that comes with all the tools and programs to develop Solana programs using the CIDL.
 - You can work from your local environment by downloading the latest version of
   the [Código CLI](../getting-started/installation#código-cli) that targets your operating system.
@@ -16,7 +16,7 @@ In this Quickstart guide, you’ll learn how to start with Código’s Interface
 simple Solana basic NFT program.
 
 > If you are following along from your local environment, this guide assumes you have successfully installed and
-> configured the Solana tool suite. If you are working from Código Studio, you don’t need to worry; the Solana tool suite
+> configured the Solana tool suite. If you are working from Código Hub, you don’t need to worry; the Solana tool suite
 > comes installed and configured.
 
 ### 1. NFT Contract
@@ -422,4 +422,3 @@ TypeScript client library with an application. To summarize what we learned:
 These links may help you on your journey to writing smart contracts with the CIDL:
 
 - [Solana basics](../getting-started/quickstart-solana)
-- [Learning the basics](../learning-the-basics)
