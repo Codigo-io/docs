@@ -5,7 +5,7 @@ cases, including finance, NFTs, payments, and gaming. Solana operates as a singl
 interoperable and decentralized.
 
 The learning curve for developing on Solana can be steep, and navigating the platform's technical complexities
-can be challenging. Fortunately, using Código Interface Description Language (CIDL) can make the development process
+can be challenging. Fortunately, using Código platform can make the development process
 much more manageable.
 
 :::tip
@@ -68,7 +68,7 @@ and only commits changes if all instructions terminate without producing an erro
 
 ## Next steps
 
-With this minimum knowledge of Solana Basic, we can start writing Solana programs with the CIDL.
+With this minimum knowledge of Solana Basic, we can start writing Solana programs.
 
 - [Native Program](quickstart-solana-native)
 - [Anchor Program](quickstart-solana-anchor)
