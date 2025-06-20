@@ -53,7 +53,7 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Guides",
+      label: "Guides & Examples",
       collapsed: false,
       link: {
         type: "doc",
@@ -64,13 +64,17 @@ const sidebars = {
           type: "category",
           label: "Solana",
           collapsed: false,
+          link: {
+            type: "doc",
+            id: "guides/solana/index"
+          },
           items: [
-            "guides/implementing-business-logic",
-            "guides/integrating-the-sdk",
+            //"guides/solana/start-from-prompt",
+            //"guides/integrating-the-sdk",
             // "guides/solana-linked-seeds",
             // "guides/state-compression",
-            "guides/solana-nft",
-            "guides/lender",
+            //"guides/solana-nft",
+            //"guides/lender",
             // "guides/inventory",
           ],
         },
