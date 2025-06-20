@@ -15,7 +15,7 @@
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   masterSidebar: [
-    "whats-new",
+    //"whats-new",
     {
       type: "category",
       label: "Getting started",
