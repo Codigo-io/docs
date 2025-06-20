@@ -457,8 +457,7 @@ to `Terminal > New Terminal`
 ![Código Hub Terminal > New Terminal](../../static/img/Terminal_New%20Terminal.png)
 
 Before being able to generate code, you need to authenticate with your GitHub account into the Código CLI, you can
-achieve this by typing the command `codigo login`. You can follow a step-by-step
-guide to learn how to log in to the Código CLI [here](../getting-started/installation#sign-in-to-código-cli).
+achieve this by typing the command `codigo login`. 
 generated_files_sidebar
 After login to Código CLI, from the terminal type the command `codigo solana generate main.yaml` with this command,
 Código CLI will generate the Solana program and client library
