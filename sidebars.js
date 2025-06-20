@@ -55,6 +55,10 @@ const sidebars = {
       type: "category",
       label: "Guides",
       collapsed: false,
+      link: {
+        type: "doc",
+        id: "guides/index"
+      },
       items: [
         {
           type: "category",
