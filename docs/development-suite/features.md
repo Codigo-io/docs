@@ -133,5 +133,5 @@ Every CIDL file is a source of truth:
 * Includes **types, examples, and API references**
 * Publish and share your docs with one click
 
-Explore it all directly on [**hub.codigo.ai**](https://hub.codigo.ai)
+Explore it all directly on [**hub.codigo.ai**](https://hub.codigo.ai)  
 **Código helps you build faster, safer, and smarter on Solana.**
