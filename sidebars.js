@@ -69,6 +69,8 @@ const sidebars = {
             id: "guides/solana/index"
           },
           items: [
+            "guides/solana/start-from-template",
+            "guides/solana/start-from-github",
             "guides/solana/build-and-deploy",
             //"guides/solana/start-from-prompt",
             //"guides/integrating-the-sdk",
