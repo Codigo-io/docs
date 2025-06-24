@@ -7,9 +7,7 @@ and increases the code's security across various blockchains.
 
 - You can immediately start using [Código Hub](https://hub.codigo.ai). Código Hub is a web-based IDE
   environment that comes with all the tools and programs to develop Solana programs using the CIDL.
-- You can work from your local environment by downloading the latest version of
-  the [Código CLI](../getting-started/installation#código-cli) that targets your operating system.
-
+  
 ## CIDL Quickstart
 
 In this Quickstart guide, you’ll learn how to start with Código’s Interface Description Language (CIDL) by building a

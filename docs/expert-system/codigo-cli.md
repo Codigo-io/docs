@@ -12,9 +12,6 @@ When using from Código Hub, the Código CLI is configured to the PATH of the
 web-based environment; thus, you can access it from the terminal by going to Terminal -> New Terminal and typing the
 command `codigo`.
 
-:::tip
-To use the Código CLI, you must log in using your GitHub account. Learn how [here](../getting-started/installation#sign-in-to-código-cli)
-:::
 
 ## Commands
 
