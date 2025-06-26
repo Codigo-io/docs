@@ -55,7 +55,7 @@ If it looks good, just click **Apply** and it will automatically update your fil
 
 Repeat this process for each instruction file.
 
-<img src="/img/counter_review.png" alt="counter" style={{ width: "450px" }} />
+<img src="/img/counter_review.png" alt="counter" style={{ width: "500px" }} />
 
 
 ---
