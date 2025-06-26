@@ -83,6 +83,11 @@ const sidebars = {
             // "guides/inventory",
           ],
         },
+        {
+          type: "doc",
+          label: "Prompt Engineering",
+          id: "guides/prompt-engineering"
+        }
       ]
     },
     {
