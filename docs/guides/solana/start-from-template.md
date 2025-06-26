@@ -18,15 +18,13 @@ You’ll be prompted to enter:
 - A **workspace name**
 - A **smart contract name**
 
-<img src="/img/workspace_creation.png" alt="Workspace creation" style={{ width: "400px", height: "400px" }} />
-
 ---
 
 ## 2️⃣ Open the Template Library
 
-Once your workspace is created, click the **Templates** button from the workspace toolbar.
+Once your workspace is created, click the **Templates** button.
 
-<img src="/img/button_template.png" alt="Button Template" style={{ width: "400px" }} />
+<img src="/img/workspace_creation_template.png" alt="Workspace creation" style={{ width: "800px", height: "400px" }} />
 
 ---
 
@@ -40,7 +38,7 @@ Each template is a full project including:
 
 You can select one or more templates to combine and customize.
 
-<img src="/img/template_import.png" alt="Template selection" style={{ width: "400px" }} />
+<img src="/img/template_import.png" alt="Template selection" style={{ width: "550px" }} />
 
 ### 🧰 Popular Templates
 
