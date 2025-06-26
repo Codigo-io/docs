@@ -18,8 +18,6 @@ You’ll be prompted to enter:
 - A **workspace name**
 - A **smart contract name**
 
-<img src="/img/workspace_creation.png" alt="Workspace creation" style={{ width: "400px", height: "400px" }} />
-
 ---
 
 ## 2️⃣ Import Your GitHub Repository
@@ -28,12 +26,12 @@ After the workspace is created, you'll see an option to import code from GitHub.
 
 Click the **Import GitHub** button.
 
-<img src="/img/button_github.png" alt="Workspace creation" style={{ width: "400px" }} />
+<img src="/img/workspace_creation_github.png" alt="Workspace creation" style={{ width: "800px", height: "400px" }} />
 
 >
 Paste the URL of your **public GitHub repository** (e.g. `https://github.com/solana-developers/program-examples`) into the prompt.
 
-<img src="/img/github_modal.png" alt="Github Modal" style={{ width: "400px" }} />
+<img src="/img/github_modal.png" alt="Github Modal" style={{ width: "800px" }} />
 
 ---
 

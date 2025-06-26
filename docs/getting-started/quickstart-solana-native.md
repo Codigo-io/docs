@@ -25,7 +25,7 @@ Once inside your workspace, tell the AI what you want to build.
 generate a counter solana program with create_counter and increment instructions
 ```
 
-<img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "375px" }} />
+<img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "800px" }} />
 
 Código will respond with a full plan and architecture.  
 If you're happy with the proposed structure, confirm and choose between **native** or **Anchor** framework :
@@ -55,7 +55,7 @@ If it looks good, just click **Apply** and it will automatically update your fil
 
 Repeat this process for each instruction file.
 
-<img src="/img/counter_review_native.png" alt="counter" style={{ width: "375px" }} />
+<img src="/img/counter_review_native.png" alt="counter" style={{ width: "450px" }} />
 
 
 ---

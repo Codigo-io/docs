@@ -37,7 +37,7 @@ Or be more specific and describe:
 - The on-chain data you want to store
 - Business rules or logic you want enforced
 
-<img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "375px" }} />
+<img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "800px" }} />
 
 ---
 
@@ -85,7 +85,7 @@ Implement the file initialize_counter with basic verification
 
 You can iterate, review, and apply changes with full control.
 
-<img src="/img/counter_review.png" alt="counter" style={{ width: "375px" }} />  
+<img src="/img/counter_review.png" alt="counter" style={{ width: "450px" }} />  
 
 
 Repeat this process for each instruction file.
