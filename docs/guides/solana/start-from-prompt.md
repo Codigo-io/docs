@@ -85,7 +85,7 @@ Implement the file initialize_counter with basic verification
 
 You can iterate, review, and apply changes with full control.
 
-<img src="/img/counter_review.png" alt="counter" style={{ width: "450px" }} />  
+<img src="/img/counter_review.png" alt="counter" style={{ width: "500px" }} />  
 
 
 Repeat this process for each instruction file.
