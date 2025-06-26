@@ -48,6 +48,7 @@ const sidebars = {
       collapsed: false,
       items: [
         "development-suite/features",
+        "development-suite/roadmap",
         "development-suite/codigo-studio",
       ]
     },
