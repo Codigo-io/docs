@@ -76,6 +76,7 @@ const sidebars = {
             "guides/solana/build-and-deploy",
             "guides/solana/ai-autocomplete",
             "guides/solana/unit-tests",
+            "guides/solana/escrow-program",
             //"guides/integrating-the-sdk",
             // "guides/solana-linked-seeds",
             // "guides/state-compression",
