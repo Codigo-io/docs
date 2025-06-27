@@ -146,7 +146,7 @@ Generate the unit tests in TypeScript
 
 <img src="/img/escrow_unit_tests.png" alt="Escrow Unit tests" style={{ width: "1000px" }} />  
 
-Then run:
+Apply the unit test changes proposed by the AI and then run the tests:
 
 ```bash
 anchor test
