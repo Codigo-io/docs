@@ -77,6 +77,7 @@ const sidebars = {
             "guides/solana/ai-autocomplete",
             "guides/solana/unit-tests",
             "guides/solana/escrow-program",
+            "guides/solana/nft-marketplace",
             //"guides/integrating-the-sdk",
             // "guides/solana-linked-seeds",
             // "guides/state-compression",
