@@ -26,6 +26,7 @@ const sidebars = {
       },
       items: [
         "getting-started/installation",
+        "getting-started/faq",
         {
           type: "category",
           label: "Solana",
