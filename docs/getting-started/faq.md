@@ -6,7 +6,7 @@ slug: /faq
 
 ### **Can I try Código for free? What's the pricing?**  
 Yes! We offer a **Free plan** that lets you explore the platform, with essential features and usage limits.   
-For details on pricing tiers, usage quotas, and feature comparisons, visit our pricing page at **[codigo.ai](codigo.ai)**.
+For details on pricing tiers, usage quotas, and feature comparisons, visit our pricing page at **[codigo.ai](https://codigo.ai/)**.
 
 ---
 
