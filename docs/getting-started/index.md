@@ -18,7 +18,6 @@ Código is the AI development platform built for web3 teams and blockchain devel
   ></iframe>
 </div>
 
-
 ---
 
 ## ⚡ Get Started Fast
