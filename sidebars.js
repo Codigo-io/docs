@@ -80,6 +80,7 @@ const sidebars = {
             "guides/solana/unit-tests",
             "guides/solana/escrow-program",
             "guides/solana/nft-marketplace",
+            "guides/solana/twitter",
             //"guides/integrating-the-sdk",
             // "guides/solana-linked-seeds",
             // "guides/state-compression",
