@@ -121,6 +121,12 @@ describe("NFT Marketplace", () => {
 
 Once your test files are ready, open a terminal in Código and run:
 
+**Install the dependencies**
+```bash
+npm install
+```
+
+**Run the tests**
 ```bash
 anchor test
 ```
