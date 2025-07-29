@@ -116,7 +116,6 @@ const sidebars = {
       },
       items: [
         "expert-system/specification",
-        "expert-system/codigo-cli",
         "expert-system/data-types",
         "expert-system/info",
         "expert-system/custom-types",
