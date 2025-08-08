@@ -1,8 +1,8 @@
 ---
-slug: /guides/solana/start-from-github
+slug: /guides/solana/start-from-public-github
 ---
 
-# Start from GitHub Repository
+# Start from public GitHub Repository
 
 This guide shows you how to import an existing public GitHub repository into **Código Hub**.  
 Just drop in a GitHub link and Código will set everything up for you in seconds so you can keep building with our devAI assistant.
