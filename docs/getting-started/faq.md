@@ -22,7 +22,7 @@ Our AI is **purpose‑built and trained exclusively on Solana development**, wit
 
 ### **Can I import my GitHub repo into Código and keep working?**  
 Yes, absolutely. You can import:
-- [**Public repositories**](/guides/solana/start-from-github)  
+- [**Public repositories**](/guides/solana/start-from-public-github)  
 - [**Private repositories**](/guides/solana/start-from-private-github)
 
 Just clone your project in the terminal or use the GitHub import option when creating your workspace.
