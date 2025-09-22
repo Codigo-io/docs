@@ -109,7 +109,7 @@ Código empowers development teams:
 * **Shared workspaces** with Git sync and commenting
 * Track changes together and build faster with your team
 
-## Client Integration (Coming Soon)
+## Client Integration
 
 Generate your frontend from your smart contract:
 

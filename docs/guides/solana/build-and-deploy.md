@@ -10,16 +10,72 @@ This guide walks you through the process of building and deploying your smart co
 
 ## 🧱 Prerequisites
 
-Make sure you’ve:
+Make sure you've:
 - Created a workspace on [Código Hub](https://hub.codigo.ai)
 - Generated your program with DevAI (via prompt or template)
 - Implemented the logic in your instruction files
 
-If you haven’t done these steps yet, start with [Start from Prompt](./start-from-prompt.md).
-
+If you haven't done these steps yet, start with [Start from Prompt](./start-from-prompt.md).
 
 ---
-## 1️⃣ Build Your Program
+
+<details>
+<summary>
+
+## 🚀 Build and Deploy with Codigo UI
+
+The easiest way to build and deploy your smart contract is using Código's intuitive UI interface. No terminal commands needed!
+
+</summary>
+
+### Step 1: Access the Deploy Button
+
+Click the **Build & Deploy** button in the Código Hub navbar.
+
+<img src="/img/codigo_deploy_ui_1.png" alt="Build and Deploy UI - Step 1" style={{ width: "600px", marginBottom: "1rem" }} />
+
+### Step 2: Select Your Environment
+
+Choose your target environment from the dropdown:
+- **Local** - For local development and testing
+- **Devnet** - For development and testing on Solana's devnet
+- **Testnet** - For testing on Solana's testnet
+- **Mainnet** - For production deployment
+
+### Step 3: Deploy
+
+Click the **Run** button to start the build and deployment process.
+
+### Step 4: Monitor Progress
+
+Watch the build and deployment progress with real-time logs.
+
+<img src="/img/codigo_deploy_ui_2.png" alt="Build and Deploy UI - Step 2" style={{ width: "450px", marginBottom: "1rem" }} />
+
+### Step 5: Success!
+
+Once completed successfully, you'll see a confirmation message with your Program ID.
+
+<img src="/img/codigo_deploy_ui_3.png" alt="Build and Deploy UI - Step 3" style={{ width: "450px", marginBottom: "1rem" }} />
+
+:::tip Troubleshooting
+If the deployment fails, you'll see an error message with a **"Diagnostic the error with AI"** button. Clicking this button will automatically copy the error details to the AI chat, allowing the AI to help you diagnose and fix the issue.
+:::
+
+</details>
+
+---
+
+<details>
+<summary>
+
+## 🖥️ Build and Deploy with Terminal
+
+For advanced users who prefer command-line deployment, here are the terminal-based instructions:
+
+</summary>
+
+### 1️⃣ Build Your Program
 
 Open a terminal in Código Hub.
 
@@ -122,3 +178,6 @@ solana program deploy ./target/deploy/<your_program>.so
   --with-compute-unit-price 10000
   --url <your_rpc>
   --program-id ./target/deploy/<keypair>.json
+```
+
+</details>
