@@ -64,12 +64,11 @@ Repeat this process for each instruction file.
 
 Once all your logic is implemented, build and deploy your smart contract:
 
-Open a terminal and do :
-```bash
-cd <repo_name>
-anchor build
-anchor deploy
-```
+Select your environnement and use Codigo UI to build and deploy in 1 click
+
+<img src="/img/codigo_deploy_ui_1.png" alt="Build and Deploy UI" style={{ width: "600px" }} />
+
+For full details 👉 See [Build & Deploy guide](/guides/solana/build-and-deploy)
 
 > ✅ Código already sets up a local `solana-test-validator` and provides you with a preconfigured wallet keypair.
 

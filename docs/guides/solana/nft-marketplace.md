@@ -144,12 +144,11 @@ Same process for the remaining instructions : `cancel_listing.rs`, `update_marke
 
 Once your logic is implemented:
 
-```bash
-anchor build
-anchor deploy
-```
+Select your environnement and use Codigo UI to build and deploy in 1 click
 
-👉 See [Build & Deploy guide](/guides/solana/build-and-deploy)
+<img src="/img/codigo_deploy_ui_1.png" alt="Build and Deploy UI" style={{ width: "600px" }} />
+
+For full details 👉 See [Build & Deploy guide](/guides/solana/build-and-deploy)
 
 ---
 

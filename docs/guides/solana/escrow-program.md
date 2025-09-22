@@ -124,15 +124,11 @@ Do this for all the instructions : make.rs, take.rs and refund.rs
 
 Once logic is ready:
 
-- Open terminal in Código
-- Run:
+Select your environnement and use Codigo UI to build and deploy in 1 click
 
-```bash
-anchor build
-anchor deploy
-```
+<img src="/img/codigo_deploy_ui_1.png" alt="Build and Deploy UI" style={{ width: "600px" }} />
 
-👉 For full instructions, see our [Build & Deploy guide](/guides/solana/build-and-deploy).
+For full details 👉 See [Build & Deploy guide](/guides/solana/build-and-deploy)
 
 ---
 
