@@ -24,7 +24,7 @@ If you haven't done these steps yet, start with [Start from Prompt](./start-from
 
 ## 🚀 Build and Deploy with Codigo UI
 
-The easiest way to build and deploy your smart contract is using Código's intuitive UI interface. No terminal commands needed!
+The easiest way to build and deploy your smart contract is using Código's intuitive UI interface in 1 click
 
 </summary>
 
@@ -71,7 +71,7 @@ If the deployment fails, you'll see an error message with a **"Diagnostic the er
 
 ## 🖥️ Build and Deploy with Terminal
 
-For advanced users who prefer command-line deployment, here are the terminal-based instructions:
+For advanced users who prefer command line deployment
 
 </summary>
 
