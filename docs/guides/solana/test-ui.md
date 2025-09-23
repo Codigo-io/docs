@@ -62,13 +62,15 @@ The transaction explorer shows:
 
 This gives you complete visibility into what happened during the transaction execution.
 
+<img src="/img/testui_5.png" alt="Transaction explorer details" style={{ width: "800px" }} />
+
 ---
 
 ## 5️⃣ Inspect Account Data
 
 Switch to the **"Accounts"** tab to view all accounts associated with your smart contract.
 
-<img src="/img/testui_5.png" alt="Accounts data view" style={{ width: "800px" }} />
+<img src="/img/testui_6.png" alt="Accounts data view" style={{ width: "800px" }} />
 
 Here you can:
 - **Browse all accounts** - See every account created by your program
