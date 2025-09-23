@@ -30,3 +30,4 @@ All guides below are for Solana development using Código.
 
 - [Create an Escrow Program with DevAI](./escrow-program.md)  
 - [Create an NFT Marketplace with DevAI](./nft-marketplace.md)  
+- [Twitter On Chain (video)](./twitter.md)
