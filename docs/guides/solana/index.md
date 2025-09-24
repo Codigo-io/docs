@@ -23,6 +23,7 @@ All guides below are for Solana development using Código.
 - [How to Build & Deploy My Program](./build-and-deploy.md)  
 - [How to Write and Run Unit Tests](./unit-tests.md)  
 - [How to Implement Business Logic with AI Autocompletion](./ai-autocomplete.md)  
+- [How to test your program with Codigo UI Testing interface](./test-ui.md)  
 
 ---
 
@@ -30,3 +31,4 @@ All guides below are for Solana development using Código.
 
 - [Create an Escrow Program with DevAI](./escrow-program.md)  
 - [Create an NFT Marketplace with DevAI](./nft-marketplace.md)  
+- [Twitter On Chain (video)](./twitter.md)

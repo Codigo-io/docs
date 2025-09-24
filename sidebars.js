@@ -79,6 +79,7 @@ const sidebars = {
             "guides/solana/build-and-deploy",
             "guides/solana/ai-autocomplete",
             "guides/solana/unit-tests",
+            "guides/solana/test-ui",
             "guides/solana/escrow-program",
             "guides/solana/nft-marketplace",
             "guides/solana/twitter",

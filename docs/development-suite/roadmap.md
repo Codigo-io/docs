@@ -17,17 +17,18 @@ This is a simplified and high-level view of our product direction.
 - Git Import  
 - Unit Tests  
 - Documentation  
-- Security Checks  
+- Security Checks
+- One-Click Build Deploy
+- Frontend & Backend Integration 
+- Frontend live preview
+- Testing Tool  
 
 ---
 
 ## 🧠 Coming Soon
 
-- One-Click Deployment  
-- Frontend & Backend Integration  
 - Real-Time Collaboration  
 - Teams and Enterprise  
-- Testing Tools  
 - Pre-Audit Checker  
 - More Templates and Protocols Integrations 
 
