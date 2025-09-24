@@ -40,32 +40,48 @@ You can select one or more templates to combine and customize.
 
 <img src="/img/template_import.png" alt="Template selection" style={{ width: "550px" }} />
 
-### 🧰 Popular Templates
+### 🧰 Available Templates
 
 #### 🖼️ NFTs
-- **NFT Marketplace** – Full featured marketplace
+- **NFT Marketplace** – Full featured marketplace with listing, buying, and selling
 - **NFT Staking** – Stake NFTs to earn token rewards
-- **NFT Collection** – Create and manage collections
-- **Metaplex Bubblegum** – Use compressed NFTs with Metaplex tech
+- **NFT Staking Freeze** – Stake NFTs with freeze authority
+- **NFT Collection** – Create and manage NFT collections
+- **Metaplex Bubblegum** – Compressed NFTs with Metaplex Bubblegum
+- **CNFT** – Compressed NFTs on Solana
 
 #### 💸 Tokens
-- **Token Staking** – Stake SPL tokens with configurable rewards and lock periods
-- **Token Vesting** – Lock tokens with timed release
-- **Token Lending** – Peer to peer token loans
-- **Token Swap** – Simple decentralized exchange
-- **Associated Token Account** – Manage SPL token accounts
-- **Meme Coin** – Lightweight fun token deployment
+- **Token Staking** – Token staking with lock periods and configurable rewards
+- **Token Program** – Custom SPL token logic
+- **Token Upgrade** – Upgradable token architecture
+- **Token Vesting** – Flexible on-chain token vesting with cliffs and linear schedules
+- **Token Lending** – Lending system for SPL tokens
+- **Token Swap** – Decentralized token swapping
+- **Associated Token Account** – Manage SPL associated token accounts
+- **Meme Coin** – Fun and lightweight token deployment
 
 #### 📈 DeFi & GameFi
-- **Escrow** – Secure fund locking and release
-- **Single Pool** – Single sided staking pool
-- **Bonding Curve** – Dynamic token pricing
-- **Stake Pool** – Manage SOL stake pools
-- **Informal Lender** – Sol lending between individuals
+- **Escrow** – Secure escrow system
+- **Single Pool** – Single-sided staking pool
+- **Stake Pool** – Stake pool management
+- **Bonding Curve** – Dynamic pricing using bonding curves
+- **Bonding Curve Quadratic** – Dynamic pricing using bonding curves with quadratic formula
+- **Raydium CLMM and CPMM** – Raydium concentrated liquidity and constant product market makers
 
-#### 🧪 Utilities & Basics
+#### 🎮 Gaming & Entertainment
+- **Coinflip** – Coinflip with pseudo random or VRF randomness
+- **Gaming IDLE Lumberjack** – Idle lumberjack gaming mechanics
+
+#### 💰 Payments & Subscriptions
+- **Subscription Payments** – Recurring payment system
+- **Pyth Network Oracle send USDC** – USD-denominated SOL transfer mechanism using Pyth Network oracle
+
+#### 🏛️ Governance & DAOs
+- **DAO** – Decentralized autonomous organization with token-based proposals, voting, and execution
+
+#### 🧪 Utilities & Infrastructure
 - **Memo** – Attach messages to Solana transactions
-- **Account Compression** – Efficient account storage
+- **Account Compression** – Efficient on-chain account data compression
 
 ---
 

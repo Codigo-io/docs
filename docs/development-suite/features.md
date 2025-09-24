@@ -38,6 +38,11 @@ Código offers a growing library of prebuilt templates designed to accelerate de
 - Perfect to learn and deep dive into specific topics or program structures  
 - Includes **advanced templates** with Oracles, **Token-2022**, protocol integrations, and other complex use cases
 
+#### Protocol Integrations
+- **Raydium Integration** – CLMM and CPMM concentrated liquidity and constant product market makers
+- **Pyth Network Oracle** – Real-time price feeds and USD-denominated transfers
+- **Metaplex Integration** – NFT standards, MPL Core and compressed NFT support with Bubblegum
+
 Everything is editable and production ready.
 
 ## Security by Design
