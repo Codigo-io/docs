@@ -110,21 +110,21 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Expert System",
+      label: "Advanced",
       collapsed: true,
       link: {
         type: "doc",
-        id: "expert-system/index"
+        id: "advanced/index"
       },
       items: [
-        "expert-system/specification",
-        "expert-system/data-types",
-        "expert-system/info",
-        "expert-system/custom-types",
-        "expert-system/imports",
-        "expert-system/methods",
-        "expert-system/errors",
-        "expert-system/solana",
+        "advanced/cidl",
+        "advanced/data-types",
+        "advanced/info",
+        "advanced/custom-types",
+        "advanced/imports",
+        "advanced/methods",
+        "advanced/errors",
+        "advanced/solana",
       ]
     },
   ],

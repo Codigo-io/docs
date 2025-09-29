@@ -101,16 +101,6 @@ vscode-codigo extension.
 
 ![CIDL Web-based doc](../../static/img/solana-web-based-doc.png)
 
-## Next steps
-
-You can follow our guides to start implementing use cases step by step
-or check our examples [here](https://github.com/Codigo-io/platform/tree/develop/examples)
-
-- [Lender guide](../guides/lender.md)
-- [Inventory guide](../guides/inventory.md)
-- [State compression guide](../guides/state-compression.md)
-- [Solana NFT guide](../guides/solana-nft.md)
-
 ## Join the Código community 💚
 
 Código is a growing community of developers. Join us on
