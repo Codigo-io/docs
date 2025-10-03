@@ -92,7 +92,7 @@ Código is powered by builders like you.
 - [GitHub →](https://github.com/Codigo-io)  
   View the source, open issues, and contribute to the platform.
 
-- [Follow us on Twitter →](https://twitter.com/CodigoPlatform)  
+- [Follow us on Twitter →](https://x.com/intent/follow?screen_name=CodigoPlatform)  
   Stay up to date with the latest features, releases, and tutorials.
 
 ---

@@ -3,7 +3,7 @@
 Need help or have questions? We're here for you!
 
 - Ask questions and get support on our [**Discord**](https://discord.gg/VFmNxb9Afd)  
-- Stay up to date with announcements and insights on [**Twitter**](https://twitter.com/CodigoPlatform)
+- Stay up to date with announcements and insights on [**Twitter**](https://x.com/intent/follow?screen_name=CodigoPlatform)
 
 
 ### Report Bugs

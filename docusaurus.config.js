@@ -101,7 +101,7 @@ const config = {
             items: [
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/CodigoPlatform',
+                href: 'https://x.com/intent/follow?screen_name=CodigoPlatform',
               },
               {
                 label: 'Discord',
