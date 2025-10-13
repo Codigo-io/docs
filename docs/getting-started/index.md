@@ -14,7 +14,7 @@ Código is the AI development platform built for web3 teams and blockchain devel
 	allow="autoplay; fullscreen"
     allowfullscreen
     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-    title="CODIGO VIDEO TWITTER EXPLAINER"
+    title="CODIGO VIDEO EXPLAINER"
   ></iframe>
 </div>
 
