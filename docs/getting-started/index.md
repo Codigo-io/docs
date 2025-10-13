@@ -7,18 +7,16 @@ Your AI powered copilot for blockchain development.
 
 Código is the AI development platform built for web3 teams and blockchain developers. From generating secure smart contracts to deploying ready to use client libraries and documentation, Código helps you build faster, safer, and smarter.
 
-<img src="/img/codigo_view.png" alt="Overview Codigo" style={{ width: "1000px" }} />
-
-<!--<div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+<div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
   <iframe
-    src="https://player.vimeo.com/video/1097775647?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+    src="https://player.vimeo.com/video/1126878408?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&volume=0.5"
     frameBorder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowFullScreen
+	allow="autoplay; fullscreen"
+    allowfullscreen
     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
     title="CODIGO VIDEO EXPLAINER"
   ></iframe>
-</div>-->
+</div>
 
 ---
 
