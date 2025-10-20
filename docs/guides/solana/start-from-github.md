@@ -1,10 +1,10 @@
 ---
-slug: /guides/solana/start-from-public-github
+slug: /guides/solana/start-from-github
 ---
 
-# Start from public GitHub Repository
+# Start from GitHub Repository
 
-This guide shows you how to import an existing public GitHub repository into **Código Hub**.  
+This guide shows you how to import an existing GitHub repository into **Código Hub**.  
 Just drop in a GitHub link and Código will set everything up for you in seconds so you can keep building with our devAI assistant.
 
 ---
@@ -26,12 +26,19 @@ After the workspace is created, you'll see an option to import code from GitHub.
 
 Click the **Import GitHub** button.
 
-<img src="/img/workspace_creation_github.png" alt="Workspace creation" style={{ width: "800px", height: "400px" }} />
+<img src="/img/start_codigo.png" alt="Workspace creation" style={{ width: "700px" }} />
 
 >
 Paste the URL of your **public GitHub repository** (e.g. `https://github.com/solana-developers/program-examples`) into the prompt.
 
-<img src="/img/github_modal.png" alt="Github Modal" style={{ width: "800px" }} />
+<img src="/img/start_public_github.png" alt="Github Modal" style={{ width: "600px" }} />
+
+
+### Private repositories
+
+> If your repository is private, you'll be prompted to validate with GitHub and grant Código access to the repository. Follow the GitHub authorization modal to continue.
+
+<img src="/img/start_private_github2.png" alt="GitHub private repository selection" style={{ width: "600px" }} />
 
 ---
 
@@ -43,7 +50,7 @@ You’ll see a loading indicator, followed by a confirmation once the import is 
 > This typically takes just a few seconds.
 
 
-<img src="/img/github_done.png" alt="Github import done modal" style={{ width: "400px"}} />
+<img src="/img/github_done.png" alt="Github import done modal" style={{ width: "500px"}} />
 
 ---
 
