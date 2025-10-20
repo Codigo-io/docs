@@ -12,8 +12,7 @@ All guides below are for Solana development using Código.
 
 - [Start from Prompt](./start-from-prompt.md)  
 - [Start from Template](./start-from-template.md)  
-- [Start from public GitHub Repository](./start-from-public-github.md)
-- [Start from private GitHub Repository](./start-from-private-github.md)  
+- [Start from GitHub Repository](./start-from-github.md)
 - [Connect your terminal to Github](./connect-terminal-to-github.md)  
 
 ---

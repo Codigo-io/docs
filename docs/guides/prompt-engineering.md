@@ -15,14 +15,180 @@ Let’s explore how to write good prompts, avoid common mistakes, and unlock Dev
 
 ---
 
-## 🎯 General Tips
+## ⚡ Prompt Quick‑Start
 
-- **Be explicit**: Describe clearly what the program should do.
-- **Mention the file**: If continuing or modifying existing code, specify the file name (e.g. `lib.rs`, `initialize.rs`, `state.rs`).
-- **Use concrete examples**: Provide sample values or cases.
-- **Step by step**: Prefer multiple focused prompts over one large vague prompt.
-- **Review each output**: Verify the generated code before moving on or combining changes.
+Use this skeleton to kick off strong prompts:
 
+```txt
+generate a solana program that:
+- Goal: <what this program enables>
+- Users: <who interacts and their roles>
+- Actions: <what each role can do>
+- Success: <what good looks like>
+- Constraints: <fees, time limits, rules, token/NFT logic>
+```
+
+Keep it to 5–10 clear sentences. Add technical details only if you already know them (instructions, PDAs, state accounts, seeds).
+
+---
+
+## 🚀 Your First Prompt Matters
+
+Your very first prompt sets the architecture, naming, and mental model for the whole project. Invest a minute to make it crisp.
+
+### Do this
+- Start with “generate a solana program that:” and describe the core use case in 5–10 sentences.
+- Define roles, actions, success criteria, and constraints (fees, time, authorities, token/NFT rules).
+- Call out novelty and edge cases (e.g., dispute windows, slashing, upgrade paths).
+- State on‑chain vs off‑chain responsibilities to avoid bloated state.
+- Provide 1 sample user flow with concrete values.
+
+### Avoid this
+- Vague goals like “make a marketplace” without roles, flows, or constraints.
+- Mixing too many deliverables in the first ask (program + tests + frontend + audit).
+- Leaving authorities/ownership unspecified.
+
+### Example: weak vs strong first prompt
+
+**Weak**
+
+```txt
+Generate an NFT marketplace.
+```
+
+**Strong**
+
+```txt
+generate a solana program that:
+Creators list NFTs for sale; buyers purchase with a payment token. Roles: creator, buyer, platform.
+Actions: list_nft, buy_nft, cancel_listing; royalties to creator on sale; platform takes 2% fee.
+Success: buyers receive NFT instantly; creators receive proceeds; listings are cancelable only by owner.
+Constraints: verify token ownership; prevent double sale; PDA listing keyed by [b"listing", mint].
+On‑chain: listing state, escrow handling, fee transfers. Off‑chain: search/sort UI.
+Sample: buyer pays 10 USDC for mint X; royalty 5%, fee 2%.
+```
+
+Use this strong prompt as the foundation; then add features in small follow‑ups.
+
+---
+
+## 📦 Prompt Examples (click to expand)
+
+<details>
+<summary>Social Reputation & Badging System</summary>
+
+```txt
+generate a solana program that:
+Users can earn reputation badges by completing on-chain actions (e.g. publishing content, votes, or contributing to DAO).
+Each badge is an NFT that qualifies the user for privileges (e.g. voting weight, access, rewards).
+Creators or DAOs can define “missions” or tasks users complete to earn badges.
+Users can stake their badges to boost reputation or rewards.
+Badges can be upgraded (level up) by combining or achieving thresholds.
+Users may lose badge privileges if violating rules or inactivity.
+DAOs can revoke or freeze badges under governance conditions.
+Success means active users with meaningful reputation, and DAOs adopt badge logic in voting.
+Fees or costs apply when minting or upgrading badges.
+```
+
+</details>
+
+<details>
+<summary>On‑Chain Subscriptions</summary>
+
+```txt
+generate a solana program that:
+Creators or DAOs set up subscription tiers (e.g. Bronze, Silver, Gold) with recurring payments in a token.
+Users can subscribe to a tier paying each epoch (e.g. monthly) automatically via program logic.
+If a user fails payment, membership is revoked until reactivated.
+Members gain access to gated content, token airdrops, or voting power while subscribed.
+Creators get a share, and the system takes a small fee.
+Support pause, cancel, or change tiers mid-cycle.
+Ensure minimal on-chain state overhead (using PDAs, snapshots).
+Success is stable recurring revenue and active membership retention.
+Constraints: must prevent double payments, expired states, and reentrancy.
+```
+
+</details>
+
+<details>
+<summary>GameFi Time Capsule Locks</summary>
+
+```txt
+generate a solana program that:
+Users can lock tokens in “time capsules” that mature after a predetermined time (e.g. 3, 6, 12 months).
+When matured, they receive the original plus bonus yield or NFT reward.
+If unlocking early, there is a penalty (partial penalty or forfeiture).
+Users can stack multiple capsules with different durations.
+Creators define reward schedules and total reward pool.
+Users can view upcoming unlocks and yields.
+Success is users locking funds long-term and incentivizing retention.
+Constraints include safe handling of penalties, slashing edge cases, and gas efficiency.
+```
+
+</details>
+
+<details>
+<summary>Prediction Markets</summary>
+
+```txt
+generate a solana program that:
+Any user can create an event market with multiple choices (e.g. event outcome options).
+Users bet or stake tokens on an option until the market’s cutoff.
+After the event, the creator or a trusted oracle (maybe multisig) resolves the outcome.
+Winning bettors claim proportional rewards; losers lose staked tokens.
+The platform takes a fee on bet volume.
+Support dispute resolution or challenge windows.
+Success is active markets, liquidity, and claimable rewards used.
+Constraints: oracle reliability, slashing frauds, tie resolution, minimal overhead.
+```
+
+</details>
+
+<details>
+<summary>NFT Leasing</summary>
+
+```txt
+generate a solana program that:
+NFT holders can lease their NFTs to others for a period (in exchange for rent payments).
+The lessee gets usage rights (e.g. to display, stake, use in-game), but not full ownership.
+At lease expiry, NFT returns to owner automatically.
+Creator may define cooldown, allowed usage, and max rent terms.
+Lessee can “extend” lease, subject to conditions.
+If lessee misbehaves, owner can terminate lease early (with penalty).
+Success is NFT liquidity and hands-off leasing.
+Constraints: rights enforcement, security, fractional splits, dispute logic.
+```
+
+</details>
+
+<details>
+<summary>DAO Quests & Achievements</summary>
+
+```txt
+generate a solana program that:
+Communities (DAOs) can define on-chain “quests” or tasks (e.g. vote, contribute, create content).
+Members completing quests receive tokens, NFTs, or levels.
+Quests can have dependencies or tiers (must finish Q1 before Q2).
+Members can propose custom quests and community votes to add them.
+Rewards are drawn from community pool or sponsored funds.
+Members can stake their quest tokens to boost rewards.
+Success is vibrant engagement and sustained contributions.
+Constraints: gas optimization, quest expiry, gaming/cheating prevention.
+```
+
+</details>
+
+---
+
+## 🎯 Core Prompting Principles
+
+- **Be explicit about goal, scope, and constraints**.
+- **Reference exact files and specify program/frontend** (e.g., "program: programs/marketplace/src/instructions/buy_nft.rs" or "frontend: app/components/BuyButton.tsx").
+- **Use concrete examples with real values** to ground behavior.
+- **Work step‑by‑step**: one feature/instruction per prompt.
+- **Review each output** for validations, authorities, and edge cases.
+- **Keep naming consistent** across prompts and files.
+- **Start simple, then iterate**; chain prompts as needed.
 ---
 
 ## 📐 Prompting Style
@@ -75,45 +241,41 @@ Ensure the program handles:
 
 ---
 
-## Step-by-Step Prompting
+## Iteration Process
 
-DevAI performs better when given tasks in smaller, focused steps:
+Ask the AI for one specific task at a time — not everything at once. This gives you time to review changes and course‑correct before moving on. When you want to update a specific file, add relevant context and explicitly name the file path or file name so the edit lands in the right place.
 
-### ❌ Bad Prompt (Too Much at Once)
-
-```txt
-Generate a Solana smart contract for an NFT marketplace.   
-Also generate the unit tests in TypeScript, and also the frontend, 
-and also verify the security of the program.
-```
-
-### ✅ Better Approach
-Break it down in multiple prompts :
+### ❌ Anti‑pattern (Too Much at Once)
 
 ```txt
-Prompt 1: Create the NFT marketplace program file with the PDA and instruction logic.
-Prompt 2: Implement the `list_nft`, `buy_nft`, and `cancel_listing` instruction.
-Prompt 3: Generate unit tests in TypeScript for `list_nft` and `buy_nft`.
-Prompt 4: Generate a React component that allows listing and purchasing NFTs.
-Prompt 5: Review the program’s security (authority checks, token ownership, validation).
+Build the full NFT marketplace, plus tests, frontend, and a full security audit in one go.
 ```
 
-This allows:
-- Easier error tracking
+### ✅ Iterative Approach (One Task at a Time)
+
+When editing, include file context and the exact file path so changes land in the right place.
+
+```txt
+Step 1 — Program skeleton:
+Create the program module and PDAs in src/programs/marketplace/lib.rs with base structs and errors.
+
+Step 2 — Focused instruction:
+In src/programs/marketplace/instructions/list_nft.rs, implement `list_nft` with authority checks and royalty config.
+
+Step 3 — Tests:
+Add tests for `list_nft` in tests/marketplace_list_nft.test.ts using a real mint and payer.
+
+Step 4 — Next instruction:
+Implement `buy_nft` in src/programs/marketplace/instructions/buy_nft.rs; update state transitions accordingly.
+
+Step 5 — Review:
+Security checklist: ownership/auth checks, decimals/overflow, PDA seeds, fee math, account closes.
+```
+
+This enables:
+- Easier review and correction between steps
 - Faster iteration
 - Clean rollback if one step fails
-
----
-
-## ✅ Best Practices
-
-- **Start simple**: Begin with a basic version of the program. Once it works, incrementally add more features.
-- **Be precise about the goal**: State clearly what you want to build, test, or fix.
-- **Always specify the file**: If you're modifying code, mention the file to ensure DevAI edits the right place.
-- **Prompt per feature**: Ask for one instruction or behavior per prompt to avoid confusion and simplify review.
-- **Review & edit**: Don't rely blindly on the output, check for missing validations, naming inconsistencies, or logic errors.
-- **Use your own naming style**: DevAI adapts use your naming conventions to make results consistent across your codebase.
-- **Chain prompts when needed**: It’s okay to split a complex feature across several prompts (e.g., create struct ➝ write instruction ➝ add test ➝ secure logic).
 
 ---
 

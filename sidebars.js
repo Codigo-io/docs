@@ -73,8 +73,7 @@ const sidebars = {
           items: [
             "guides/solana/start-from-prompt",
             "guides/solana/start-from-template",
-            "guides/solana/start-from-public-github",
-            "guides/solana/start-from-private-github",
+            "guides/solana/start-from-github",
             "guides/solana/connect-terminal-to-github",
             "guides/solana/build-and-deploy",
             "guides/solana/ai-autocomplete",
