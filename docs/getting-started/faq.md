@@ -4,9 +4,11 @@ slug: /faq
 
 # FAQ
 
-### **Can I try Código for free? What's the pricing?**  
-Yes! We offer a **Free plan** that lets you explore the platform, with essential features and usage limits.   
-For details on pricing tiers, usage quotas, and feature comparisons, visit our pricing page at **[codigo.ai](https://codigo.ai/)**.
+### **What's the pricing? Do you accept crypto payment?**  
+We suggest starting with the **Dev plan** license.  
+For details on pricing tiers, usage quotas, and feature comparisons, visit our pricing page at **[codigo.ai](https://codigo.ai/)**.  
+
+Prices can be paid with **credit card (USD)** or **crypto**. We accept crypto payments.
 
 ---
 
@@ -17,6 +19,14 @@ Código is a **pro‑developer tool**: you own 100% of the code generated in you
 
 ### **Why should I use Código?**  
 Our AI is **purpose‑built and trained exclusively on Solana development**, with over **40 million+ lines of secure, audited smart contract code**, making it far more reliable and context‑aware than generic AI tools.
+
+---
+
+### **What AI model is Código using?**  
+Código is using 2 AI models:
+
+- For Solana part, **Código AI Model** — our own AI trained from the ground up
+- For Frontend part, **Anthropic**
 
 ---
 
@@ -33,6 +43,7 @@ Código is purpose-built for **Solana development**, supporting:
 - Rust  
 - Anchor framework  
 - TypeScript (for tests and frontend)
+- Any frontend language
 
 ---
 
