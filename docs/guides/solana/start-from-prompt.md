@@ -9,20 +9,7 @@ From a simple idea to a full program structure, prompts are the fastest way to k
 
 ---
 
-## 1️⃣ Create Your Workspace
-
-Start by creating a new workspace in [Código Hub](https://hub.codigo.ai).  
-Click the green **NEW** button in the top-left corner of the dashboard.
-
-You’ll be prompted to enter:
-- A **workspace name**
-- A **smart contract name**
-
-<img src="/img/workspace_creation.png" alt="Workspace creation" style={{ width: "400px", height: "400px" }} />
-
----
-
-## 2️⃣ Prompt Your Need
+## 1️⃣ Prompt Your Need
 
 Once inside your workspace, tell the AI what you want to build.
 
@@ -37,11 +24,13 @@ Or be more specific and describe:
 - The on-chain data you want to store
 - Business rules or logic you want enforced
 
+For more details on how to write the perfect initial prompt, see the [Prompt Engineering guide](/guides/prompt-engineering).
+
 <img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "800px" }} />
 
 ---
 
-## 3️⃣ AI Conception
+## 2️⃣ AI Conception
 
 The AI will respond with a detailed plan:  
 - Overview of what it's going to build  
@@ -64,7 +53,7 @@ yes, with anchor
 
 ---
 
-## 4️⃣ Wait for Generation to Complete
+## 3️⃣ Wait for Generation to Complete
 
 Código will generate the full program based on your prompt and selected framework.  
 The workspace will be populated with all source files, pre-wired tests, and boilerplate.
@@ -73,7 +62,7 @@ The workspace will be populated with all source files, pre-wired tests, and boil
 
 ---
 
-## 5️⃣ Continue Building with AI
+## 4️⃣ Continue Building with AI
 
 Your project is ready, but **the business logic inside the instructions is left empty on purpose**.
 

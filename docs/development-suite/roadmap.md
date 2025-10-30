@@ -18,10 +18,10 @@ This is a simplified and high-level view of our product direction.
 - Unit Tests  
 - Documentation  
 - Security Checks
-- One-Click Build Deploy
+- One-Click Build Deploy (Localhost env)
 - Frontend & Backend Integration 
 - Frontend live preview
-- Testing Tool  
+- Testing Tool (Localhost env)
 
 ---
 
@@ -29,8 +29,11 @@ This is a simplified and high-level view of our product direction.
 
 - Real-Time Collaboration  
 - Teams and Enterprise  
-- Pre-Audit Checker  
-- More Templates and Protocols Integrations 
+- Pre-Audit Checker
+- One-Click Build Deploy on all environnements (Devnet/Tesnet/Mainnet)
+- Testing Tool on all environnements (Devnet/Tesnet/Mainnet)
+- AI improvement to follow the latest solana changes
+- New Templates and Protocols Integrations
 
 ---
 
