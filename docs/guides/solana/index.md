@@ -20,6 +20,7 @@ All guides below are for Solana development using Código.
 ## ⚙️ Development How To
 
 - [How to Build & Deploy My Program](./build-and-deploy.md)  
+- [Build the Frontend dApp](./frontend-app.md)  
 - [How to Write and Run Unit Tests](./unit-tests.md)  
 - [How to Implement Business Logic with AI Autocompletion](./ai-autocomplete.md)  
 - [How to test your program with Codigo UI Testing interface](./test-ui.md)  
