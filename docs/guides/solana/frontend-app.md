@@ -133,6 +133,12 @@ Connect the "Place Bet" button to my program’s placeBet instruction using app/
 Add basic validation and show success/error toasts.
 ```
 
+#### Enhance style design
+```text
+Improve the design of the header and prediction market component. 
+Use modern spacing, typography, and button styles, and make it responsive.
+```
+
 What to expect:
 - AI will think and propose file edits (e.g., new component files, updates to routes, providers).
 - Review the diff and click Apply to save the changes.
