@@ -76,18 +76,13 @@ const sidebars = {
             "guides/solana/start-from-github",
             "guides/solana/connect-terminal-to-github",
             "guides/solana/build-and-deploy",
+            "guides/solana/frontend-app",
             "guides/solana/ai-autocomplete",
             "guides/solana/unit-tests",
             "guides/solana/test-ui",
             "guides/solana/escrow-program",
             "guides/solana/nft-marketplace",
             "guides/solana/twitter",
-            //"guides/integrating-the-sdk",
-            // "guides/solana-linked-seeds",
-            // "guides/state-compression",
-            //"guides/solana-nft",
-            //"guides/lender",
-            // "guides/inventory",
           ],
         },
         {
@@ -127,19 +122,6 @@ const sidebars = {
       ]
     },
   ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-   */
 };
 
 export default sidebars;
