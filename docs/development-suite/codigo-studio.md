@@ -19,10 +19,14 @@ Open [Código Hub](https://hub.codigo.ai)
 Código Hub is built on the foundation of Visual Studio Code, a popular desktop code editor many developers use. As a
 result, if you have experience using VSCode, you'll find that the web-based environment of Código Hub will feel
 familiar and intuitive.
+  
+<img
+  src="/img/codigo_ide_overview.png"
+  srcSet="/img/codigo_ide_overview.png 1x"
+  alt="Código Hub"
+  style={{ width: "1000px", height: "auto" }}
+/>
 
-| ![Código Hub](../../static/img/Codigo-Studio.png) |
-|:----------------------------------------------------:|
-|              *Código Hub Interface*               |
 
 Código Hub comprises several main sections that provide different functionalities to developers. These sections
 include:

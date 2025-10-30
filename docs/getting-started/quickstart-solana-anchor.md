@@ -4,20 +4,7 @@ Welcome to your first Solana Anchor smart contract experience using the Código 
 
 ---
 
-## 1️⃣ Create a Workspace
-
-**Step 1:** Open [Código Hub](https://hub.codigo.ai)  
-**Step 2:** Click the green **NEW** button to create a new workspace.  
-You’ll be asked to enter:
-- A **workspace name** (e.g. `my-first-workspace`)
-- A **smart contract name** (e.g. `counter`)
-
-**Step 3:** Wait a few seconds while Código initializes everything for you.
-
-<img src="/img/workspace_creation.png" alt="Workspace creation" style={{ width: "400px", height: "400px" }} />
----
-
-## 2️⃣ Prompt Your Idea
+## 1️⃣ Prompt Your Idea
 
 Once inside your workspace, tell the AI what you want to build.
 
@@ -26,6 +13,8 @@ generate a counter solana program with create_counter and increment instructions
 ```
 
 <img src="/img/prompt_counter.png" alt="Prompt counter" style={{ width: "800px" }} />
+
+Wait a few seconds while Código initializes the workspace with everything for you.
 
 Código will respond with a full plan and architecture.  
 If you're happy with the proposed structure, confirm and choose between **native** or **Anchor** framework :
@@ -42,7 +31,7 @@ Once selected, your program is ready with all the files generated! 🎉
 
 ---
 
-## 3️⃣ Implement the Instructions
+## 2️⃣ Implement the Instructions
 
 The generated files come with scaffolding, but the instruction logic is left for you to implement.
 
@@ -60,7 +49,7 @@ Repeat this process for each instruction file.
 
 ---
 
-## 4️⃣ Build & Deploy
+## 3️⃣ Build & Deploy
 
 Once all your logic is implemented, build and deploy your smart contract:
 

@@ -9,26 +9,15 @@ Each template includes a complete smart contract, unit tests, and client setup s
 
 ---
 
-## 1️⃣ Create Your Workspace
+## 1️⃣ Open the Template Library
 
-Start by creating a new workspace in [Código Hub](https://hub.codigo.ai).  
-Click the green **NEW** button in the top-left corner of the dashboard.
+On the Codigo homepage, click the **Templates** button.
 
-You’ll be prompted to enter:
-- A **workspace name**
-- A **smart contract name**
+<img src="/img/codigo_homepage.png" alt="Homepage template" style={{ width: "800px", height: "400px" }} />
 
 ---
 
-## 2️⃣ Open the Template Library
-
-Once your workspace is created, click the **Templates** button.
-
-<img src="/img/workspace_creation_template.png" alt="Workspace creation" style={{ width: "800px", height: "400px" }} />
-
----
-
-## 3️⃣ Choose Your Templates
+## 2️⃣ Choose Your Templates
 
 Browse the list of available templates.  
 Each template is a full project including:
@@ -38,7 +27,9 @@ Each template is a full project including:
 
 You can select one or more templates to combine and customize.
 
-<img src="/img/template_import.png" alt="Template selection" style={{ width: "550px" }} />
+Templates are available for both **Anchor** and **Rust Native** implementations.
+
+<img src="/img/codigo_template_select.png" alt="Template selection" style={{ width: "800px" }} />
 
 ### 🧰 Available Templates
 
@@ -85,13 +76,13 @@ You can select one or more templates to combine and customize.
 
 ---
 
-## 4️⃣ Template Import in Progress
+## 3️⃣ Template Import in Progress
 
 Once you've selected your templates, Código will begin importing them into your workspace.
 
 You’ll see a loading indicator during this process. This usually takes just a few seconds.
 
-<img src="/img/template_imported.png" alt="Template imported success" style={{ width: "400px" }} />
+<img src="/img/template_imported.png" alt="Template imported success" style={{ width: "500px" }} />
 
 ---
 
@@ -105,7 +96,7 @@ You can now:
 
 ✅ You’re ready to customize and ship your project faster than ever.
 
-<img src="/img/workspace_nft_marketplace.png" alt="Template imported NFT Marketplace" style={{ width: "1000px"}} />
+<img src="/img/codigo_template_ide_result.png" alt="Template imported NFT Marketplace & Escrow" style={{ width: "1000px"}} />
 
 ---
 
