@@ -279,6 +279,149 @@ This enables:
 
 ---
 
+## 🤖 AI Agents & Targeting
+
+DevAI uses specialized agents for different tasks. The usual workflow follows this sequence: **SolanaArchitect** (planning) → **SolanaExpert** (CIDL generation) → **SolanaEngineer** (implementation). By default, the orchestrator routes your prompt to the right agent, but you can also target agents directly when needed.
+
+### Available Agents
+
+<details>
+<summary>
+
+#### SolanaArchitect
+
+Creates high-level architecture plans and designs for Solana programs.
+
+</summary>
+
+The **Solana Architect** creates high-level architecture plans and designs for Solana programs. Use this agent when you need:
+- Account structures and PDA derivations
+- Instruction and signer flow design
+- Security and dependency analysis
+- A complete architecture blueprint before implementation
+- Exploring or reviewing existing code to understand structure and logic
+
+The Architect provides **technical blueprints** and may reference existing code snippets for explanation, but does not write or modify new code.
+
+</details>
+
+<details>
+<summary>
+
+#### SolanaExpert
+
+Translates architecture designs into CIDL and generates Solana programs.
+
+</summary>
+
+The **Solana Expert** translates architecture designs into CIDL (Código Interface Description Language) and generates Solana programs. Use this agent when you:
+- Have a plan or architecture design ready
+- Need to generate CIDL from account and instruction structures
+- Want to validate or correct existing CIDL files
+- Need to execute program generation from a plan
+
+The Solana Expert **generates source code** by converting architecture-level descriptions into CIDL and then producing the Solana program.
+
+</details>
+
+<details>
+<summary>
+
+#### SolanaEngineer
+
+Implements full-stack features across frontend, backend, and on-chain layers.
+
+</summary>
+
+The **Solana Engineer** implements full-stack features across frontend, backend, and on-chain layers. Use this agent when you need to:
+- Write or modify Solana program code (Rust/Anchor)
+- Implement or update business logic that interacts with the blockchain
+- Build or modify frontend components integrated with Solana programs
+- Create tests, documentation, or utility scripts
+
+The Solana Engineer **writes and modifies source code** to help you build a complete decentralized application (dApp).
+
+</details>
+
+### Targeting Agents Directly
+
+You can explicitly request a specific agent in your prompts. This is useful when:
+- You have a complete technical plan and want to skip the architecture phase
+- You need to pass a plan directly to the Solana Expert without modifications
+- You want to ensure a specific agent handles your request
+
+#### Example: Using Solana Expert
+
+When you have a complete plan and want to generate code directly:
+
+```txt
+Ask the Solana Expert to create a prediction market based on the following plan. 
+The Solana Expert must generate all the specified fields for each account and must not drift from this plan, otherwise it will break the user program.
+
+Accounts:
+Market
+  creator: Pubkey
+  question: String
+  start_ts: i64
+  end_ts: i64
+  status: u8
+  total_pot: u64
+  yes_votes: u64
+  no_votes: u64
+  winner: Option<u8>
+  platform_fee_taken: u64
+  creator_fee_taken: u64
+  bump: u8
+
+Bet
+  market: Pubkey
+  user: Pubkey
+  option: u8
+  amount: u64
+  claimed: bool
+  bump: u8
+
+Instructions:
+  create_market
+  place_bet
+  resolve_market
+  claim_winnings
+
+Do not enhance the prompt, pass it as is to the Solana Expert.
+```
+
+**What to customize:**
+- Replace `prediction market` with your project name
+- Update the account structures (add/remove fields, change types)
+- Modify instruction names and their parameters
+- Adjust field names and data types to match your requirements
+
+**What to keep:**
+- The instruction format: "Ask the Solana Expert to create..."
+- The warning about not drifting from the plan
+- The "Do not enhance the prompt" instruction at the end
+
+#### Example: Ensuring Consistency After Architecture Planning
+
+After the SolanaArchitect creates a technical plan, if you want to ensure the result matches exactly and specify the framework, you can use prompt :
+
+```txt
+Yes, with anchor. And pass the plan as is to the solana expert, don't do any modification.
+```
+
+This ensures:
+- The plan is passed unchanged to the Solana Expert
+- No modifications or enhancements are made to the architecture
+
+### When to Target Agents
+
+- **Use SolanaArchitect** when starting from scratch or needing a high-level design review
+- **Use SolanaExpert** when you have a complete technical specification and want to generate code directly
+- **Use SolanaEngineer** when implementing features, modifying existing code, or building frontend components
+- **Let the orchestrator decide** when your request is clear but you're not sure which agent fits best
+
+---
+
 ## 🚀 Next Steps
 
 👉 [Check the others guides and examples](./index.md) 
