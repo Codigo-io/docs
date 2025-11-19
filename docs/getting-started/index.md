@@ -7,16 +7,16 @@ Your AI powered copilot for blockchain development.
 
 Código is the AI development platform built for web3 teams and blockchain developers. From generating secure smart contracts to deploying ready to use client libraries and documentation, Código helps you build faster, safer, and smarter.
 
-<div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-  <iframe
-    src="https://player.vimeo.com/video/1126878408?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&volume=0.5"
-    frameBorder="0"
-	allow="autoplay; fullscreen"
-    allowfullscreen
-    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-    title="CODIGO VIDEO EXPLAINER"
-  ></iframe>
-</div>
+<iframe
+  width="100%"
+  height="600"
+  src="https://www.youtube.com/embed/yJfqn3qpMlA?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=yJfqn3qpMlA&showinfo=0&disablekb=1&iv_load_policy=3&playsinline=1&enablejsapi=0"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+  allowFullScreen
+  style={{ marginTop: '2rem', marginBottom: '2rem', maxWidth: '1200px' }}
+></iframe>
 
 ---
 
@@ -93,6 +93,9 @@ Código is powered by builders like you.
 - [Follow us on Twitter →](https://x.com/intent/follow?screen_name=CodigoPlatform)  
   Stay up to date with the latest features, releases, and tutorials.
 
+- [Subscribe to our YouTube Channel →](https://www.youtube.com/@CodigoPlatform)  
+  Watch tutorials, demos, and learn how to build with Código.
+
 ---
 
-Let’s build the future of web3 together.
+Let's build the future of web3 together.
