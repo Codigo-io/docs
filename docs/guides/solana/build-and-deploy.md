@@ -4,6 +4,17 @@ slug: /guides/solana/build-and-deploy
 
 # How to Build & Deploy
 
+<iframe
+  width="100%"
+  height="600"
+  src="https://www.youtube.com/embed/x2V8SnV9Z-E?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=x2V8SnV9Z-E&showinfo=0&disablekb=1&iv_load_policy=3&playsinline=1&enablejsapi=0"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+  allowFullScreen
+  style={{ marginTop: '1rem', marginBottom: '2rem', maxWidth: '1200px' }}
+></iframe>
+
 This guide walks you through the process of building and deploying your smart contract using **Código**, whether you chose the **Anchor** or **Native** Solana framework.
 
 ---
