@@ -2,18 +2,33 @@
 slug: /guides/github/connect-terminal-to-github
 ---
 
-# Connect Your Terminal to GitHub via SSH
+# Export your code to GitHub
+
+<iframe
+  width="100%"
+  height="550"
+  src="https://www.youtube.com/embed/puKNYxlYoKk?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=puKNYxlYoKk&showinfo=0&disablekb=1&iv_load_policy=3&playsinline=1&enablejsapi=0&vq=hd1080"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+  allowFullScreen
+  style={{ marginTop: '1rem', marginBottom: '2rem', maxWidth: '1200px' }}
+></iframe>
 
 You built an amazing project on **Código** and want to push it to **GitHub**?  
 
 This guide walks you through setting up a **GitHub connection from the terminal** using SSH keys.  
-Once completed, you’ll be able to push and pull from your GitHub repository without logging in each time.
+Once completed, you'll be able to push and pull from your GitHub repository without logging in each time.
+
+:::tip Quick Alternative: Download as ZIP
+If you just want to download your code without setting up Git, you can simply **right-click on any folder in the file explorer on the left**, then click **"Download"**. This will download the code as a ZIP file to your local computer. Simple as that! Note: it may take a few minutes if your repository is large.
+:::
 
 ---
 
 ## 1️⃣ Generate an SSH Key
 
-In your terminal, run:
+In a Codigo **terminal**, run:
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
