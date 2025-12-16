@@ -10,7 +10,7 @@ Código is the AI development platform built for web3 teams and blockchain devel
 <iframe
   width="100%"
   height="600"
-  src="https://www.youtube.com/embed/yJfqn3qpMlA?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=yJfqn3qpMlA&showinfo=0&disablekb=1&iv_load_policy=3&playsinline=1&enablejsapi=0"
+  src="https://www.youtube.com/embed/yJfqn3qpMlA?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0&loop=1&playlist=yJfqn3qpMlA&showinfo=0&disablekb=1&iv_load_policy=3&playsinline=1&enablejsapi=0&vq=hd1080"
   title="YouTube video player"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
